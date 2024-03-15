@@ -3,19 +3,7 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <nav className="sticky top-0 z-10 bg-white">
-        <div className="container mx-auto flex h-[76px] items-center justify-between py-[23px]">
-          <Image
-            src={'/assets/Equinox Technology - Logo 2.png'}
-            width={130}
-            height={30}
-            alt="logo"
-          />
-          <button className="rounded-[40px] bg-[#4CB9E7] px-[20px] py-[8px] text-white">
-            Home
-          </button>
-        </div>
-      </nav>
+
       <section className="h-full w-full">
         <Image
           src={'/assets/HeroImage.png'}
@@ -62,7 +50,37 @@ export default function Home() {
             to enriching the online shopping experience for our customers.
           </p>
           <button className="w-fit rounded-[40px] bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] px-6 py-[6px] text-[18px] text-white">
+            <a href="/about">
+
             See more
+            </a>
+          </button>
+        </div>
+        <div className="w-1/2">
+          <Image
+            src={'/assets/about-image.png'}
+            width={646}
+            height={400}
+            alt="about-image"
+            className="h-auto w-full rounded-[20px] object-cover object-center"
+          />
+        </div>
+      </section>
+      <section className="container mx-auto flex flex-row py-[80px]">
+        <div className="flex w-1/2 flex-col justify-center space-y-6">
+          <h2 className="text-[40px] font-semibold leading-[27.9px]">About</h2>
+          <p>
+            Equinox Technology is a dynamic retail & SaaS enterprise,
+            spearheading innovation in the e-commerce retail space. Specializing
+            in a diverse range of products including home & garden essentials,
+            cutting-edge electronics, and exquisite art pieces, we are committed
+            to enriching the online shopping experience for our customers.
+          </p>
+          <button className="w-fit rounded-[40px] bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] px-6 py-[6px] text-[18px] text-white">
+            <a href="/about">
+
+            See more
+            </a>
           </button>
         </div>
         <div className="w-1/2">
