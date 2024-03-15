@@ -1,0 +1,14 @@
+/* components/HeroBanner.module.css */
+.hero_banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: #fff;
+  height: 600px;
+}
+
+.hero_content {
+  flex: 1;
+}
+

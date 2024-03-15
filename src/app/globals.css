@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+a,
+button,
+li {
+  cursor: pointer;
+}
+
+.highlight {
+  color: #ff0000; /* Change this color as per your design */
+  /* You can add additional styles to the highlighted word */
+}
