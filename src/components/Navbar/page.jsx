@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,13 +11,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white-800 py-[23px] top-0 z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
+    <nav className="bg-white-800 top-0 z-10 py-[23px]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between">
           <div className="flex-shrink-0">
             <Link href="/">
               <Image
-                src={'/assets/Equinox Technology - Logo 2.png'}
+                src={'/assets/equinox-logo.png'}
                 width={130}
                 height={30}
                 alt="logo"
@@ -25,7 +25,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="hidden md:block">
-            <div className="flex space-x-4 gap-10 font-semibold text-lg ">
+            <div className="flex gap-10 space-x-4 text-lg font-semibold ">
               <NavLink href="/">Home</NavLink>
               <NavLink href="/about">About</NavLink>
               <NavLink href="/business-unit">Business Unit</NavLink>
@@ -38,7 +38,7 @@ const Navbar = () => {
             {/* Hamburger menu */}
             <button
               type="button"
-              className="text-white hover:text-gray-300 focus:outline-none focus:text-gray-300"
+              className="text-white hover:text-gray-300 focus:text-gray-300 focus:outline-none"
               aria-label="Toggle menu"
               onClick={toggleMenu}
             >
@@ -54,8 +54,8 @@ const Navbar = () => {
         </div>
         {/* Mobile menu */}
         {isOpen && (
-          <div className="md:hidden mt-4">
-            <div className="flex flex-col space-y-2 items-end">
+          <div className="mt-4 md:hidden">
+            <div className="flex flex-col items-end space-y-2">
               <NavLink href="/">Home</NavLink>
               <NavLink href="/about">About</NavLink>
               <NavLink href="/business-unit">Business Unit</NavLink>
@@ -70,11 +70,7 @@ const Navbar = () => {
 };
 
 const NavLink = ({ href, children }) => {
-  return (
-    <Link href={href}>
-      {children}
-    </Link>
-  );
+  return <Link href={href}>{children}</Link>;
 };
 
 export default Navbar;
