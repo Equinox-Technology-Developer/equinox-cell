@@ -10,9 +10,13 @@ const About = () => {
   return (
     <div>
       <HeroBanner
-        title="Innovating Goods for The Greater Good"
+        title={
+          <span style={{ color: '#ffffff' }}>
+            Innovating Goods for The{' '}
+            <span style={{ color: '#59D5E0' }}>Greater Good</span>
+          </span>
+        }
         subtitle="Our talent assessments screen and identify the best candidates and make your hiring decisions faster, easier, and bias-free."
-        highlightedWord="Greater Good"
         imageUrl={'/assets/about-image.png'}
       />
       <h1>About</h1>
