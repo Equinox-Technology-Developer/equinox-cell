@@ -1,7 +1,26 @@
+'use client';
+
 import Image from 'next/image';
+import React, { useRef, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 export default function Home() {
+  const progressCircle = useRef(null);
+  const progressContent = useRef(null);
+  const onAutoplayTimeLeft = (s, time, progress) => {
+    progressCircle.current.style.setProperty('--progress', 1 - progress);
+    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+  };
+
   return (
     <main className="min-h-screen">
       <section className="h-full w-full">
@@ -108,6 +127,297 @@ export default function Home() {
             </p>
           </div>
         </div>
+      </section>
+      <section>
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Autoplay, Pagination, Navigation]}
+          onAutoplayTimeLeft={onAutoplayTimeLeft}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <div className="bg-primary-900">
+              <div className="container mx-auto py-[60px]">
+                <h2 className="text-center text-[40px] font-bold leading-[48px] text-white">
+                  The Journey
+                </h2>
+                <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
+                  <div className="h-full w-full">
+                    <Image
+                      src={'/assets/hero-image-journey.png'}
+                      width={496}
+                      height={414}
+                      className="h-auto w-full"
+                    />
+                  </div>
+                  <div className="h-full w-full">
+                    <div className="relative flex h-full flex-col items-end justify-center space-y-[12px]">
+                      <h2 className="text-right text-[48px] font-semibold leading-[24px] text-white">
+                        2017
+                      </h2>
+                      <p className="max-w-[462px] text-right text-[16px] leading-[24px] text-white">
+                        Equinox Technology LLC firstly established in San
+                        Francisco as a business that runs as a small commerce
+                      </p>
+                      <div className="absolute bottom-0 right-0">
+                        <Image
+                          src={'/assets/equinox-technology-logo-3.svg'}
+                          width={212}
+                          height={49}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="bg-primary-900">
+              <div className="container mx-auto py-[60px]">
+                <h2 className="text-center text-[40px] font-bold leading-[48px] text-white">
+                  The Journey
+                </h2>
+                <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
+                  <div className="h-full w-full">
+                    <Image
+                      src={'/assets/hero-image-journey-2018.png'}
+                      width={496}
+                      height={414}
+                      className="h-auto w-full"
+                    />
+                  </div>
+                  <div className="h-full w-full">
+                    <div className="relative flex h-full flex-col items-end justify-center space-y-[12px]">
+                      <h2 className="text-right text-[48px] font-semibold leading-[24px] text-white">
+                        2018
+                      </h2>
+                      <p className="max-w-[462px] text-right text-[16px] leading-[24px] text-white">
+                        Having a sole runner for the business, Laurent Putra,
+                        started his way to gather more funds in due to expand
+                        the business.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="bg-primary-900">
+              <div className="container mx-auto py-[60px]">
+                <h2 className="text-center text-[40px] font-bold leading-[48px] text-white">
+                  The Journey
+                </h2>
+                <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
+                  <div className="h-full w-full">
+                    <Image
+                      src={'/assets/hero-image-journey-2019.png'}
+                      width={496}
+                      height={414}
+                      className="h-auto w-full"
+                    />
+                  </div>
+                  <div className="h-full w-full">
+                    <div className="relative flex h-full flex-col items-end justify-center space-y-[12px]">
+                      <h2 className="text-right text-[48px] font-semibold leading-[24px] text-white">
+                        2019
+                      </h2>
+                      <p className="max-w-[462px] text-right text-[16px] leading-[24px] text-white">
+                        Having had its way in San Francisco, The company decides
+                        to have its arm open to start operations in Indonesia
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="bg-primary-900">
+              <div className="container mx-auto py-[60px]">
+                <h2 className="text-center text-[40px] font-bold leading-[48px] text-white">
+                  The Journey
+                </h2>
+                <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
+                  <div className="h-full w-full">
+                    <Image
+                      src={'/assets/hero-image-journey-2020.png'}
+                      width={496}
+                      height={414}
+                      className="h-auto w-full"
+                    />
+                  </div>
+                  <div className="h-full w-full">
+                    <div className="relative flex h-full flex-col items-end justify-center space-y-[12px]">
+                      <h2 className="text-right text-[48px] font-semibold leading-[24px] text-white">
+                        2020
+                      </h2>
+                      <p className="max-w-[462px] text-right text-[16px] leading-[24px] text-white">
+                        The promising growth and increasing base of customers
+                        made its promising for the company to expands its
+                        e-commerce business, numbers of employees and brands.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="bg-primary-900">
+              <div className="container mx-auto py-[60px]">
+                <h2 className="text-center text-[40px] font-bold leading-[48px] text-white">
+                  The Journey
+                </h2>
+                <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
+                  <div className="h-full w-full">
+                    <Image
+                      src={'/assets/hero-image-journey.png'}
+                      width={496}
+                      height={414}
+                      className="h-auto w-full"
+                    />
+                  </div>
+                  <div className="h-full w-full">
+                    <div className="relative flex h-full flex-col items-end justify-center space-y-[12px]">
+                      <h2 className="text-right text-[48px] font-semibold leading-[24px] text-white">
+                        2021
+                      </h2>
+                      <p className="max-w-[462px] text-right text-[16px] leading-[24px] text-white">
+                        The growth for Equinox Technology became more evident
+                        internally and externally and the business in this year
+                        experience high increase of employees, companies
+                        functions/departments, and we have a new larger office!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="bg-primary-900">
+              <div className="container mx-auto py-[60px]">
+                <h2 className="text-center text-[40px] font-bold leading-[48px] text-white">
+                  The Journey
+                </h2>
+                <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
+                  <div className="h-full w-full">
+                    <Image
+                      src={'/assets/hero-image-journey.png'}
+                      width={496}
+                      height={414}
+                      className="h-auto w-full"
+                    />
+                  </div>
+                  <div className="h-full w-full">
+                    <div className="relative flex h-full flex-col items-end justify-center space-y-[12px]">
+                      <h2 className="text-right text-[48px] font-semibold leading-[24px] text-white">
+                        2022
+                      </h2>
+                      <p className="max-w-[462px] text-right text-[16px] leading-[24px] text-white">
+                        We continues to grow, welcoming many more departments
+                        and employees for our businesses and move to a bigger
+                        office once more.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="bg-primary-900">
+              <div className="container mx-auto py-[60px]">
+                <h2 className="text-center text-[40px] font-bold leading-[48px] text-white">
+                  The Journey
+                </h2>
+                <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
+                  <div className="h-full w-full">
+                    <Image
+                      src={'/assets/hero-image-journey.png'}
+                      width={496}
+                      height={414}
+                      className="h-auto w-full"
+                    />
+                  </div>
+                  <div className="h-full w-full">
+                    <div className="relative flex h-full flex-col items-end justify-center space-y-[12px]">
+                      <h2 className="text-right text-[48px] font-semibold leading-[24px] text-white">
+                        2023
+                      </h2>
+                      <p className="max-w-[462px] text-right text-[16px] leading-[24px] text-white">
+                        Welcoming challenges and growth, the Equinox Technology
+                        Company expands our business to provide even more
+                        service on various fields, venturing from media to
+                        floristries with dedicated team.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="bg-primary-900">
+              <div className="container mx-auto py-[60px]">
+                <h2 className="text-center text-[40px] font-bold leading-[48px] text-white">
+                  The Journey
+                </h2>
+                <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
+                  <div className="h-full w-full">
+                    <Image
+                      src={'/assets/hero-image-journey.png'}
+                      width={496}
+                      height={414}
+                      className="h-auto w-full"
+                    />
+                  </div>
+                  <div className="h-full w-full">
+                    <div className="relative flex h-full flex-col items-end justify-center space-y-[12px]">
+                      <h2 className="text-right text-[48px] font-semibold leading-[24px] text-white">
+                        2024
+                      </h2>
+                      <p className="max-w-[462px] text-right text-[16px] leading-[24px] text-white">
+                        New year, New Ambitions! We are welcoming the year with
+                        more employees and moving to a new office to accommodate
+                        our business affairs. We are branching out to new
+                        industries as part of our ambitions and are preparing
+                        for our new streamline of business this year.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <div
+            className="absolute bottom-4 right-4 z-10  flex h-12 w-12 items-center justify-center font-bold text-white"
+            slot="container-end"
+          >
+            <svg
+              viewBox="0 0 48 48"
+              ref={progressCircle}
+              className="absolute left-0 top-0 z-10 h-full w-full rotate-90 transform fill-none stroke-white stroke-[4px] text-blue-500"
+              style={{
+                strokeDashoffset: 'calc(125.6 * (1 - var(--progress)))',
+                strokeDasharray: '125.6',
+              }}
+            >
+              <circle cx="24" cy="24" r="20"></circle>
+            </svg>
+            <span ref={progressContent}></span>
+          </div>
+        </Swiper>
       </section>
       <section className="container mx-auto py-[80px]">
         <h2 className="text-center text-[40px] font-bold leading-[48px]">
