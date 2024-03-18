@@ -12,3 +12,13 @@ li {
   color: #ff0000; /* Change this color as per your design */
   /* You can add additional styles to the highlighted word */
 }
+
+/* Tailwind Class */
+@layer components {
+  .gradient-text-primary {
+    @apply from-primary-500 to-primary-600 bg-gradient-to-l bg-clip-text text-transparent;
+  }
+  .gradient-primary {
+    @apply from-primary-500 to-primary-600 bg-gradient-to-r;
+  }
+}
