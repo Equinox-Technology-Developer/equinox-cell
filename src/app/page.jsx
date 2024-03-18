@@ -109,6 +109,99 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="container mx-auto py-[80px]">
+        <h2 className="text-center text-[40px] font-bold leading-[48px]">
+          Company Structure
+        </h2>
+        <div className="mt-[42px] grid grid-rows-4 space-y-[42px]">
+          <div className="grid grid-cols-1 justify-items-center">
+            <div className="h-full w-full">
+              <p className="text-center text-[18px] font-semibold leading-[27.9px]">
+                Laurent Putra
+              </p>
+              <p className="text-center text-[16px] font-light leading-[28px]">
+                CEO
+              </p>
+            </div>
+          </div>
+          <div className="grid grid-cols-4 gap-x-[40px]">
+            <div className="h-full w-full">
+              <p className="text-center text-[18px] font-semibold leading-[27.9px]">
+                Ian
+              </p>
+              <p className="text-center text-[16px] font-light leading-[28px]">
+                General Manager & Creative
+              </p>
+            </div>
+            <div className="h-full w-full">
+              <p className="text-center text-[18px] font-semibold leading-[27.9px]">
+                Tiara
+              </p>
+              <p className="text-center text-[16px] font-light leading-[28px]">
+                Human Resource
+              </p>
+            </div>
+            <div className="h-full w-full">
+              <p className="text-center text-[18px] font-semibold leading-[27.9px]">
+                Diego
+              </p>
+              <p className="text-center text-[16px] font-light leading-[28px]">
+                Business Development
+              </p>
+            </div>
+            <div className="h-full w-full">
+              <p className="text-center text-[18px] font-semibold leading-[27.9px]">
+                Irene
+              </p>
+              <p className="text-center text-[16px] font-light leading-[28px]">
+                Purchasing
+              </p>
+            </div>
+          </div>
+          <div className="grid grid-cols-4 gap-x-[40px]">
+            <div className="h-full w-full">
+              <p className="text-center text-[18px] font-semibold leading-[27.9px]">
+                Wanti
+              </p>
+              <p className="text-center text-[16px] font-light leading-[28px]">
+                FInance
+              </p>
+            </div>
+            <div className="h-full w-full">
+              <p className="text-center text-[18px] font-semibold leading-[27.9px]">
+                Ermy
+              </p>
+              <p className="text-center text-[16px] font-light leading-[28px]">
+                Web Developer
+              </p>
+            </div>
+            <div className="h-full w-full">
+              <p className="text-center text-[18px] font-semibold leading-[27.9px]">
+                Rifqi & Andrew
+              </p>
+              <p className="text-center text-[16px] font-light leading-[28px]">
+                Copywriter
+              </p>
+            </div>
+            <div className="h-full w-full">
+              <p className="text-center text-[18px] font-semibold leading-[27.9px]">
+                Rayhan
+              </p>
+              <p className="text-center text-[16px] font-light leading-[28px]">
+                SEO
+              </p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 justify-items-center">
+            <p className="text-center text-[18px] font-semibold leading-[27.9px]">
+              Alfianto
+            </p>
+            <p className="text-center text-[16px] font-light leading-[28px]">
+              CRM
+            </p>
+          </div>
+        </div>
+      </section>
       <section className="flex flex-col space-y-[42px]">
         <div className="container mx-auto">
           <h2 className="text-center text-[40px] font-bold leading-[48px]">
@@ -270,11 +363,11 @@ export default function Home() {
           </p>
         </div>
         <div className="grid grid-cols-2">
-          <div>
+          <div className="h-full w-full">
             <p className="text-center font-semibold">Call us at</p>
             <p className="text-center">+62-811-3000-800</p>
           </div>
-          <div>
+          <div className="h-full w-full">
             <p className="text-center font-semibold">Contact us at</p>
             <p className="text-center">support@equinoxcell.com</p>
           </div>
