@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   CapitalizeHeading,
   HeroBanner,
@@ -7,32 +7,123 @@ import {
   SearchJobs,
 } from '@/components/page';
 
-// Mock data for job categories and jobs
-const jobCategories = ['Finance', 'Marketing', 'Engineering'];
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// import required modules
+import { EffectCoverflow, Pagination } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+
+import { GrLocation } from 'react-icons/gr';
+import { SiBookmeter } from 'react-icons/si';
+import { LiaUserTieSolid } from 'react-icons/lia';
+import { BiBriefcase } from 'react-icons/bi';
+
+import styles from './Career.module.scss';
+
+const jobCategories = [
+  'Human Capital & Talent Acquisition, Finance',
+  'Full Stack Web Developer',
+  'Marketing & Content Writter',
+  'Design & UX',
+  'Engineering',
+  'Ads, Affiliates & Social Media',
+  'CRM',
+  'Finance',
+  'Purchasing',
+];
 const jobs = [
+  // Job 1
   {
-    name: 'Job 1',
-    time: 'Full-time',
-    staff_level: 'Beginner',
+    name: 'Finance',
+    time: 'Fulltime',
+    staff_level: 'Staff Level',
     division: 'Finance',
-    location: 'Jakarta',
+    location: 'Jakarta, Indonesia',
+    availability: 2,
+  },
+  // Job 2
+  {
+    name: 'Human Resource',
+    time: 'Fulltime',
+    staff_level: 'Staff Level',
+    division: 'Human Capital & Talent Acquisition',
+    location: 'Jakarta, Indonesia',
+    availability: 2,
+  },
+  // Job 3
+  {
+    name: 'Web Developer',
+    time: 'Fulltime',
+    staff_level: 'Staff Level',
+    division: 'Full Stack Web Developer',
+    location: 'Jakarta, Indonesia',
+    availability: 2,
+  },
+  // Job 4
+  {
+    name: 'Copywritting',
+    time: 'Fulltime',
+    staff_level: 'Staff Level',
+    division: 'Marketing & Content Writer',
+    location: 'Jakarta, Indonesia',
+    availability: 2,
+  },
+  // Job 5
+  {
+    name: 'Personal Assistant',
+    time: 'Fulltime',
+    staff_level: 'Staff Level',
+    division: 'Personal Assistant',
+    location: 'Jakarta, Indonesia',
+    availability: 2,
+  },
+  // Job 6
+  {
+    name: 'Affiliate',
+    time: 'Fulltime',
+    staff_level: 'Staff Level',
+    division: 'Ads, Affiliate & Social Media',
+    location: 'Jakarta, Indonesia',
+    availability: 2,
+  },
+  // Job 7
+  {
+    name: 'CRM',
+    time: 'Fulltime',
+    staff_level: 'Staff Level',
+    division: 'CRM',
+    location: 'Jakarta, Indonesia',
+    availability: 2,
+  },
+  // Job 8
+  {
+    name: 'Purchasing',
+    time: 'Fulltime',
+    staff_level: 'Staff Level',
+    division: 'Purchasing',
+    location: 'Jakarta, Indonesia',
+    availability: 2,
+  },
+  // Job 9
+  {
+    name: 'Grapich Designer',
+    time: 'Fulltime',
+    staff_level: 'Staff Level',
+    division: 'Design & UX',
+    location: 'Jakarta, Indonesia',
     availability: 2,
   },
   {
-    name: 'Job 2',
-    time: 'Part-time',
-    staff_level: 'Intermediate',
-    division: 'Marketing',
-    location: 'New York',
-    availability: 1,
-  },
-  {
-    name: 'Job 3',
-    time: 'Full-time',
-    staff_level: 'Advanced',
-    division: 'Engineering',
-    location: 'San Francisco',
-    availability: 3,
+    name: 'Grapich Designer',
+    time: 'Fulltime',
+    staff_level: 'Staff Level',
+    division: 'Design & UX',
+    location: 'Jakarta, Indonesia',
+    availability: 2,
   },
   // Add more job objects as needed
 ];
@@ -43,7 +134,7 @@ const Career = () => {
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
-    setSearchQuery(''); // Reset search query when selecting a category
+    setSearchQuery('');
   };
 
   const handleSearchInputChange = (e) => {
@@ -57,6 +148,8 @@ const Career = () => {
         ? job.name.toLowerCase().includes(searchQuery.toLowerCase())
         : true),
   );
+
+  const showAllButton = filteredJobs.length > 9;
 
   return (
     <>
@@ -77,42 +170,118 @@ const Career = () => {
       />
 
       {/* Career Page Content */}
-      <section>
-        <CapitalizeHeading>find your dream job!</CapitalizeHeading>
-        <div>
-          {/* Search Bar */}
+      <section className="w-full">
+        <div className="container mx-auto flex w-full flex-col items-center justify-center gap-11 px-16 py-32">
+          <CapitalizeHeading className>find your dream job!</CapitalizeHeading>
           <SearchJobs
             searchQuery={searchQuery}
             handleSearchInputChange={handleSearchInputChange}
           />
-
-          {/* Job Categories */}
           <JobCategories
             categories={[...jobCategories]}
             selectedCategory={selectedCategory}
             handleCategoryClick={handleCategoryClick}
           />
-
-          {/* Job Listings */}
-          <div>
-            <h2>Job Listings</h2>
+          <div className="flex w-full flex-col items-center justify-between">
             {filteredJobs.length > 0 ? (
-              <ul>
-                {filteredJobs.map((job) => (
-                  <li key={job.name}>
-                    <div>Name: {job.name}</div>
-                    <div>Time: {job.time}</div>
-                    <div>Staff Level: {job.staff_level}</div>
-                    <div>Division: {job.division}</div>
-                    <div>Location: {job.location}</div>
-                    <div>Availability: {job.availability}</div>
+              <ul className="grid w-full grid-cols-3 gap-6">
+                {filteredJobs.slice(0, 9).map((job) => (
+                  <li className="job-card flex flex-col gap-5" key={job.name}>
+                    <div className=" flex items-center gap-6  ">
+                      <h3>{job.name}</h3>
+                      <div className="rounded-[20px] bg-secondary-500 bg-opacity-10 px-3 py-1 text-xs">
+                        <p className="text-secondary-500">{job.time}</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <p className="flex items-center gap-3">
+                        {' '}
+                        <SiBookmeter size={20} color="#AFAFAF" />{' '}
+                        {job.staff_level}
+                      </p>
+                      <p className="flex items-center gap-3">
+                        {' '}
+                        <LiaUserTieSolid size={20} color="#AFAFAF" />{' '}
+                        {job.division}
+                      </p>
+                      <p className="flex items-center gap-3">
+                        {' '}
+                        <BiBriefcase size={20} color="#AFAFAF" />{' '}
+                        {job.availability}
+                      </p>
+                      <p className="flex items-center gap-3">
+                        {' '}
+                        <GrLocation size={20} color="#AFAFAF" /> {job.location}
+                      </p>
+                    </div>
                   </li>
                 ))}
               </ul>
             ) : (
               <p>No jobs found.</p>
             )}
+            {showAllButton && (
+              <button
+                className="mt-4 max-w-[101px] rounded-[81.5px] border border-secondary-500 bg-white px-3 py-[6px] text-secondary-500 transition-all duration-300 ease-in-out hover:bg-secondary-500 hover:text-white"
+                onClick={() => setSelectedCategory('')}
+              >
+                Show All
+              </button>
+            )}
           </div>
+        </div>
+      </section>
+
+      {/* Department of Equinox Technology Section */}
+      <section className="w-full">
+        <div className="container mx-auto flex w-full flex-col items-center justify-center">
+          <CapitalizeHeading>
+            department of equinox technology
+          </CapitalizeHeading>
+          <Swiper
+            effect={'coverflow'}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={'auto'}
+            coverflowEffect={{
+              rotate: 50,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: true,
+            }}
+            pagination={true}
+            modules={[EffectCoverflow, Pagination]}
+            className="mySwiper"
+          >
+            <SwiperSlide className={styles.swiper_slide}>
+              <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+            </SwiperSlide>
+          </Swiper>
         </div>
       </section>
     </>

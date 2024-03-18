@@ -3,7 +3,11 @@ const CapitalizeHeading = ({ children }) => {
     return str.replace(/\b\w/g, (char) => char.toUpperCase());
   };
 
-  return <h1>{capitalizeFirstLetter(children)}</h1>;
+  return (
+    <h2 className="text-[40px] leading-[48px]">
+      {capitalizeFirstLetter(children)}
+    </h2>
+  );
 };
 
 export default CapitalizeHeading;
