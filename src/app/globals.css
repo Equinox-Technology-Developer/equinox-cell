@@ -8,17 +8,34 @@ li {
   cursor: pointer;
 }
 
-.highlight {
-  color: #ff0000; /* Change this color as per your design */
-  /* You can add additional styles to the highlighted word */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+h1::first-letter,
+h2::first-letter,
+h3::first-letter,
+h4::first-letter,
+h5::first-letter,
+h6::first-letter {
+  text-transform: uppercase;
+}
+
+p {
+  font-weight: 400;
 }
 
 /* Tailwind Class */
 @layer components {
   .gradient-text-primary {
-    @apply from-primary-500 to-primary-600 bg-gradient-to-l bg-clip-text text-transparent;
+    @apply bg-gradient-to-l from-primary-500 to-primary-600 bg-clip-text text-transparent;
   }
   .gradient-primary {
-    @apply from-primary-500 to-primary-600 bg-gradient-to-r;
+    @apply bg-gradient-to-r from-primary-500 to-primary-600;
   }
 }
