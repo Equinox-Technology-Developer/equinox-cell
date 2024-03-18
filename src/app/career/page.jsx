@@ -1,5 +1,6 @@
 'use client';
 import React, { useRef, useState } from 'react';
+import Image from 'next/image';
 import {
   CapitalizeHeading,
   HeroBanner,
@@ -218,7 +219,16 @@ const Career = () => {
                 ))}
               </ul>
             ) : (
-              <p>No jobs found.</p>
+              <div className="flex flex-col items-center gap-5">
+                <Image
+                  src={'/assets/default-no-job-found.png'}
+                  width={100}
+                  height={100}
+                />
+                <p>
+                  No matches found. Let's give another query a whirl, shall we?
+                </p>
+              </div>
             )}
             {showAllButton && (
               <button
