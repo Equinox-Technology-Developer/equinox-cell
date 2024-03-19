@@ -348,6 +348,13 @@ const Career = () => {
             }}
             modules={[Navigation, Pagination]}
             className={`${styles.swiperContainer}`}
+            style={{
+              '--swiper-pagination-color': '#4CB9E7',
+              '--swiper-pagination-bullet-inactive-color': '#4CB9E766',
+              '--swiper-pagination-bullet-inactive-opacity': '1',
+              '--swiper-pagination-bullet-size': '14px',
+              '--swiper-pagination-bullet-horizontal-gap': '6px',
+            }}
           >
             {testimonialHR.map((testimonial, index) => (
               <SwiperSlide key={index} className="career-slide-testimonial">
@@ -395,6 +402,13 @@ const Career = () => {
             }}
             modules={[Pagination, Navigation]}
             className={`career-swiper ${styles.mySwiper}`}
+            style={{
+              '--swiper-pagination-color': '#4CB9E7',
+              '--swiper-pagination-bullet-inactive-color': '#4CB9E766',
+              '--swiper-pagination-bullet-inactive-opacity': '1',
+              '--swiper-pagination-bullet-size': '14px',
+              '--swiper-pagination-bullet-horizontal-gap': '6px',
+            }}
           >
             <SwiperSlide
               className={`career-swiper-slide ${styles.swiper_slide}`}
