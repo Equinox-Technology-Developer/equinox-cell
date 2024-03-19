@@ -167,7 +167,8 @@ const Career = () => {
           </span>
         }
         subtitle="We're on the constant run to achieve great things and we'd love for you to be a part of that journey with us!"
-        imageUrl={'/assets/CareerHeroImage.png'}
+        imageUrl={'/assets/hero-image-career.png'}
+        gradient={'bottom'}
       />
 
       {/* Career Page Content */}

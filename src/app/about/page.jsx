@@ -17,7 +17,8 @@ const About = () => {
           </span>
         }
         subtitle="Our talent assessments screen and identify the best candidates and make your hiring decisions faster, easier, and bias-free."
-        imageUrl={'/assets/about-image.png'}
+        imageUrl={'/assets/hero-image-about.png'}
+        gradient={'left'}
       />
       <h1>About</h1>
     </div>
