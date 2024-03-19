@@ -100,7 +100,7 @@ export default function BusinessUnitPage() {
           alt="hero-image"
           className="h-[676px] w-full object-cover object-center"
         />
-        <div className="absolute inset-0 mt-[76px] h-[676px] w-full bg-gradient-to-b from-[#66666600] to-[#0000009E]">
+        <div className="absolute inset-0 mt-[80px] h-[676px] w-full bg-gradient-to-b from-[#66666600] to-[#0000009E]">
           <div className="absolute inset-0 flex h-[676px] w-full items-center justify-center text-center">
             <div className="mx-auto max-w-[1086px] space-y-8">
               <h1 className="text-[40px] font-bold leading-[48px] text-white">
