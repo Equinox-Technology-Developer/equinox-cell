@@ -224,6 +224,7 @@ const Career = () => {
                   src={'/assets/default-no-job-found.png'}
                   width={100}
                   height={100}
+                  alt="No job found"
                 />
                 <p>
                   No matches found. Let's give another query a whirl, shall we?

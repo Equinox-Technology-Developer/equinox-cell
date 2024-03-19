@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import styles from './home.module.css';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
@@ -138,10 +139,19 @@ export default function Home() {
           }}
           pagination={{
             clickable: true,
+            type: 'bullets',
+            bulletClass: `swiper-pagination-bullet ${styles['feature-pagination']}`,
           }}
           modules={[Autoplay, Pagination, Navigation]}
           onAutoplayTimeLeft={onAutoplayTimeLeft}
           className="mySwiper"
+          style={{
+            '--swiper-pagination-color': '#4CB9E7',
+            '--swiper-pagination-bullet-inactive-color': '#ffffff',
+            '--swiper-pagination-bullet-inactive-opacity': '1',
+            '--swiper-pagination-bullet-size': '10px',
+            '--swiper-pagination-bullet-horizontal-gap': '6px',
+          }}
         >
           <SwiperSlide>
             <div className="bg-primary-900">
@@ -156,6 +166,7 @@ export default function Home() {
                       width={496}
                       height={414}
                       className="h-auto w-full"
+                      alt="journey-image"
                     />
                   </div>
                   <div className="h-full w-full">
@@ -172,6 +183,7 @@ export default function Home() {
                           src={'/assets/equinox-technology-logo-3.svg'}
                           width={212}
                           height={49}
+                          alt="equinox-technology-logo"
                         />
                       </div>
                     </div>
@@ -193,6 +205,7 @@ export default function Home() {
                       width={496}
                       height={414}
                       className="h-auto w-full"
+                      alt="journey-image"
                     />
                   </div>
                   <div className="h-full w-full">
@@ -224,6 +237,7 @@ export default function Home() {
                       width={496}
                       height={414}
                       className="h-auto w-full"
+                      alt="journey-image"
                     />
                   </div>
                   <div className="h-full w-full">
@@ -254,6 +268,7 @@ export default function Home() {
                       width={496}
                       height={414}
                       className="h-auto w-full"
+                      alt="journey-image"
                     />
                   </div>
                   <div className="h-full w-full">
@@ -285,6 +300,7 @@ export default function Home() {
                       width={496}
                       height={414}
                       className="h-auto w-full"
+                      alt="journey-image"
                     />
                   </div>
                   <div className="h-full w-full">
@@ -313,10 +329,11 @@ export default function Home() {
                 <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
                   <div className="h-full w-full">
                     <Image
-                      src={'/assets/hero-image-journey.png'}
+                      src={'/assets/hero-image-journey-2022.png'}
                       width={496}
                       height={414}
                       className="h-auto w-full"
+                      alt="journey-image"
                     />
                   </div>
                   <div className="h-full w-full">
@@ -344,10 +361,11 @@ export default function Home() {
                 <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
                   <div className="h-full w-full">
                     <Image
-                      src={'/assets/hero-image-journey.png'}
+                      src={'/assets/hero-image-journey-2023.png'}
                       width={496}
                       height={414}
                       className="h-auto w-full"
+                      alt="journey-image"
                     />
                   </div>
                   <div className="h-full w-full">
@@ -376,10 +394,11 @@ export default function Home() {
                 <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
                   <div className="h-full w-full">
                     <Image
-                      src={'/assets/hero-image-journey.png'}
+                      src={'/assets/hero-image-journey-2024.png'}
                       width={496}
                       height={414}
                       className="h-auto w-full"
+                      alt="journey-image"
                     />
                   </div>
                   <div className="h-full w-full">
@@ -401,13 +420,13 @@ export default function Home() {
             </div>
           </SwiperSlide>
           <div
-            className="absolute bottom-4 right-4 z-10  flex h-12 w-12 items-center justify-center font-bold text-white"
+            className="absolute bottom-4 right-4 z-10  flex h-12 w-12 items-center justify-center font-bold text-[#59D5E0]"
             slot="container-end"
           >
             <svg
               viewBox="0 0 48 48"
               ref={progressCircle}
-              className="absolute left-0 top-0 z-10 h-full w-full rotate-90 transform fill-none stroke-white stroke-[4px] text-blue-500"
+              className="absolute left-0 top-0 z-10 h-full w-full rotate-90 transform fill-none stroke-[#59D5E0] stroke-[4px] text-blue-500"
               style={{
                 strokeDashoffset: 'calc(125.6 * (1 - var(--progress)))',
                 strokeDasharray: '125.6',
@@ -533,6 +552,7 @@ export default function Home() {
               width={460}
               height={576}
               className="h-auto w-full object-cover object-center"
+              alt="sohnne-cover-image"
             />
             <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#0000009E]">
               <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
@@ -540,6 +560,7 @@ export default function Home() {
                   src={'/assets/logo-sohnne.svg'}
                   width={200}
                   height={80}
+                  alt="sohnne-logo"
                 />
                 <p className="mt-[32px] max-w-[297px] text-center text-white">
                   Lorem ipsum dolor sit amet consectetur. Sed ultrices ut
@@ -566,6 +587,7 @@ export default function Home() {
               width={460}
               height={576}
               className="h-auto w-full object-cover object-center"
+              alt="enigwatch-cover-image"
             />
             <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#0000009E]">
               <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
@@ -573,6 +595,7 @@ export default function Home() {
                   src={'/assets/logo-enigwatch.svg'}
                   width={200}
                   height={80}
+                  alt="enigwatch-logo"
                 />
                 <p className="mt-[32px] max-w-[297px] text-center text-white">
                   Lorem ipsum dolor sit amet consectetur. Sed ultrices ut
@@ -599,6 +622,7 @@ export default function Home() {
               width={460}
               height={576}
               className="h-auto w-full object-cover object-center"
+              alt="artdigest-cover-image"
             />
             <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#0000009E]">
               <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
@@ -606,6 +630,7 @@ export default function Home() {
                   src={'/assets/logo-artdigest.svg'}
                   width={200}
                   height={80}
+                  alt="artdigest-logo"
                 />
                 <p className="mt-[32px] max-w-[297px] text-center text-white">
                   Lorem ipsum dolor sit amet consectetur. Sed ultrices ut
@@ -632,6 +657,7 @@ export default function Home() {
               width={460}
               height={576}
               className="h-auto w-full object-cover object-center"
+              alt="koizuma-cover-image"
             />
             <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#0000009E]">
               <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
@@ -639,6 +665,7 @@ export default function Home() {
                   src={'/assets/logo-koizuma.svg'}
                   width={200}
                   height={80}
+                  alt="koizuma-logo"
                 />
                 <p className="mt-[32px] max-w-[297px] text-center text-white">
                   Lorem ipsum dolor sit amet consectetur. Sed ultrices ut
