@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +11,7 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const pathname = usePathname();
   return (
     <nav className="sticky top-0 z-[99] h-full max-h-[80px] bg-white py-[18px]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-0">
@@ -26,11 +28,61 @@ const Navbar = () => {
           </div>
           <div className="hidden md:block">
             <div className="flex gap-10 space-x-4 text-lg font-semibold ">
-              <NavLink href="/">Home</NavLink>
-              <NavLink href="/about">About</NavLink>
-              <NavLink href="/business-unit">Business Unit</NavLink>
-              <NavLink href="/contact">Contact</NavLink>
-              <NavLink href="/career">Career</NavLink>
+              <NavLink href="/">
+                <span
+                  className={
+                    pathname == '/'
+                      ? 'border-b-[2px] border-secondary-500 pb-[10px]'
+                      : ''
+                  }
+                >
+                  Home
+                </span>
+              </NavLink>
+              <NavLink href="/about">
+                <span
+                  className={
+                    pathname == '/about'
+                      ? 'border-b-[2px] border-secondary-500 pb-[10px]'
+                      : ''
+                  }
+                >
+                  About
+                </span>
+              </NavLink>
+              <NavLink href="/business-unit">
+                <span
+                  className={
+                    pathname == '/business-unit'
+                      ? 'border-b-[2px] border-secondary-500 pb-[10px]'
+                      : ''
+                  }
+                >
+                  Bussiness Unit
+                </span>
+              </NavLink>
+              <NavLink href="/contact">
+                <span
+                  className={
+                    pathname == '/contact'
+                      ? 'border-b-[2px] border-secondary-500 pb-[10px]'
+                      : ''
+                  }
+                >
+                  Contact
+                </span>
+              </NavLink>
+              <NavLink href="/career">
+                <span
+                  className={
+                    pathname == '/career'
+                      ? 'border-b-[2px] border-secondary-500 pb-[10px]'
+                      : ''
+                  }
+                >
+                  Career
+                </span>
+              </NavLink>
             </div>
           </div>
           <div>

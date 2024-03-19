@@ -325,13 +325,13 @@ const Career = () => {
       <section className="w-full">
         <div className="container mx-auto justify-center gap-11 pb-16">
           <Swiper
-            slidesPerView={1}
             spaceBetween={30}
             centeredSlides={true}
-            loop={true}
             pagination={{
               clickable: true,
             }}
+            loop={true}
+            loopFillGroupWithBlank={true}
             breakpoints={{
               640: {
                 slidesPerView: 1,
