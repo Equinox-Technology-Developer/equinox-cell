@@ -54,16 +54,6 @@ p {
   filter: grayscale(100%);
 }
 
-.swiper-pagination-bullet {
-  width: 14px !important;
-  height: 14px !important;
-  background-color: #4cb9e7 !important;
-  border-radius: 50%;
-  margin: 0 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
 .career-slide-testimonial.swiper-slide-active div {
   background-color: #4cb9e7;
   transform: scale(1.1);
