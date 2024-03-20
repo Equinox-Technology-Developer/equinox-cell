@@ -125,7 +125,6 @@ export default function About() {
                   src={'/assets/mission-achive.svg'}
                   width={100}
                   height={100}
-                  className="h-[100px] w-[100px] object-cover object-center"
                 />
                 <p className="max-w-[313px] text-center text-[16px] leading-[24px]">
                   Achieve 250 Billion in revenue and 100 employees
