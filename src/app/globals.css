@@ -4,7 +4,8 @@
 
 a,
 button,
-li {
+li,
+input[type='checkbox'] {
   cursor: pointer;
 }
 
@@ -58,6 +59,20 @@ p {
   background-color: #4cb9e7;
   transform: scale(1.1);
   color: white;
+}
+
+/* For mobile */
+@media (max-width: 768px) {
+  .responsive-image-career-filtered {
+    content: url('/assets/SectionProcessRecruitment_Mobile.png');
+  }
+}
+
+/* For larger screens */
+@media (min-width: 769px) {
+  .responsive-image-career-filtered {
+    content: url('/assets/SectionProcessRecruitment.png');
+  }
 }
 
 /* Tailwind Class */
