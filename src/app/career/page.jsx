@@ -471,7 +471,7 @@ const Career = () => {
                   </p>
                   <h4 className=" font-normal">5. Collaboration</h4>
                   <p className="pl-6">
-                    Collaboration We believe in harnessing teamwork and diverse
+                    CollaborationWe believe in harnessing teamwork and diverse
                     perspectives for collective success. Through open
                     communication and collaboration the best solutions stem from
                     pooling talents and expertise.
