@@ -1,16 +1,18 @@
 'use client';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+
 import {
   CapitalizeHeading,
   HeroBanner,
   JobCategories,
   SearchJobs,
 } from '@/components/page';
+import { Jobs } from '@/lib/page';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 
 // Import Swiper styles
@@ -24,112 +26,7 @@ import { LiaUserTieSolid } from 'react-icons/lia';
 import { BiBriefcase } from 'react-icons/bi';
 
 import styles from './Career.module.scss';
-import Link from 'next/link';
 
-const jobCategories = [
-  'Human Capital & Talent Acquisition, Finance',
-  'Full Stack Web Developer',
-  'Marketing & Content Writter',
-  'Design & UX',
-  'Engineering',
-  'Ads, Affiliates & Social Media',
-  'CRM',
-  'Finance',
-  'Purchasing',
-];
-const jobs = [
-  // Job 1
-  {
-    name: 'Finance',
-    time: 'Fulltime',
-    staff_level: 'Staff Level',
-    division: 'Finance',
-    location: 'Jakarta, Indonesia',
-    availability: 2,
-    URL: '/career/finance',
-  },
-  // Job 2
-  {
-    name: 'Human Resource',
-    time: 'Fulltime',
-    staff_level: 'Staff Level',
-    division: 'Human Capital & Talent Acquisition',
-    location: 'Jakarta, Indonesia',
-    availability: 2,
-    URL: '/career/human-resource',
-  },
-  // Job 3
-  {
-    name: 'Web Developer',
-    time: 'Fulltime',
-    staff_level: 'Staff Level',
-    division: 'Full Stack Web Developer',
-    location: 'Jakarta, Indonesia',
-    availability: 2,
-    URL: '/career/web-developer',
-  },
-  // Job 4
-  {
-    name: 'Copywritting',
-    time: 'Fulltime',
-    staff_level: 'Staff Level',
-    division: 'Marketing & Content Writer',
-    location: 'Jakarta, Indonesia',
-    availability: 2,
-    URL: '/career/copywriting',
-  },
-  // Job 5
-  {
-    name: 'Personal Assistant',
-    time: 'Fulltime',
-    staff_level: 'Staff Level',
-    division: 'Personal Assistant',
-    location: 'Jakarta, Indonesia',
-    availability: 2,
-    URL: '/career/personal-assistant',
-  },
-  // Job 6
-  {
-    name: 'Affiliate',
-    time: 'Fulltime',
-    staff_level: 'Staff Level',
-    division: 'Ads, Affiliate & Social Media',
-    location: 'Jakarta, Indonesia',
-    availability: 2,
-    URL: '/career/affiliate',
-  },
-  // Job 7
-  {
-    name: 'CRM',
-    time: 'Fulltime',
-    staff_level: 'Staff Level',
-    division: 'CRM',
-    location: 'Jakarta, Indonesia',
-    availability: 2,
-    URL: '/career/crm',
-  },
-  // Job 8
-  {
-    name: 'Purchasing',
-    time: 'Fulltime',
-    staff_level: 'Staff Level',
-    division: 'Purchasing',
-    location: 'Jakarta, Indonesia',
-    availability: 2,
-    URL: 'career/purchasing',
-  },
-  // Job 9
-  {
-    name: 'Grapich Designer',
-    time: 'Fulltime',
-    staff_level: 'Staff Level',
-    division: 'Design & UX',
-    location: 'Jakarta, Indonesia',
-    availability: 2,
-    URL: '/career/graphic-designer',
-  },
-  // Add more job objects as needed
-];
 const departments = [
   {
     division: 'Marketing & Content Writer',
@@ -204,22 +101,43 @@ const testimonialHR = [
 const Career = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
+  const [filterOptions, setFilterOptions] = useState({
+    division: [],
+    staff_level: [],
+    location: [],
+  });
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
     setSearchQuery('');
+    setFilterOptions({ division: [], staff_level: [], location: [] });
   };
 
   const handleSearchInputChange = (e) => {
     setSearchQuery(e.target.value);
   };
 
-  const filteredJobs = jobs.filter(
+  const handleFilterChange = (filter, value) => {
+    const newOptions = filterOptions[filter].includes(value)
+      ? filterOptions[filter].filter((option) => option !== value)
+      : [...filterOptions[filter], value];
+    setFilterOptions({ ...filterOptions, [filter]: newOptions });
+  };
+
+  const uniqueValues = (key) => [...new Set(Jobs.map((job) => job[key]))];
+
+  const filteredJobs = Jobs.filter(
     (job) =>
       (selectedCategory ? job.division === selectedCategory : true) &&
       (searchQuery
         ? job.name.toLowerCase().includes(searchQuery.toLowerCase())
-        : true),
+        : true) &&
+      (filterOptions.division.length === 0 ||
+        filterOptions.division.includes(job.division)) &&
+      (filterOptions.staff_level.length === 0 ||
+        filterOptions.staff_level.includes(job.staff_level)) &&
+      (filterOptions.location.length === 0 ||
+        filterOptions.location.includes(job.location)),
   );
 
   const showAllButton = filteredJobs.length > 9;
@@ -251,11 +169,13 @@ const Career = () => {
             searchQuery={searchQuery}
             handleSearchInputChange={handleSearchInputChange}
           />
+
           <JobCategories
-            categories={[...jobCategories]}
+            categories={[...uniqueValues('division')]}
             selectedCategory={selectedCategory}
             handleCategoryClick={handleCategoryClick}
           />
+
           <div className="flex w-full flex-col items-center justify-between">
             {filteredJobs.length > 0 ? (
               <ul className="grid w-full grid-cols-3 gap-6">

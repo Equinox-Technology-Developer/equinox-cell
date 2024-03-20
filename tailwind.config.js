@@ -58,6 +58,7 @@ module.exports = {
         'shade-500': '#F9F9F9',
         'shade-700': '#EAEAEA',
         'shade-900': '#C1D1DA',
+        'heading-secondary': '#ADACAC',
       },
     },
   },
