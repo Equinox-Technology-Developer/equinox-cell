@@ -46,7 +46,7 @@ const departments = [
     imageUrl: '/assets/Department Ads Affiliate.png',
   },
   {
-    division: 'MHuman Capital & Talent Acquisition',
+    division: 'Human Capital & Talent Acquisition',
     imageUrl: '/assets/Department HRD.png',
   },
   {
@@ -420,7 +420,7 @@ const Career = () => {
             <ul className="grid w-full grid-cols-4 gap-6">
               {departments.map((department) => (
                 <li
-                  className="flex flex-col items-center justify-center gap-3 text-center"
+                  className="flex flex-col items-center justify-start gap-3 text-center"
                   key={department.division}
                 >
                   <Image
@@ -428,9 +428,11 @@ const Career = () => {
                     width={313}
                     height={202}
                     alt={department.division}
-                    className="w-full"
+                    className="w-full rounded-[20px]"
                   />
-                  <p>{department.division}</p>
+                  <p className="text-[18px] font-semibold">
+                    {department.division}
+                  </p>
                 </li>
               ))}
             </ul>
