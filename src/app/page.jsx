@@ -22,6 +22,32 @@ export default function Home() {
     progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
   };
 
+  const [hoverStates, setHoverStates] = useState({
+    sohnne: false,
+    enigwatch: false,
+    artdigest: false,
+    koizuma: false,
+    millionbloom: false,
+    expert: false,
+    tph: false,
+    eternity: false,
+    vertu: false,
+  });
+
+  const handleMouseEnter = (key) => {
+    setHoverStates((prevStates) => ({
+      ...prevStates,
+      [key]: true,
+    }));
+  };
+
+  const handleMouseLeave = (key) => {
+    setHoverStates((prevStates) => ({
+      ...prevStates,
+      [key]: false,
+    }));
+  };
+
   return (
     <main className="min-h-screen">
       <section className="h-full w-full">
@@ -544,147 +570,385 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-4">
-          <div className="relative">
-            <Image
-              src={'/assets/cover-sohnne.png'}
-              width={460}
-              height={576}
-              className="h-auto w-full object-cover object-center"
-              alt="sohnne-cover-image"
-            />
-            <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#0000009E]">
-              <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
+        <div>
+          <Swiper
+            slidesPerView={4}
+            spaceBetween={0}
+            pagination={{
+              clickable: true,
+            }}
+            className="mySwiper"
+          >
+            <SwiperSlide>
+              <div
+                className="relative"
+                onMouseEnter={() => handleMouseEnter('sohnne')}
+                onMouseLeave={() => handleMouseLeave('sohnne')}
+              >
                 <Image
-                  src={'/assets/logo-sohnne.svg'}
-                  width={200}
-                  height={80}
-                  alt="sohnne-logo"
+                  src={'/assets/cover-sohnne.png'}
+                  width={460}
+                  height={576}
+                  className="h-auto w-full object-cover object-center "
+                  alt="sohnne-cover-image"
                 />
-                <p className="mt-[32px] max-w-[297px] text-center text-white">
-                  Lorem ipsum dolor sit amet consectetur. Sed ultrices ut
-                  viverra consectetur aliquam a ultricies lacinia. Hac sagittis
-                  est lorem ipsum porttitor. Arcu dis eu velit massa volutpat
-                  velit augue. Congue habitant pretium elementum nulla
-                  adipiscing.
-                </p>
-                <a
-                  href="#"
-                  className="absolute bottom-[47px] flex items-center gap-x-[12px] text-[#4CB9E7]"
-                >
-                  <p>View more</p>
-                  <span>
-                    <FaArrowRight />
-                  </span>
-                </a>
+                <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#000000CC]">
+                  <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
+                    <Image
+                      src={'/assets/logo-sohnne.svg'}
+                      width={200}
+                      height={80}
+                      alt="sohnne-logo"
+                    />
+                    <p className="mt-[32px] max-w-[297px] text-center text-white">
+                      Sohnne, born in the heart of San Francisco, redefines the
+                      essence of furniture and lifestyle. With a core belief
+                      that designer furniture is a right, not a privilege, we
+                      unite a team of expert engineers, innovative architects,
+                      and imaginative designers.
+                    </p>
+                    <a
+                      href="https://sohnne.com"
+                      className={`absolute flex items-center gap-x-[12px] text-[#4CB9E7] transition-all ${hoverStates.sohnne ? 'bottom-[47px]' : 'bottom-[-47px]'}`}
+                    >
+                      <p>View more</p>
+                      <span>
+                        <FaArrowRight />
+                      </span>
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="relative">
-            <Image
-              src={'/assets/cover-enigwatch.png'}
-              width={460}
-              height={576}
-              className="h-auto w-full object-cover object-center"
-              alt="enigwatch-cover-image"
-            />
-            <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#0000009E]">
-              <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
+            </SwiperSlide>
+            <SwiperSlide>
+              <div
+                className="relative"
+                onMouseEnter={() => handleMouseEnter('enigwatch')}
+                onMouseLeave={() => handleMouseLeave('enigwatch')}
+              >
                 <Image
-                  src={'/assets/logo-enigwatch.svg'}
-                  width={200}
-                  height={80}
-                  alt="enigwatch-logo"
+                  src={'/assets/cover-enigwatch.png'}
+                  width={460}
+                  height={576}
+                  className="h-auto w-full object-cover object-center"
+                  alt="enigwatch-cover-image"
                 />
-                <p className="mt-[32px] max-w-[297px] text-center text-white">
-                  Lorem ipsum dolor sit amet consectetur. Sed ultrices ut
-                  viverra consectetur aliquam a ultricies lacinia. Hac sagittis
-                  est lorem ipsum porttitor. Arcu dis eu velit massa volutpat
-                  velit augue. Congue habitant pretium elementum nulla
-                  adipiscing.
-                </p>
-                <a
-                  href="#"
-                  className="absolute bottom-[47px] flex items-center gap-x-[12px] text-[#4CB9E7]"
-                >
-                  <p>View more</p>
-                  <span>
-                    <FaArrowRight />
-                  </span>
-                </a>
+                <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#000000CC]">
+                  <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
+                    <Image
+                      src={'/assets/logo-enigwatch.svg'}
+                      width={200}
+                      height={80}
+                      alt="enigwatch-logo"
+                    />
+                    <p className="mt-[32px] max-w-[297px] text-center text-white">
+                      As a company, Enigwatch has spent the preceding three
+                      decades perfecting its wares via meticulous planning,
+                      precise execution, the use of only the highest quality
+                      materials, and an exceptional eye for aesthetics.
+                    </p>
+                    <a
+                      href="https://enigwatch.com"
+                      className={`absolute flex items-center gap-x-[12px] text-[#4CB9E7] transition-all ${hoverStates.enigwatch ? 'bottom-[47px]' : 'bottom-[-47px]'}`}
+                    >
+                      <p>View more</p>
+                      <span>
+                        <FaArrowRight />
+                      </span>
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="relative">
-            <Image
-              src={'/assets/cover-artdigest.png'}
-              width={460}
-              height={576}
-              className="h-auto w-full object-cover object-center"
-              alt="artdigest-cover-image"
-            />
-            <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#0000009E]">
-              <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
+            </SwiperSlide>
+            <SwiperSlide>
+              <div
+                className="relative"
+                onMouseEnter={() => handleMouseEnter('artdigest')}
+                onMouseLeave={() => handleMouseLeave('artdigest')}
+              >
                 <Image
-                  src={'/assets/logo-artdigest.svg'}
-                  width={200}
-                  height={80}
-                  alt="artdigest-logo"
+                  src={'/assets/cover-artdigest.png'}
+                  width={460}
+                  height={576}
+                  className="h-auto w-full object-cover object-center"
+                  alt="artdigest-cover-image"
                 />
-                <p className="mt-[32px] max-w-[297px] text-center text-white">
-                  Lorem ipsum dolor sit amet consectetur. Sed ultrices ut
-                  viverra consectetur aliquam a ultricies lacinia. Hac sagittis
-                  est lorem ipsum porttitor. Arcu dis eu velit massa volutpat
-                  velit augue. Congue habitant pretium elementum nulla
-                  adipiscing.
-                </p>
-                <a
-                  href="#"
-                  className="absolute bottom-[47px] flex items-center gap-x-[12px] text-[#4CB9E7]"
-                >
-                  <p>View more</p>
-                  <span>
-                    <FaArrowRight />
-                  </span>
-                </a>
+                <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#000000CC]">
+                  <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
+                    <Image
+                      src={'/assets/logo-artdigest.svg'}
+                      width={200}
+                      height={80}
+                      alt="artdigest-logo"
+                    />
+                    <p className="mt-[32px] max-w-[297px] text-center text-white">
+                      Designed with the idea that a house & office should be
+                      comfortable and expressive. All of our goods are expertly
+                      crafted and put through stringent quality testing. The
+                      luxury home décor brand Artdigest promises a concept that
+                      finds a balance between artistic expression and superior
+                      functionality.
+                    </p>
+                    <a
+                      href="https://artdigest.co"
+                      className={`absolute flex items-center gap-x-[12px] text-[#4CB9E7] transition-all ${hoverStates.artdigest ? 'bottom-[47px]' : 'bottom-[-47px]'}`}
+                    >
+                      <p>View more</p>
+                      <span>
+                        <FaArrowRight />
+                      </span>
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="relative">
-            <Image
-              src={'/assets/cover-koizuma.png'}
-              width={460}
-              height={576}
-              className="h-auto w-full object-cover object-center"
-              alt="koizuma-cover-image"
-            />
-            <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#0000009E]">
-              <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
+            </SwiperSlide>
+            <SwiperSlide>
+              <div
+                className="relative"
+                onMouseEnter={() => handleMouseEnter('koizuma')}
+                onMouseLeave={() => handleMouseLeave('koizuma')}
+              >
                 <Image
-                  src={'/assets/logo-koizuma.svg'}
-                  width={200}
-                  height={80}
-                  alt="koizuma-logo"
+                  src={'/assets/cover-koizuma.png'}
+                  width={460}
+                  height={576}
+                  className="h-auto w-full object-cover object-center"
+                  alt="koizuma-cover-image"
                 />
-                <p className="mt-[32px] max-w-[297px] text-center text-white">
-                  Lorem ipsum dolor sit amet consectetur. Sed ultrices ut
-                  viverra consectetur aliquam a ultricies lacinia. Hac sagittis
-                  est lorem ipsum porttitor. Arcu dis eu velit massa volutpat
-                  velit augue. Congue habitant pretium elementum nulla
-                  adipiscing.
-                </p>
-                <a
-                  href="#"
-                  className="absolute bottom-[47px] flex items-center gap-x-[12px] text-[#4CB9E7]"
-                >
-                  <p>View more</p>
-                  <span>
-                    <FaArrowRight />
-                  </span>
-                </a>
+                <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#000000CC]">
+                  <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
+                    <Image
+                      src={'/assets/logo-koizuma.svg'}
+                      width={200}
+                      height={80}
+                      alt="koizuma-logo"
+                    />
+                    <p className="mt-[32px] max-w-[297px] text-center text-white">
+                      Koizuma is a brand dedicated to supporting all women's
+                      beauty. Our mission is to help every woman feel confident
+                      and beautiful in her own skin. We are passionate about
+                      designing devices that grant women their wish for smooth,
+                      hair-free skin.
+                    </p>
+                    <a
+                      href="https://koizuma.com"
+                      className={`absolute flex items-center gap-x-[12px] text-[#4CB9E7] transition-all ${hoverStates.koizuma ? 'bottom-[47px]' : 'bottom-[-47px]'}`}
+                    >
+                      <p>View more</p>
+                      <span>
+                        <FaArrowRight />
+                      </span>
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div
+                className="relative"
+                onMouseEnter={() => handleMouseEnter('millionbloom')}
+                onMouseLeave={() => handleMouseLeave('millionbloom')}
+              >
+                <Image
+                  src={'/assets/cover-million-bloom.png'}
+                  width={460}
+                  height={576}
+                  className="h-auto w-full object-cover object-center"
+                  alt="koizuma-cover-image"
+                />
+                <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#000000CC]">
+                  <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
+                    <Image
+                      src={'/assets/logo-million-bloom.svg'}
+                      width={200}
+                      height={80}
+                      alt="million-bloom-logo"
+                    />
+                    <p className="mt-[32px] max-w-[297px] text-center text-white">
+                      Armed with her knowledge and resources, Olivia Kurniawan
+                      founded The Million Bloom Indonesia in 2022. She is
+                      determined to create superior quality, long-lasting fresh
+                      flowers, fast delivery at a friendly price.
+                    </p>
+                    <a
+                      href="https://millionbloom.com"
+                      className={`absolute flex items-center gap-x-[12px] text-[#4CB9E7] transition-all ${hoverStates.millionbloom ? 'bottom-[47px]' : 'bottom-[-47px]'}`}
+                    >
+                      <p>View more</p>
+                      <span>
+                        <FaArrowRight />
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div
+                className="relative"
+                onMouseEnter={() => handleMouseEnter('expert')}
+                onMouseLeave={() => handleMouseLeave('expert')}
+              >
+                <Image
+                  src={'/assets/cover-10-expert.png'}
+                  width={460}
+                  height={576}
+                  className="h-auto w-full object-cover object-center"
+                  alt="koizuma-cover-image"
+                />
+                <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#000000CC]">
+                  <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
+                    <Image
+                      src={'/assets/logo-10-expert.svg'}
+                      width={200}
+                      height={80}
+                      alt="10-expert-logo"
+                    />
+                    <p className="mt-[32px] max-w-[297px] text-center text-white">
+                      At 10Expert, our primary mission is to help shoppers
+                      navigate the internet in the most informed and
+                      cost-effective way. Our team of experienced journalists
+                      and product experts has developed a rigorous testing
+                      process to identify the most reliable and useful products
+                      available. 
+                    </p>
+                    <a
+                      href="https://10expert.com"
+                      className={`absolute flex items-center gap-x-[12px] text-[#4CB9E7] transition-all ${hoverStates.expert ? 'bottom-[47px]' : 'bottom-[-47px]'}`}
+                    >
+                      <p>View more</p>
+                      <span>
+                        <FaArrowRight />
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div
+                className="relative"
+                onMouseEnter={() => handleMouseEnter('tph')}
+                onMouseLeave={() => handleMouseLeave('tph')}
+              >
+                <Image
+                  src={'/assets/cover-tph.png'}
+                  width={460}
+                  height={576}
+                  className="h-auto w-full object-cover object-center"
+                  alt="koizuma-cover-image"
+                />
+                <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#000000CC]">
+                  <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
+                    <Image
+                      src={'/assets/logo-tph.svg'}
+                      width={200}
+                      height={80}
+                      alt="tph-logo"
+                    />
+                    <p className="mt-[32px] max-w-[297px] text-center text-white">
+                      Joseph, an architect with an eye for minimalist elegance,
+                      and Elizabeth, an environmental scientist with a passion
+                      for sustainable practices, met during a community project
+                      focused on eco-friendly housing. Their connection was
+                      instant, both personally and professionally.
+                    </p>
+                    <a
+                      href="https://thepanelhub.com"
+                      className={`absolute flex items-center gap-x-[12px] text-[#4CB9E7] transition-all ${hoverStates.tph ? 'bottom-[47px]' : 'bottom-[-47px]'}`}
+                    >
+                      <p>View more</p>
+                      <span>
+                        <FaArrowRight />
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div
+                className="relative"
+                onMouseEnter={() => handleMouseEnter('eternity')}
+                onMouseLeave={() => handleMouseLeave('eternity')}
+              >
+                <Image
+                  src={'/assets/cover-eternity-flower.png'}
+                  width={460}
+                  height={576}
+                  className="h-auto w-full object-cover object-center"
+                  alt="koizuma-cover-image"
+                />
+                <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#000000CC]">
+                  <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
+                    <Image
+                      src={'/assets/logo-eternity-flower.svg'}
+                      width={200}
+                      height={80}
+                      alt="eternity-flower-logo"
+                    />
+                    <p className="mt-[32px] max-w-[297px] text-center text-white">
+                      Joseph, an architect with an eye for minimalist elegance,
+                      and Elizabeth, an environmental scientist with a passion
+                      for sustainable practices, met during a community project
+                      focused on eco-friendly housing. Their connection was
+                      instant, both personally and professionally.
+                    </p>
+                    <a
+                      href="https://eternityflower.com"
+                      className={`absolute flex items-center gap-x-[12px] text-[#4CB9E7] transition-all ${hoverStates.eternity ? 'bottom-[47px]' : 'bottom-[-47px]'}`}
+                    >
+                      <p>View more</p>
+                      <span>
+                        <FaArrowRight />
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div
+                className="relative"
+                onMouseEnter={() => handleMouseEnter('vertu')}
+                onMouseLeave={() => handleMouseLeave('vertu')}
+              >
+                <Image
+                  src={'/assets/cover-vertu-living.png'}
+                  width={460}
+                  height={576}
+                  className="h-auto w-full object-cover object-center"
+                  alt="koizuma-cover-image"
+                />
+                <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#000000CC]">
+                  <div className="absolute inset-0 flex h-full w-full flex-col items-center justify-center px-[31.5px] text-center">
+                    <Image
+                      src={'/assets/logo-vertu-living.svg'}
+                      width={200}
+                      height={80}
+                      alt="vertu-living-logo"
+                    />
+                    <p className="mt-[32px] max-w-[297px] text-center text-white">
+                      Joseph, an architect with an eye for minimalist elegance,
+                      and Elizabeth, an environmental scientist with a passion
+                      for sustainable practices, met during a community project
+                      focused on eco-friendly housing. Their connection was
+                      instant, both personally and professionally.
+                    </p>
+                    <a
+                      href="https://vertuliving.com"
+                      className={`absolute flex items-center gap-x-[12px] text-[#4CB9E7] transition-all ${hoverStates.vertu ? 'bottom-[47px]' : 'bottom-[-47px]'}`}
+                    >
+                      <p>View more</p>
+                      <span>
+                        <FaArrowRight />
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          </Swiper>
         </div>
       </section>
       <section className="container mx-auto flex flex-col space-y-[42px] py-[80px]">
