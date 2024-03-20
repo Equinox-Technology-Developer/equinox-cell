@@ -1,6 +1,4 @@
 import { Work_Sans } from 'next/font/google';
-import Navbar from '@/components/Navbar/page';
-import Footer from '@/components/Footer/page';
 
 import './globals.css';
 
@@ -18,11 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={workSans.className}>
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
+      <body className={workSans.className}>{children}</body>
     </html>
   );
 }
