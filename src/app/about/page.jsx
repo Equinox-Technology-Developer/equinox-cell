@@ -5,8 +5,9 @@ import { BsCheck2Circle } from 'react-icons/bs';
 import Layout from '@/components/Layout/page';
 
 export const metadata = {
-  title: 'Equinoxcell | About',
-  description: 'If you care what about equinoxcell? just read the message here',
+  title: 'About | Equinox',
+  description:
+    'Equinox Technology is a dynamic retail & SaaS enterprise, spearheading innovation in the e-commerce retail space. Specializing in a diverse range of products including home & garden essentials, cutting-edge electronics, and exquisite art pieces, we are committed to enriching the online shopping experience for our customers.',
 };
 
 export default function About() {
