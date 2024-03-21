@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -7,27 +7,23 @@ import {
   CapitalizeHeading,
   HeroBanner,
   JobCategories,
+  JobList,
   SearchJobs,
 } from '@/components/page';
-import { Jobs } from '@/lib/page';
+
+import { getAllJob } from '@/lib/jobs/page';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import { Pagination, Navigation } from 'swiper/modules';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import { GrLocation } from 'react-icons/gr';
-import { SiBookmeter } from 'react-icons/si';
-import { LiaUserTieSolid } from 'react-icons/lia';
-import { BiBriefcase } from 'react-icons/bi';
-
-import Layout from '@/components/Layout/page';
-
 import styles from './Career.module.scss';
+import Layout from '@/components/Layout/page';
 
 const departments = [
   {
@@ -98,23 +94,10 @@ const testimonialHR = [
     position: 'Regional Head of Human Resource',
     imgUrl: '/assets/Tiara.png',
   },
-  {
-    name: 'Tiara',
-    testimonial: `“Having to work for Equinox Technology has had a big impact
-    on my career. Aside from the benefits that it offers for me,
-    I have plenty of opportunities to learn from business
-    practices to industry niches. I started here as part of the
-    copywriting team, however as my career progresses, now I
-    have a seat as a manager for the Human Resources Department.
-    This was all due to all the support I experienced from the
-    Equinox Family and Team. The supportive environment is very
-    important.”`,
-    position: 'Regional Head of Human Resource',
-    imgUrl: '/assets/Tiara.png',
-  },
 ];
 
 const Career = () => {
+  const Jobs = getAllJob();
   const [selectedCategory, setSelectedCategory] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [filterOptions, setFilterOptions] = useState({
@@ -131,13 +114,6 @@ const Career = () => {
 
   const handleSearchInputChange = (e) => {
     setSearchQuery(e.target.value);
-  };
-
-  const handleFilterChange = (filter, value) => {
-    const newOptions = filterOptions[filter].includes(value)
-      ? filterOptions[filter].filter((option) => option !== value)
-      : [...filterOptions[filter], value];
-    setFilterOptions({ ...filterOptions, [filter]: newOptions });
   };
 
   const uniqueValues = (key) => [...new Set(Jobs.map((job) => job[key]))];
@@ -158,23 +134,10 @@ const Career = () => {
 
   const showAllButton = filteredJobs.length > 9;
 
-  const metadata = {
-    title: 'Career | Equinox',
-    description:
-      'Our talent assessments screen and identify the best candidates and make your hiring decisions faster, easier, and bias-free.',
-  };
-
-  useEffect(() => {
-    document.title = metadata.title;
-    document
-      .querySelector('meta[name="description"]')
-      .setAttribute('content', metadata.description);
-  });
-
   return (
     <>
-      {/* Banner Hero Career Page */}
       <Layout>
+        {/* Banner Hero Career Page */}
         <HeroBanner
           title={
             <span style={{ color: '#ffffff' }}>
@@ -204,76 +167,22 @@ const Career = () => {
               searchQuery={searchQuery}
               handleSearchInputChange={handleSearchInputChange}
             />
-
             <JobCategories
               categories={[...uniqueValues('division')]}
               selectedCategory={selectedCategory}
               handleCategoryClick={handleCategoryClick}
             />
-
-            <div className="flex w-full flex-col items-center justify-between">
-              {filteredJobs.length > 0 ? (
-                <ul className="grid w-full grid-cols-3 gap-6">
-                  {filteredJobs.slice(0, 9).map((job) => (
-                    <li className="job-card flex flex-col gap-5" key={job.name}>
-                      <Link href={`${job.URL}`}>
-                        <div className=" flex items-center gap-6  ">
-                          <h3>{job.name}</h3>
-                          <div className="rounded-[20px] bg-secondary-500 bg-opacity-10 px-3 py-1 text-xs">
-                            <p className="text-secondary-500">{job.time}</p>
-                          </div>
-                        </div>
-                        <div className="flex flex-col gap-2">
-                          <p className="flex items-center gap-3">
-                            {' '}
-                            <SiBookmeter size={20} color="#AFAFAF" />{' '}
-                            {job.staff_level}
-                          </p>
-                          <p className="flex items-center gap-3">
-                            {' '}
-                            <LiaUserTieSolid size={20} color="#AFAFAF" />{' '}
-                            {job.division}
-                          </p>
-                          <p className="flex items-center gap-3">
-                            {' '}
-                            <BiBriefcase size={20} color="#AFAFAF" />{' '}
-                            {job.availability}
-                          </p>
-                          <p className="flex items-center gap-3">
-                            {' '}
-                            <GrLocation size={20} color="#AFAFAF" />{' '}
-                            {job.location}
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <div className="flex flex-col items-center gap-5">
-                  <Image
-                    src={'/assets/default-no-job-found.png'}
-                    width={100}
-                    height={100}
-                    alt="No job found"
-                  />
-                  <p>
-                    No matches found. Let's give another query a whirl, shall
-                    we?
-                  </p>
-                </div>
-              )}
-              {showAllButton && (
-                <Link href="/career/career-filtered">
-                  <button
-                    className="mt-4 max-w-[101px] rounded-[81.5px] border border-secondary-500 bg-white px-3 py-[6px] text-secondary-500 transition-all duration-300 ease-in-out hover:bg-secondary-500 hover:text-white"
-                    onClick={() => setSelectedCategory('')}
-                  >
-                    Show All
-                  </button>
-                </Link>
-              )}
-            </div>
+            <JobList jobs={filteredJobs} /> {/* Use JobList component */}
+            {showAllButton && (
+              <Link href="/career/career-filtered">
+                <button
+                  className="mt-4 max-w-[101px] rounded-[81.5px] border border-secondary-500 bg-white px-3 py-[6px] text-secondary-500 transition-all duration-300 ease-in-out hover:bg-secondary-500 hover:text-white"
+                  onClick={() => setSelectedCategory('')}
+                >
+                  Show All
+                </button>
+              </Link>
+            )}
           </div>
         </section>
 
@@ -285,10 +194,6 @@ const Career = () => {
               centeredSlides={true}
               pagination={{
                 clickable: true,
-              }}
-              autoplay={{
-                delay: 10000,
-                disableOnInteraction: false,
               }}
               loop={true}
               loopFillGroupWithBlank={true}
@@ -306,7 +211,7 @@ const Career = () => {
                   spaceBetween: 40,
                 },
               }}
-              modules={[Navigation, Pagination, Autoplay]}
+              modules={[Navigation, Pagination]}
               className={`${styles.swiperContainer}`}
               style={{
                 '--swiper-pagination-color': '#4CB9E7',
@@ -340,36 +245,6 @@ const Career = () => {
           </div>
         </section>
 
-        {/* Department of Equinox Technology Section */}
-        <section className="flex w-full flex-col items-center gap-8 py-20">
-          <div className="container mx-auto flex w-full flex-col items-center justify-center">
-            <CapitalizeHeading>
-              department of equinox technology
-            </CapitalizeHeading>
-          </div>
-          <div className="container mx-auto w-full">
-            <ul className="grid w-full grid-cols-4 gap-6">
-              {departments.map((department) => (
-                <li
-                  className="flex flex-col items-center justify-start gap-3 text-center"
-                  key={department.division}
-                >
-                  <Image
-                    src={department.imageUrl}
-                    width={313}
-                    height={202}
-                    alt={department.division}
-                    className="w-full rounded-[20px]"
-                  />
-                  <p className="text-[18px] font-medium">
-                    {department.division}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
         {/* life at equinox technology Section */}
         <section className={`${styles.lifeAtEquinox} w-full`}>
           <div className="container mx-auto flex w-full flex-col items-center justify-center">
@@ -380,10 +255,6 @@ const Career = () => {
               grabCursor={true}
               centeredSlides={true}
               slidesPerView={'auto'}
-              autoplay={{
-                delay: 10000,
-                disableOnInteraction: false,
-              }}
               coverflowEffect={{
                 rotate: 50,
                 stretch: 0,
@@ -394,7 +265,7 @@ const Career = () => {
               pagination={{
                 clickable: true,
               }}
-              modules={[Pagination, Navigation, Autoplay]}
+              modules={[Pagination, Navigation]}
               className={`career-swiper ${styles.mySwiper}`}
               style={{
                 '--swiper-pagination-color': '#4CB9E7',
@@ -475,8 +346,36 @@ const Career = () => {
           </div>
         </section>
 
+        {/* Department of Equinox Technology Section */}
+        <section className="flex w-full flex-col items-center gap-8 py-20">
+          <div className="container mx-auto flex w-full flex-col items-center justify-center">
+            <CapitalizeHeading>
+              department of equinox technology
+            </CapitalizeHeading>
+          </div>
+          <div className="container mx-auto w-full">
+            <ul className="grid w-full grid-cols-4 gap-6">
+              {departments.map((department) => (
+                <li
+                  className="flex flex-col items-center justify-center gap-3 text-center"
+                  key={department.division}
+                >
+                  <Image
+                    src={department.imageUrl}
+                    width={313}
+                    height={202}
+                    alt={department.division}
+                    className="w-full"
+                  />
+                  <p>{department.division}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         {/* Our Value */}
-        <section className="px-16 py-20 pb-20">
+        <section className="px-16 pb-20">
           <div className="container mx-auto">
             <div className="flex justify-between gap-6">
               <Image
@@ -484,7 +383,6 @@ const Career = () => {
                 width={646}
                 height={722}
                 alt={'agreement-workplace 2'}
-                className="rounded-[20px]"
               />
               <div className=" flex max-w-[746px] flex-col items-center justify-center gap-6">
                 <CapitalizeHeading>Our Value</CapitalizeHeading>
@@ -492,43 +390,45 @@ const Career = () => {
                   Equinox Technology thrives with our diversity and integrity,
                   throughout our operations the sets of values we uphold are:
                 </p>
-                <ol className="list-inside list-decimal self-start text-lg leading-[27.9px]">
-                  <li className="font-medium">Kaizen</li>
-                  <p className="pl-[22px] text-[18px] leading-[27.9px]">
-                    We hold ourselves to the highest ethical standards, valuing
-                    honesty, sincerity, and moral uprightness.
-                  </p>
-                  <li className="font-medium">Integrity</li>
-                  <p className="pl-[22px] text-[18px] leading-[27.9px]">
-                    We hold ourselves to the highest ethical standards, valuing
-                    honesty, sincerity, and moral uprightness.
-                  </p>
-                  <li className="font-medium">Customer-Centric</li>
-                  <p className="pl-[22px] text-[18px] leading-[27.9px]">
-                    We focus on anticipating and meeting customer needs with
-                    superior products and services, always aiming to exceed
-                    their expectations.
-                  </p>
-                  <li className="font-medium">Innovation</li>
-                  <p className="pl-[22px] text-[18px] leading-[27.9px]">
-                    We embrace creativity and innovation. we ensure that we
-                    remain relevant and responsive, By constantly exploring new
-                    ideas and technologies.
-                  </p>
-                  <li className="font-medium">Collaboration</li>
-                  <p className="pl-[22px] text-[18px] leading-[27.9px]">
-                    CollaborationWe believe in harnessing teamwork and diverse
-                    perspectives for collective success. Through open
-                    communication and collaboration the best solutions stem from
-                    pooling talents and expertise.
-                  </p>
-                  <li className="font-medium">Empowerment</li>
-                  <p className="pl-[22px] text-[18px] leading-[27.9px]">
-                    We empower our employees to take ownership, make decisions,
-                    and grow personally and professionally, fostering an
-                    environment where everyone can thrive and contribute to our
-                    success.
-                  </p>
+                <ol className="self-start text-lg">
+                  <li>
+                    <h4 className=" font-normal">1. Kaizen</h4>
+                    <p className="pl-6">
+                      We prioritize continuous improvement and encourage
+                      proactive problem-solving among our employees.
+                    </p>
+                    <h4 className=" font-normal">2. Integrity</h4>
+                    <p className="pl-6">
+                      We hold ourselves to the highest ethical standards,
+                      valuing honesty, sincerity, and moral uprightness.
+                    </p>
+                    <h4 className=" font-normal">3. Customer-Centric</h4>
+                    <p className="pl-6">
+                      We focus on anticipating and meeting customer needs with
+                      superior products and services, always aiming to exceed
+                      their expectations.
+                    </p>
+                    <h4 className=" font-normal">4. Innovation</h4>
+                    <p className="pl-6">
+                      We embrace creativity and innovation. we ensure that we
+                      remain relevant and responsive, By constantly exploring
+                      new ideas and technologies.
+                    </p>
+                    <h4 className=" font-normal">5. Collaboration</h4>
+                    <p className="pl-6">
+                      CollaborationWe believe in harnessing teamwork and diverse
+                      perspectives for collective success. Through open
+                      communication and collaboration the best solutions stem
+                      from pooling talents and expertise.
+                    </p>
+                    <h4 className=" font-normal">6. Empowerment</h4>
+                    <p className="pl-6">
+                      We empower our employees to take ownership, make
+                      decisions, and grow personally and professionally,
+                      fostering an environment where everyone can thrive and
+                      contribute to our success.
+                    </p>
+                  </li>
                 </ol>
               </div>
             </div>

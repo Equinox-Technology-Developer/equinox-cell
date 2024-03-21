@@ -350,7 +350,7 @@ const jobs = [
     division: 'Human Capital & Talent Acquisition',
     location: 'Jakarta, Indonesia',
     availability: 2,
-    URL: '/career/human-resource',
+    URL: '/career/recruiter',
     submit_URL: '#',
     overview:
       'Human Resource Department thrive to support Equinox Technology’s Strategic Goals, Manpower Planning,  and setting a positive work environment.',
@@ -405,4 +405,15 @@ const jobs = [
   },
 ];
 
-export default jobs;
+const getAllJob = () => {
+  return jobs;
+};
+
+const getJobsBySlug = (slug) => {
+  return jobs.find((job) => job.slug === slug);
+};
+
+module.exports = {
+  getAllJob,
+  getJobsBySlug,
+};
