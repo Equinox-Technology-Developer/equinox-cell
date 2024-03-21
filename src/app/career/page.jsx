@@ -94,6 +94,20 @@ const testimonialHR = [
     position: 'Regional Head of Human Resource',
     imgUrl: '/assets/Tiara.png',
   },
+  {
+    name: 'Tiara',
+    testimonial: `“Having to work for Equinox Technology has had a big impact
+    on my career. Aside from the benefits that it offers for me,
+    I have plenty of opportunities to learn from business
+    practices to industry niches. I started here as part of the
+    copywriting team, however as my career progresses, now I
+    have a seat as a manager for the Human Resources Department.
+    This was all due to all the support I experienced from the
+    Equinox Family and Team. The supportive environment is very
+    important.”`,
+    position: 'Regional Head of Human Resource',
+    imgUrl: '/assets/Tiara.png',
+  },
 ];
 
 const Career = () => {
@@ -245,6 +259,34 @@ const Career = () => {
           </div>
         </section>
 
+        {/* Department of Equinox Technology Section */}
+        <section className="flex w-full flex-col items-center gap-8 py-20">
+          <div className="container mx-auto flex w-full flex-col items-center justify-center">
+            <CapitalizeHeading>
+              department of equinox technology
+            </CapitalizeHeading>
+          </div>
+          <div className="container mx-auto w-full">
+            <ul className="grid w-full grid-cols-4 gap-6">
+              {departments.map((department) => (
+                <li
+                  className="flex flex-col items-center justify-center gap-3 text-center"
+                  key={department.division}
+                >
+                  <Image
+                    src={department.imageUrl}
+                    width={313}
+                    height={202}
+                    alt={department.division}
+                    className="w-full"
+                  />
+                  <p>{department.division}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         {/* life at equinox technology Section */}
         <section className={`${styles.lifeAtEquinox} w-full`}>
           <div className="container mx-auto flex w-full flex-col items-center justify-center">
@@ -346,36 +388,8 @@ const Career = () => {
           </div>
         </section>
 
-        {/* Department of Equinox Technology Section */}
-        <section className="flex w-full flex-col items-center gap-8 py-20">
-          <div className="container mx-auto flex w-full flex-col items-center justify-center">
-            <CapitalizeHeading>
-              department of equinox technology
-            </CapitalizeHeading>
-          </div>
-          <div className="container mx-auto w-full">
-            <ul className="grid w-full grid-cols-4 gap-6">
-              {departments.map((department) => (
-                <li
-                  className="flex flex-col items-center justify-center gap-3 text-center"
-                  key={department.division}
-                >
-                  <Image
-                    src={department.imageUrl}
-                    width={313}
-                    height={202}
-                    alt={department.division}
-                    className="w-full"
-                  />
-                  <p>{department.division}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
         {/* Our Value */}
-        <section className="px-16 pb-20">
+        <section className="px-16 py-20">
           <div className="container mx-auto">
             <div className="flex justify-between gap-6">
               <Image
