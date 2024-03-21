@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { CapitalizeHeading, SearchFilteredJobs } from '@/components/page';
-import { Jobs } from '@/lib/page';
 
 import { GrLocation } from 'react-icons/gr';
 import { SiBookmeter } from 'react-icons/si';
@@ -15,6 +14,7 @@ import {
   BiChevronRight,
   BiChevronLeft,
 } from 'react-icons/bi';
+import { getAllJob } from '@/lib/jobs/page';
 
 const faqItems = [
   {
@@ -39,6 +39,7 @@ const faqItems = [
 ];
 
 const CareerPage = () => {
+  const Jobs = getAllJob();
   const [selectedCategory, setSelectedCategory] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [filterOptions, setFilterOptions] = useState({
@@ -168,7 +169,7 @@ const CareerPage = () => {
             <div className="flex w-full flex-col gap-8">
               <div className="flex justify-between">
                 <h2 className=" text-4xl font-semibold">Available Positions</h2>
-                <h2 className="text-heading-secondary font-medium">
+                <h2 className="font-medium text-heading-secondary">
                   {totalJobs} {totalJobs >= 2 ? 'Positions' : 'Position'}
                 </h2>
               </div>
