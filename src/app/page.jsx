@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaLinkedin } from 'react-icons/fa6';
@@ -19,7 +19,19 @@ import styles from './home.module.css';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
+const metadata = {
+  title: 'Homepage | Equinox',
+  description: `Our talent assessments screen and identify the best candidates and make your hiring decisions faster, easier, and bias-free.`,
+};
+
 export default function Home() {
+  useEffect(() => {
+    document.title = metadata.title;
+    document
+      .querySelector('meta[name="description"]')
+      .setAttribute('content', metadata.description);
+  });
+
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
   const onAutoplayTimeLeft = (s, time, progress) => {
