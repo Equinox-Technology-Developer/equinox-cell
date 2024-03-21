@@ -19,9 +19,7 @@ const JobDetailsPage = ({ params: { slug } }) => {
 
         {/* Input Field */}
         <section>
-          <div className="container mx-auto py-16">
-            
-          </div>
+          <div className="container mx-auto py-16"></div>
         </section>
       </Layout>
     </>
