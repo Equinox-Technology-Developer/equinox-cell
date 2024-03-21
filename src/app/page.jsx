@@ -74,12 +74,12 @@ export default function Home() {
             width={1440}
             height={676}
             alt="hero-image"
-            className="h-[676px] w-full object-cover object-center"
+            className="h-[425px] w-full object-cover object-center md:h-[768px] lg:h-[676px]"
           />
-          <div className="absolute inset-0 mt-[80px] h-[676px] w-full bg-gradient-to-l from-[#66666600] to-[#0000009E]">
-            <div className="absolute inset-0 flex h-[676px] w-full items-center justify-start text-start">
+          <div className="absolute inset-0 mt-[67px] h-[425px] w-full bg-gradient-to-l from-[#66666600] to-[#0000009E] md:h-[768px] lg:mt-[80px] lg:h-[676px]">
+            <div className="absolute inset-0 flex h-[425px] w-full items-center justify-start text-start md:h-[768px] lg:h-[676px]">
               <div className="container mx-auto w-full space-y-8">
-                <div className="w-full space-y-[24px] px-4 lg:w-1/2 lg:px-0">
+                <div className="w-full space-y-[24px] px-4 md:px-[60px] lg:w-1/2 lg:px-0">
                   <h1 className="text-center text-[30px] font-bold leading-[48px] text-white md:text-[40px] lg:text-start">
                     Innovating Goods for The <br />
                     <span className="text-secondary-500">Greater Good</span>
@@ -94,8 +94,8 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="h-full w-full space-y-3 px-4 py-6 lg:px-0 lg:py-[40px]">
-          <h2 className="text-center text-[40px] font-bold leading-[27.9px]">
+        <section className="h-full w-full space-y-3 px-4 py-6 md:px-[32px] md:pt-[32px] lg:px-0 lg:py-[40px]">
+          <h2 className="text-center text-[30px] font-bold leading-[27.9px] md:text-[40px]">
             Equinox Technology LLC
           </h2>
           <p className="text-medium flex justify-center text-center text-[18px] leading-[27.9px]">
@@ -103,12 +103,12 @@ export default function Home() {
             about retail and technology
           </p>
         </section>
-        <section className="container mx-auto flex flex-row py-[80px]">
-          <div className="flex w-1/2 flex-col justify-center space-y-6">
-            <h2 className="text-[40px] font-semibold leading-[27.9px]">
+        <section className="container mx-auto flex flex-col-reverse px-4 py-6 md:px-[32px] md:pt-[32px] lg:flex-row lg:px-0 lg:py-[80px]">
+          <div className="mt-[24px] flex w-full flex-col justify-center space-y-6 lg:mt-0 lg:w-1/2">
+            <h2 className="text-center text-[30px] font-semibold leading-[27.9px] md:text-[40px] lg:text-start">
               About
             </h2>
-            <p>
+            <p className="text-center text-[14px] md:text-[18px] lg:text-start">
               Equinox Technology is a dynamic retail & SaaS enterprise,
               spearheading innovation in the e-commerce retail space.
               Specializing in a diverse range of products including home &
@@ -116,11 +116,13 @@ export default function Home() {
               pieces, we are committed to enriching the online shopping
               experience for our customers.
             </p>
-            <button className="w-fit rounded-[40px] bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] px-6 py-[6px] text-[18px] text-white">
-              <a href="/about">See more</a>
-            </button>
+            <div className="flex w-full justify-center lg:justify-start">
+              <button className="w-fit rounded-[40px] bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] px-6 py-[6px] text-center text-[18px] text-white">
+                <a href="/about">See more</a>
+              </button>
+            </div>
           </div>
-          <div className="w-1/2">
+          <div className="w-full lg:w-1/2">
             <Image
               src={'/assets/about-image.png'}
               width={646}
@@ -130,46 +132,46 @@ export default function Home() {
             />
           </div>
         </section>
-        <section className="container mx-auto flex flex-col py-[80px]">
-          <p className="text-center text-[18px] font-medium leading-[27.9px]">
+        <section className="container mx-auto flex flex-col px-4 py-6 md:px-[32px] md:pt-[32px] lg:px-0 lg:py-[80px]">
+          <p className="text-center text-[14px] font-medium leading-[27.9px] md:text-[18px]">
             Where Innovation Meets Craftsmanship in the Furniture Industry!
           </p>
-          <h2 className="text-center text-[40px] font-bold leading-[48px]">
+          <h2 className="text-center text-[30px] font-bold leading-[48px] md:text-[40px]">
             Work that touches the lives of millions
           </h2>
-          <div className="mt-[42px] grid grid-cols-3 gap-x-[24px]">
+          <div className="mt-[42px] grid grid-cols-1 gap-x-[24px] lg:grid-cols-3">
             <div className="py-2">
-              <h3 className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[54px] font-bold leading-[54px] text-transparent">
+              <h3 className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[32px] font-bold leading-[32px] text-transparent md:text-[54px] md:leading-[54px]">
                 $1.999K+
               </h3>
-              <p className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[24px] font-semibold leading-[24px] text-transparent">
+              <p className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[20px] font-semibold leading-[24px] text-transparent md:text-[24px]">
                 Total Sales
               </p>
-              <p className="text-center leading-[24px]">
+              <p className="text-center text-[14px] leading-[24px] md:text-[16px]">
                 of organizations using talent assessment tests saw a reduction
                 in mis-hires
               </p>
             </div>
             <div className="py-2">
-              <h3 className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[54px] font-bold leading-[54px] text-transparent">
+              <h3 className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[32px] font-bold leading-[32px] text-transparent md:text-[54px] md:leading-[54px]">
                 88%+
               </h3>
-              <p className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[24px] font-semibold leading-[24px] text-transparent">
+              <p className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[20px] font-semibold leading-[24px] text-transparent md:text-[24px]">
                 Organic Sales
               </p>
-              <p className="text-center leading-[24px]">
+              <p className="text-center text-[14px] leading-[24px] md:text-[16px]">
                 of organizations using talent assessment tools reported a
                 reduction in cost-to-hire
               </p>
             </div>
             <div className="py-2">
-              <h3 className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[54px] font-bold leading-[54px] text-transparent">
+              <h3 className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[32px] font-bold leading-[32px] text-transparent md:text-[54px] md:leading-[54px]">
                 8+
               </h3>
-              <p className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[24px] font-semibold leading-[24px] text-transparent">
+              <p className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[20px] font-semibold leading-[24px] text-transparent md:text-[24px]">
                 Subsidiary Company
               </p>
-              <p className="text-center leading-[24px]">
+              <p className="text-center text-[14px] leading-[24px] md:text-[16px]">
                 of candidates said they prefer a hiring process that includes
                 talent assessment tests
               </p>
@@ -202,31 +204,31 @@ export default function Home() {
             }}
           >
             <SwiperSlide>
-              <div className="bg-primary-900">
+              <div className="relative min-h-[844px] bg-primary-900">
                 <div className="container mx-auto py-[60px]">
-                  <h2 className="text-center text-[40px] font-bold leading-[48px] text-white">
+                  <h2 className="text-center text-[30px] font-bold leading-[48px] text-white md:text-[40px]">
                     The Journey
                   </h2>
-                  <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
+                  <div className="mt-0 grid w-full grid-cols-1 px-[16px] py-[16px] md:px-[40px] md:py-[24px] lg:mt-[20px] lg:grid-cols-2 lg:px-[60px] lg:py-[46px]">
                     <div className="h-full w-full">
                       <Image
                         src={'/assets/hero-image-journey.png'}
                         width={496}
                         height={414}
-                        className="h-auto w-full"
+                        className="h-auto max-h-[414px] w-full object-cover object-center"
                         alt="journey-image"
                       />
                     </div>
-                    <div className="h-full w-full">
-                      <div className="relative flex h-full flex-col items-end justify-center space-y-[12px]">
-                        <h2 className="text-right text-[48px] font-semibold leading-[24px] text-white">
+                    <div className="mt-[24px] h-full w-full lg:mt-0">
+                      <div className="relative flex h-full flex-col items-center justify-center space-y-[12px] lg:items-end">
+                        <h2 className="mb-[11px] text-right text-[48px] font-semibold leading-[24px] text-white lg:mb-0">
                           2017
                         </h2>
-                        <p className="max-w-[462px] text-right text-[16px] leading-[24px] text-white">
+                        <p className="max-w-[462px] text-center text-[16px] leading-[24px] text-white  lg:text-right">
                           Equinox Technology LLC firstly established in San
                           Francisco as a business that runs as a small commerce
                         </p>
-                        <div className="absolute bottom-0 right-0">
+                        <div className="absolute hidden lg:bottom-0 lg:right-0 lg:block">
                           <Image
                             src={'/assets/equinox-technology-logo-3.svg'}
                             width={212}
@@ -238,225 +240,329 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+                <div className="absolute bottom-[70px] left-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden">
+                  <Image
+                    src={'/assets/equinox-technology-logo-3.svg'}
+                    width={212}
+                    height={49}
+                    alt="equinox-technology-logo"
+                  />
+                </div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="bg-primary-900">
+              <div className="relative min-h-[844px] bg-primary-900">
                 <div className="container mx-auto py-[60px]">
-                  <h2 className="text-center text-[40px] font-bold leading-[48px] text-white">
+                  <h2 className="text-center text-[30px] font-bold leading-[48px] text-white md:text-[40px]">
                     The Journey
                   </h2>
-                  <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
+                  <div className="mt-0 grid w-full grid-cols-1 px-[16px] py-[16px] md:px-[40px] md:py-[24px] lg:mt-[20px] lg:grid-cols-2 lg:px-[60px] lg:py-[46px]">
                     <div className="h-full w-full">
                       <Image
                         src={'/assets/hero-image-journey-2018.png'}
                         width={496}
                         height={414}
-                        className="h-auto w-full"
+                        className="h-auto max-h-[414px] w-full object-cover object-center"
                         alt="journey-image"
                       />
                     </div>
-                    <div className="h-full w-full">
-                      <div className="relative flex h-full flex-col items-end justify-center space-y-[12px]">
-                        <h2 className="text-right text-[48px] font-semibold leading-[24px] text-white">
+                    <div className="mt-[24px] h-full w-full lg:mt-0">
+                      <div className="relative flex h-full flex-col items-center justify-center space-y-[12px] lg:items-end">
+                        <h2 className="mb-[11px] text-right text-[48px] font-semibold leading-[24px] text-white lg:mb-0">
                           2018
                         </h2>
-                        <p className="max-w-[462px] text-right text-[16px] leading-[24px] text-white">
+                        <p className="max-w-[462px] text-center text-[16px] leading-[24px] text-white  lg:text-right">
                           Having a sole runner for the business, Laurent Putra,
                           started his way to gather more funds in due to expand
                           the business.
                         </p>
+                        <div className="absolute hidden lg:bottom-0 lg:right-0 lg:block">
+                          <Image
+                            src={'/assets/equinox-technology-logo-3.svg'}
+                            width={212}
+                            height={49}
+                            alt="equinox-technology-logo"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <div className="absolute bottom-[70px] left-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden">
+                  <Image
+                    src={'/assets/equinox-technology-logo-3.svg'}
+                    width={212}
+                    height={49}
+                    alt="equinox-technology-logo"
+                  />
+                </div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="bg-primary-900">
+              <div className="relative min-h-[844px] bg-primary-900">
                 <div className="container mx-auto py-[60px]">
-                  <h2 className="text-center text-[40px] font-bold leading-[48px] text-white">
+                  <h2 className="text-center text-[30px] font-bold leading-[48px] text-white md:text-[40px]">
                     The Journey
                   </h2>
-                  <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
+                  <div className="mt-0 grid w-full grid-cols-1 px-[16px] py-[16px] md:px-[40px] md:py-[24px] lg:mt-[20px] lg:grid-cols-2 lg:px-[60px] lg:py-[46px]">
                     <div className="h-full w-full">
                       <Image
                         src={'/assets/hero-image-journey-2019.png'}
                         width={496}
                         height={414}
-                        className="h-auto w-full"
+                        className="h-auto max-h-[414px] w-full object-cover object-center"
                         alt="journey-image"
                       />
                     </div>
-                    <div className="h-full w-full">
-                      <div className="relative flex h-full flex-col items-end justify-center space-y-[12px]">
-                        <h2 className="text-right text-[48px] font-semibold leading-[24px] text-white">
+                    <div className="mt-[24px] h-full w-full lg:mt-0">
+                      <div className="relative flex h-full flex-col items-center justify-center space-y-[12px] lg:items-end">
+                        <h2 className="mb-[11px] text-right text-[48px] font-semibold leading-[24px] text-white lg:mb-0">
                           2019
                         </h2>
-                        <p className="max-w-[462px] text-right text-[16px] leading-[24px] text-white">
+                        <p className="max-w-[462px] text-center text-[16px] leading-[24px] text-white  lg:text-right">
                           Having had its way in San Francisco, The company
                           decides to have its arm open to start operations in
                           Indonesia
                         </p>
+                        <div className="absolute hidden lg:bottom-0 lg:right-0 lg:block">
+                          <Image
+                            src={'/assets/equinox-technology-logo-3.svg'}
+                            width={212}
+                            height={49}
+                            alt="equinox-technology-logo"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <div className="absolute bottom-[70px] left-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden">
+                  <Image
+                    src={'/assets/equinox-technology-logo-3.svg'}
+                    width={212}
+                    height={49}
+                    alt="equinox-technology-logo"
+                  />
+                </div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="bg-primary-900">
+              <div className="relative min-h-[844px] bg-primary-900">
                 <div className="container mx-auto py-[60px]">
-                  <h2 className="text-center text-[40px] font-bold leading-[48px] text-white">
+                  <h2 className="text-center text-[30px] font-bold leading-[48px] text-white md:text-[40px]">
                     The Journey
                   </h2>
-                  <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
+                  <div className="mt-0 grid w-full grid-cols-1 px-[16px] py-[16px] md:px-[40px] md:py-[24px] lg:mt-[20px] lg:grid-cols-2 lg:px-[60px] lg:py-[46px]">
                     <div className="h-full w-full">
                       <Image
                         src={'/assets/hero-image-journey-2020.png'}
                         width={496}
                         height={414}
-                        className="h-auto w-full"
+                        className="h-auto max-h-[414px] w-full object-cover object-center"
                         alt="journey-image"
                       />
                     </div>
-                    <div className="h-full w-full">
-                      <div className="relative flex h-full flex-col items-end justify-center space-y-[12px]">
-                        <h2 className="text-right text-[48px] font-semibold leading-[24px] text-white">
+                    <div className="mt-[24px] h-full w-full lg:mt-0">
+                      <div className="relative flex h-full flex-col items-center justify-center space-y-[12px] lg:items-end">
+                        <h2 className="mb-[11px] text-right text-[48px] font-semibold leading-[24px] text-white lg:mb-0">
                           2020
                         </h2>
-                        <p className="max-w-[462px] text-right text-[16px] leading-[24px] text-white">
+                        <p className="max-w-[462px] text-center text-[16px] leading-[24px] text-white  lg:text-right">
                           The promising growth and increasing base of customers
                           made its promising for the company to expands its
                           e-commerce business, numbers of employees and brands.
                         </p>
+                        <div className="absolute hidden lg:bottom-0 lg:right-0 lg:block">
+                          <Image
+                            src={'/assets/equinox-technology-logo-3.svg'}
+                            width={212}
+                            height={49}
+                            alt="equinox-technology-logo"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <div className="absolute bottom-[70px] left-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden">
+                  <Image
+                    src={'/assets/equinox-technology-logo-3.svg'}
+                    width={212}
+                    height={49}
+                    alt="equinox-technology-logo"
+                  />
+                </div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="bg-primary-900">
+              <div className="relative min-h-[844px] bg-primary-900">
                 <div className="container mx-auto py-[60px]">
-                  <h2 className="text-center text-[40px] font-bold leading-[48px] text-white">
+                  <h2 className="text-center text-[30px] font-bold leading-[48px] text-white md:text-[40px]">
                     The Journey
                   </h2>
-                  <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
+                  <div className="mt-0 grid w-full grid-cols-1 px-[16px] py-[16px] md:px-[40px] md:py-[24px] lg:mt-[20px] lg:grid-cols-2 lg:px-[60px] lg:py-[46px]">
                     <div className="h-full w-full">
                       <Image
-                        src={'/assets/hero-image-journey.png'}
+                        src={'/assets/hero-image-journey-2021.png'}
                         width={496}
                         height={414}
-                        className="h-auto w-full"
+                        className="h-auto max-h-[414px] w-full object-cover object-center"
                         alt="journey-image"
                       />
                     </div>
-                    <div className="h-full w-full">
-                      <div className="relative flex h-full flex-col items-end justify-center space-y-[12px]">
-                        <h2 className="text-right text-[48px] font-semibold leading-[24px] text-white">
+                    <div className="mt-[24px] h-full w-full lg:mt-0">
+                      <div className="relative flex h-full flex-col items-center justify-center space-y-[12px] lg:items-end">
+                        <h2 className="mb-[11px] text-right text-[48px] font-semibold leading-[24px] text-white lg:mb-0">
                           2021
                         </h2>
-                        <p className="max-w-[462px] text-right text-[16px] leading-[24px] text-white">
+                        <p className="max-w-[462px] text-center text-[16px] leading-[24px] text-white  lg:text-right">
                           The growth for Equinox Technology became more evident
                           internally and externally and the business in this
                           year experience high increase of employees, companies
                           functions/departments, and we have a new larger
                           office!
                         </p>
+                        <div className="absolute hidden lg:bottom-0 lg:right-0 lg:block">
+                          <Image
+                            src={'/assets/equinox-technology-logo-3.svg'}
+                            width={212}
+                            height={49}
+                            alt="equinox-technology-logo"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <div className="absolute bottom-[70px] left-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden">
+                  <Image
+                    src={'/assets/equinox-technology-logo-3.svg'}
+                    width={212}
+                    height={49}
+                    alt="equinox-technology-logo"
+                  />
+                </div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="bg-primary-900">
+              <div className="relative min-h-[844px] bg-primary-900">
                 <div className="container mx-auto py-[60px]">
-                  <h2 className="text-center text-[40px] font-bold leading-[48px] text-white">
+                  <h2 className="text-center text-[30px] font-bold leading-[48px] text-white md:text-[40px]">
                     The Journey
                   </h2>
-                  <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
+                  <div className="mt-0 grid w-full grid-cols-1 px-[16px] py-[16px] md:px-[40px] md:py-[24px] lg:mt-[20px] lg:grid-cols-2 lg:px-[60px] lg:py-[46px]">
                     <div className="h-full w-full">
                       <Image
                         src={'/assets/hero-image-journey-2022.png'}
                         width={496}
                         height={414}
-                        className="h-auto w-full"
+                        className="h-auto max-h-[414px] w-full object-cover object-center"
                         alt="journey-image"
                       />
                     </div>
-                    <div className="h-full w-full">
-                      <div className="relative flex h-full flex-col items-end justify-center space-y-[12px]">
-                        <h2 className="text-right text-[48px] font-semibold leading-[24px] text-white">
+                    <div className="mt-[24px] h-full w-full lg:mt-0">
+                      <div className="relative flex h-full flex-col items-center justify-center space-y-[12px] lg:items-end">
+                        <h2 className="mb-[11px] text-right text-[48px] font-semibold leading-[24px] text-white lg:mb-0">
                           2022
                         </h2>
-                        <p className="max-w-[462px] text-right text-[16px] leading-[24px] text-white">
+                        <p className="max-w-[462px] text-center text-[16px] leading-[24px] text-white  lg:text-right">
                           We continues to grow, welcoming many more departments
                           and employees for our businesses and move to a bigger
                           office once more.
                         </p>
+                        <div className="absolute hidden lg:bottom-0 lg:right-0 lg:block">
+                          <Image
+                            src={'/assets/equinox-technology-logo-3.svg'}
+                            width={212}
+                            height={49}
+                            alt="equinox-technology-logo"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <div className="absolute bottom-[70px] left-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden">
+                  <Image
+                    src={'/assets/equinox-technology-logo-3.svg'}
+                    width={212}
+                    height={49}
+                    alt="equinox-technology-logo"
+                  />
+                </div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="bg-primary-900">
+              <div className="relative min-h-[844px] bg-primary-900">
                 <div className="container mx-auto py-[60px]">
-                  <h2 className="text-center text-[40px] font-bold leading-[48px] text-white">
+                  <h2 className="text-center text-[30px] font-bold leading-[48px] text-white md:text-[40px]">
                     The Journey
                   </h2>
-                  <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
+                  <div className="mt-0 grid w-full grid-cols-1 px-[16px] py-[16px] md:px-[40px] md:py-[24px] lg:mt-[20px] lg:grid-cols-2 lg:px-[60px] lg:py-[46px]">
                     <div className="h-full w-full">
                       <Image
                         src={'/assets/hero-image-journey-2023.png'}
                         width={496}
                         height={414}
-                        className="h-auto w-full"
+                        className="h-auto max-h-[414px] w-full object-cover object-center"
                         alt="journey-image"
                       />
                     </div>
-                    <div className="h-full w-full">
-                      <div className="relative flex h-full flex-col items-end justify-center space-y-[12px]">
-                        <h2 className="text-right text-[48px] font-semibold leading-[24px] text-white">
+                    <div className="mt-[24px] h-full w-full lg:mt-0">
+                      <div className="relative flex h-full flex-col items-center justify-center space-y-[12px] lg:items-end">
+                        <h2 className="mb-[11px] text-right text-[48px] font-semibold leading-[24px] text-white lg:mb-0">
                           2023
                         </h2>
-                        <p className="max-w-[462px] text-right text-[16px] leading-[24px] text-white">
+                        <p className="max-w-[462px] text-center text-[16px] leading-[24px] text-white  lg:text-right">
                           Welcoming challenges and growth, the Equinox
                           Technology Company expands our business to provide
                           even more service on various fields, venturing from
                           media to floristries with dedicated team.
                         </p>
+                        <div className="absolute hidden lg:bottom-0 lg:right-0 lg:block">
+                          <Image
+                            src={'/assets/equinox-technology-logo-3.svg'}
+                            width={212}
+                            height={49}
+                            alt="equinox-technology-logo"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <div className="absolute bottom-[70px] left-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden">
+                  <Image
+                    src={'/assets/equinox-technology-logo-3.svg'}
+                    width={212}
+                    height={49}
+                    alt="equinox-technology-logo"
+                  />
+                </div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="bg-primary-900">
+              <div className="relative min-h-[844px] bg-primary-900">
                 <div className="container mx-auto py-[60px]">
-                  <h2 className="text-center text-[40px] font-bold leading-[48px] text-white">
+                  <h2 className="text-center text-[30px] font-bold leading-[48px] text-white md:text-[40px]">
                     The Journey
                   </h2>
-                  <div className="mt-[20px] grid w-full grid-cols-2 px-[60px] py-[46px]">
+                  <div className="mt-0 grid w-full grid-cols-1 px-[16px] py-[16px] md:px-[40px] md:py-[24px] lg:mt-[20px] lg:grid-cols-2 lg:px-[60px] lg:py-[46px]">
                     <div className="h-full w-full">
                       <Image
                         src={'/assets/hero-image-journey-2024.png'}
                         width={496}
                         height={414}
-                        className="h-auto w-full"
+                        className="h-auto max-h-[414px] w-full object-cover object-center"
                         alt="journey-image"
                       />
                     </div>
-                    <div className="h-full w-full">
-                      <div className="relative flex h-full flex-col items-end justify-center space-y-[12px]">
-                        <h2 className="text-right text-[48px] font-semibold leading-[24px] text-white">
+                    <div className="mt-[24px] h-full w-full lg:mt-0">
+                      <div className="relative flex h-full flex-col items-center justify-center space-y-[12px] lg:items-end">
+                        <h2 className="mb-[11px] text-right text-[48px] font-semibold leading-[24px] text-white lg:mb-0">
                           2024
                         </h2>
-                        <p className="max-w-[462px] text-right text-[16px] leading-[24px] text-white">
+                        <p className="max-w-[462px] text-center text-[16px] leading-[24px] text-white  lg:text-right">
                           New year, New Ambitions! We are welcoming the year
                           with more employees and moving to a new office to
                           accommodate our business affairs. We are branching out
@@ -464,9 +570,25 @@ export default function Home() {
                           preparing for our new streamline of business this
                           year.
                         </p>
+                        <div className="absolute hidden lg:bottom-0 lg:right-0 lg:block">
+                          <Image
+                            src={'/assets/equinox-technology-logo-3.svg'}
+                            width={212}
+                            height={49}
+                            alt="equinox-technology-logo"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
+                </div>
+                <div className="absolute bottom-[70px] left-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden">
+                  <Image
+                    src={'/assets/equinox-technology-logo-3.svg'}
+                    width={212}
+                    height={49}
+                    alt="equinox-technology-logo"
+                  />
                 </div>
               </div>
             </SwiperSlide>
@@ -489,13 +611,13 @@ export default function Home() {
             </div>
           </Swiper>
         </section>
-        <section className="container mx-auto py-[80px]">
-          <h2 className="text-center text-[40px] font-bold leading-[48px]">
+        <section className="container mx-auto px-4 py-6 lg:py-[80px]">
+          <h2 className="text-center text-[30px] font-bold leading-[48px] md:text-[40px]">
             Company Structure
           </h2>
-          <div className="mt-[42px] grid grid-rows-4 space-y-[42px]">
+          <div className="mt-[42px] grid  lg:space-y-[42px]">
             <div className="grid grid-cols-1 justify-items-center">
-              <div className="h-full w-full">
+              <div className="h-fit w-full">
                 <p className="text-center text-[18px] font-semibold leading-[27.9px]">
                   Laurent Putra
                 </p>
@@ -504,7 +626,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-4 gap-x-[40px]">
+            <div className="grid grid-cols-1 gap-x-[40px] lg:grid-cols-4">
               <div className="h-full w-full">
                 <p className="text-center text-[18px] font-semibold leading-[27.9px]">
                   Ian
@@ -538,7 +660,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-4 gap-x-[40px]">
+            <div className="grid grid-cols-1 gap-x-[40px] lg:grid-cols-4">
               <div className="h-full w-full">
                 <p className="text-center text-[18px] font-semibold leading-[27.9px]">
                   Wanti

@@ -26,7 +26,7 @@ const Navbar = () => {
               />
             </Link>
           </div>
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <div className="flex gap-10 space-x-4 text-lg font-semibold ">
               <NavLink href="/">
                 <span
@@ -85,7 +85,7 @@ const Navbar = () => {
               </NavLink>
             </div>
           </div>
-          <div>
+          <div className="hidden lg:block">
             <button className="rounded-[40px] bg-[#4CB9E7] px-[20px] py-[8px] text-[18px] font-semibold leading-[27.9px] text-white">
               Subscribe
             </button>
