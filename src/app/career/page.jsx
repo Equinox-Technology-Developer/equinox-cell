@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -110,7 +110,20 @@ const testimonialHR = [
   },
 ];
 
+const metadata = {
+  title: 'Career | Equinox',
+  description:
+    'Equinox Technology is a dynamic retail & SaaS enterprise, spearheading innovation in the e-commerce retail space. Specializing in a diverse range of products including home & garden essentials, cutting-edge electronics, and exquisite art pieces, we are committed to enriching the online shopping experience for our customers.',
+};
+
 const Career = () => {
+  useEffect(() => {
+    document.title = metadata.title;
+    document
+      .querySelector('meta[name="description"]')
+      .setAttribute('content', metadata.description);
+  });
+
   const Jobs = getAllJob();
   const [selectedCategory, setSelectedCategory] = useState('');
   const [searchQuery, setSearchQuery] = useState('');

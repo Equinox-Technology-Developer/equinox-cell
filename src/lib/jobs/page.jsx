@@ -65,7 +65,7 @@ const jobs = [
   // Job 3
   {
     name: 'Web Developer',
-    slug: 'web_developer',
+    slug: 'web-developer',
     time: 'Fulltime',
     staff_level: 'Staff Level',
     division: 'Full Stack Web Developer',
@@ -95,8 +95,8 @@ const jobs = [
   },
   // Job 4
   {
-    name: 'Copywritting',
-    slug: 'copywritting',
+    name: 'Copywriting',
+    slug: 'copywriting',
     time: 'Fulltime',
     staff_level: 'Staff Level',
     division: 'Marketing & Content Writer',
@@ -127,7 +127,7 @@ const jobs = [
   // Job 5
   {
     name: 'Personal Assistant',
-    slug: 'personal_assistant',
+    slug: 'personal-assistant',
     time: 'Fulltime',
     staff_level: 'Staff Level',
     division: 'Personal Assistant',
@@ -288,7 +288,7 @@ const jobs = [
     division: 'Marketing',
     location: 'Jakarta, Indonesia',
     availability: 2,
-    URL: '/career/graphic-designer',
+    URL: '/career/ads-facebook',
     submit_URL: '#',
     overview:
       'Human Resource Department thrive to support Equinox Technology’s Strategic Goals, Manpower Planning,  and setting a positive work environment.',
@@ -313,13 +313,13 @@ const jobs = [
   // Job 1
   {
     name: 'Backend Developer',
-    slug: 'backend_developer',
+    slug: 'backend-developer',
     time: 'Fulltime',
     staff_level: 'Staff Level',
     division: 'Full Stack Web Developer',
     location: 'Jakarta, Indonesia',
     availability: 2,
-    URL: '/career/finance',
+    URL: '/career/backend-developer',
     submit_URL: '#',
     overview:
       'Human Resource Department thrive to support Equinox Technology’s Strategic Goals, Manpower Planning,  and setting a positive work environment.',
@@ -381,7 +381,7 @@ const jobs = [
     division: 'Full Stack Web Developer',
     location: 'Jakarta, Indonesia',
     availability: 2,
-    URL: '/career/web-developer',
+    URL: '/career/front-end-developer',
     submit_URL: '#',
     overview:
       'Human Resource Department thrive to support Equinox Technology’s Strategic Goals, Manpower Planning,  and setting a positive work environment.',

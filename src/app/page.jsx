@@ -79,12 +79,12 @@ export default function Home() {
           <div className="absolute inset-0 mt-[80px] h-[676px] w-full bg-gradient-to-l from-[#66666600] to-[#0000009E]">
             <div className="absolute inset-0 flex h-[676px] w-full items-center justify-start text-start">
               <div className="container mx-auto w-full space-y-8">
-                <div className="w-1/2 space-y-[24px]">
-                  <h1 className="text-[40px] font-bold leading-[48px] text-white">
+                <div className="w-full space-y-[24px] px-4 lg:w-1/2 lg:px-0">
+                  <h1 className="text-center text-[30px] font-bold leading-[48px] text-white md:text-[40px] lg:text-start">
                     Innovating Goods for The <br />
                     <span className="text-secondary-500">Greater Good</span>
                   </h1>
-                  <p className="font-regular text-[20px] leading-[27.9px] text-white">
+                  <p className="font-regular text-center text-[20px] leading-[27.9px] text-white lg:text-start">
                     Our talent assessments screen and identify the best
                     candidates and make your hiring decisions faster, easier,
                     and bias-free.
@@ -94,7 +94,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="h-full w-full space-y-3 lg:py-[40px]">
+        <section className="h-full w-full space-y-3 px-4 py-6 lg:px-0 lg:py-[40px]">
           <h2 className="text-center text-[40px] font-bold leading-[27.9px]">
             Equinox Technology LLC
           </h2>
