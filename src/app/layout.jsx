@@ -1,4 +1,5 @@
 import { Work_Sans } from 'next/font/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import './globals.css';
 
@@ -16,7 +17,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={workSans.className}>{children}</body>
+      <body className={workSans.className}>
+        <main>{children}</main>
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
