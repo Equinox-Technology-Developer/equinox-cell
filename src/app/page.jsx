@@ -36,7 +36,7 @@ export default function Home() {
   const progressContent = useRef(null);
   const onAutoplayTimeLeft = (s, time, progress) => {
     progressCircle.current.style.setProperty('--progress', 1 - progress);
-    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+    progressContent.current.textContent = `${Math.ceil(time / 1000)}`;
   };
 
   const [hoverStates, setHoverStates] = useState({
@@ -181,9 +181,10 @@ export default function Home() {
             spaceBetween={30}
             centeredSlides={true}
             autoplay={{
-              delay: 2500,
+              delay: 10000,
               disableOnInteraction: false,
             }}
+            loop={true}
             pagination={{
               clickable: true,
               type: 'bullets',
@@ -599,9 +600,12 @@ export default function Home() {
             <Swiper
               slidesPerView={4}
               spaceBetween={0}
-              pagination={{
-                clickable: true,
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
               }}
+              loop={true}
+              modules={[Autoplay]}
               className="mySwiper"
             >
               <SwiperSlide>
