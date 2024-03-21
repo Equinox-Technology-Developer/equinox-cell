@@ -4,6 +4,12 @@ import { MdMailOutline } from 'react-icons/md';
 import { GrSend } from 'react-icons/gr';
 import Layout from '@/components/Layout/page';
 
+export const metadata = {
+  title: 'Contact | Equinox',
+  description:
+    'Our talent assessments screen and identify the best candidates and make your hiring decisions faster, easier, and bias-free.',
+};
+
 export default function ContactPage() {
   return (
     <Layout>

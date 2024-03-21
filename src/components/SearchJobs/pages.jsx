@@ -10,10 +10,13 @@ const YourComponent = ({ searchQuery, handleSearchInputChange }) => {
         value={searchQuery}
         onChange={handleSearchInputChange}
       />
-      <div className=" absolute right-2 top-1/2  flex -translate-y-1/2 transform items-center justify-center gap-2 rounded-[81.5px] bg-gradient-to-r from-primary-500 to-secondary-500 px-3 py-[6px] text-white  ">
-        <FaSearch className="" />
-        <p>Search</p>
-      </div>
+      <button
+        type="submit"
+        className="absolute right-2 top-1/2 flex -translate-y-1/2 transform cursor-pointer items-center justify-center gap-2 rounded-[81.5px] bg-gradient-to-l from-primary-500 to-secondary-500 px-3 py-[6px] text-white"
+      >
+        <FaSearch />
+        <p className="text-[16px]">Search</p>
+      </button>
     </div>
   );
 };

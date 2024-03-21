@@ -101,7 +101,9 @@ const CareerPage = () => {
   return (
     <>
       {/* Banner Career Filtered Jobs */}
-      <section></section>
+      <section className="h-full w-full">
+          <HeroBanner imageUrl={'/assets/hero-image-career-filtered.png'} />
+        </section>
 
       {/* Filtered Jobs */}
       <section className="w-full">

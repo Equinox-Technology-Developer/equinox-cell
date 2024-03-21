@@ -5,8 +5,9 @@ import { BsCheck2Circle } from 'react-icons/bs';
 import Layout from '@/components/Layout/page';
 
 export const metadata = {
-  title: 'Equinoxcell | About',
-  description: 'If you care what about equinoxcell? just read the message here',
+  title: 'About | Equinox',
+  description:
+    'Equinox Technology is a dynamic retail & SaaS enterprise, spearheading innovation in the e-commerce retail space. Specializing in a diverse range of products including home & garden essentials, cutting-edge electronics, and exquisite art pieces, we are committed to enriching the online shopping experience for our customers.',
 };
 
 export default function About() {
@@ -71,7 +72,7 @@ export default function About() {
             />
             <div className="container mx-auto mt-[32px] space-y-[24px]">
               <h2 className="text-center text-[40px] font-semibold leading-[27.9px]">
-                Our Mision
+                Our Mission
               </h2>
             </div>
             <div className="container mx-auto grid  grid-cols-3 gap-x-[75.5px] pt-[42px]">
@@ -120,7 +121,7 @@ export default function About() {
                   Indonesia by creating more jobs
                 </p>
               </div>
-              <div className="max-w-1/2 flex flex-col items-center justify-center">
+              <div className="max-w-1/2 flex flex-col items-center">
                 <Image
                   src={'/assets/mission-achive.svg'}
                   width={100}
@@ -164,7 +165,7 @@ export default function About() {
                 <li className="flex items-center gap-x-[24px]">
                   <BsCheck2Circle size={26} className="text-success-500" />
                   <p className="text-[20px] font-semibold text-white">
-                    diverse and Passionate Team
+                    Diverse and Passionate Team
                   </p>
                 </li>
               </ul>
@@ -225,11 +226,11 @@ export default function About() {
           <h2 className="text-center text-[40px] font-semibold leading-[27.9px]">
             Life at Equinox Technology
           </h2>
-          <div className="mt-[42px] grid grid-cols-2 gap-y-[24px]">
+          <div className="mt-[42px] grid grid-cols-4 gap-y-[24px]">
             <p className="w-full text-[20px] font-semibold">
               Embrace the Equinox Culture:
             </p>
-            <p className="text-justify text-[18px] leading-[27.9px]">
+            <p className="col-span-3 text-justify text-[18px] leading-[27.9px]">
               Here, you're stepping into a flat hierarchy environment - where
               ideas flow freely and innovation is the daily bread. We live by a
               simple, yet powerful motto: "First do it, then do it right, then
@@ -238,7 +239,7 @@ export default function About() {
             <p className="w-full text-[20px] font-semibold">
               Growth and Opportunities:
             </p>
-            <p className="text-justify text-[18px] leading-[27.9px]">
+            <p className="col-span-3 text-justify text-[18px] leading-[27.9px]">
               At Equinox, the sky's the limit when it comes to personal and
               professional growth. We're constantly exploring new horizons in
               the e-commerce landscape, offering ample opportunities for you to
@@ -249,7 +250,7 @@ export default function About() {
             <p className="w-full text-[20px] font-semibold">
               Independent Decision Making:
             </p>
-            <p className="text-justify text-[18px] leading-[27.9px]">
+            <p className="col-span-3 text-justify text-[18px] leading-[27.9px]">
               Here, your ability to make informed, independent decisions is
               highly valued. We encourage you to not just think outside the box
               but to redefine it. Show us how your ideas can add value to the
@@ -258,7 +259,7 @@ export default function About() {
             <p className="w-full text-[20px] font-semibold">
               A Diverse and Team:
             </p>
-            <p className="text-justify text-[18px] leading-[27.9px]">
+            <p className="col-span-3 text-justify text-[18px] leading-[27.9px]">
               You'll join a melting pot of individuals from all walks of life,
               each bringing their unique flavor to the table. We're a quirky mix
               of tech enthusiasts, creative minds, and problem solvers who
@@ -267,7 +268,7 @@ export default function About() {
             <p className="w-full text-[20px] font-semibold">
               Join the Equinox Experience:
             </p>
-            <p className="text-justify text-[18px] leading-[27.9px]">
+            <p className="col-span-3 text-justify text-[18px] leading-[27.9px]">
               If you're looking for a workplace that's energetic, creative, and
               constantly pushing the boundaries of e-commerce, look no further.
               You'll not just be joining a company; you'll be becoming a part of

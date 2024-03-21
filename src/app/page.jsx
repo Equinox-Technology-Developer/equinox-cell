@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaLinkedin } from 'react-icons/fa6';
@@ -19,12 +19,24 @@ import styles from './home.module.css';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
+const metadata = {
+  title: 'Homepage | Equinox',
+  description: `Our talent assessments screen and identify the best candidates and make your hiring decisions faster, easier, and bias-free.`,
+};
+
 export default function Home() {
+  useEffect(() => {
+    document.title = metadata.title;
+    document
+      .querySelector('meta[name="description"]')
+      .setAttribute('content', metadata.description);
+  });
+
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
   const onAutoplayTimeLeft = (s, time, progress) => {
     progressCircle.current.style.setProperty('--progress', 1 - progress);
-    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+    progressContent.current.textContent = `${Math.ceil(time / 1000)}`;
   };
 
   const [hoverStates, setHoverStates] = useState({
@@ -169,9 +181,10 @@ export default function Home() {
             spaceBetween={30}
             centeredSlides={true}
             autoplay={{
-              delay: 2500,
+              delay: 10000,
               disableOnInteraction: false,
             }}
+            loop={true}
             pagination={{
               clickable: true,
               type: 'bullets',
@@ -587,9 +600,12 @@ export default function Home() {
             <Swiper
               slidesPerView={4}
               spaceBetween={0}
-              pagination={{
-                clickable: true,
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
               }}
+              loop={true}
+              modules={[Autoplay]}
               className="mySwiper"
             >
               <SwiperSlide>

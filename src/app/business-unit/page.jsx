@@ -2,10 +2,22 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Layout from '@/components/Layout/page';
 
+const metadata = {
+  title: 'Business Unit | Equinox',
+  description: `Our talent assessments screen and identify the best candidates and make your hiring decisions faster, easier, and bias-free.`,
+};
+
 export default function BusinessUnitPage() {
+  useEffect(() => {
+    document.title = metadata.title;
+    document
+      .querySelector('meta[name="description"]')
+      .setAttribute('content', metadata.description);
+  });
+
   const [hoverState, setHoverState] = useState({
     logoSohnne: false,
     logoEnigwatch: false,
