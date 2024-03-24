@@ -33,7 +33,7 @@ const HeroBanner = ({ title, subtitle, imageUrl, gradient }) => {
           className={`absolute inset-0 mt-[67px] h-[425px] w-full bg-gradient-to-l from-[#66666600] to-[#0000009E] md:h-[768px] lg:mt-[80px] lg:h-[676px] ${gradientClass}`}
         >
           <div className="absolute inset-0 flex h-full w-full items-center justify-center text-center">
-            <div className="mx-auto max-w-[1086px] space-y-8">
+            <div className="mx-auto max-w-[1086px] space-y-8 px-[24px] md:px-0">
               <h1 className="text-[40px] font-bold leading-[48px] text-white">
                 {title}
               </h1>
