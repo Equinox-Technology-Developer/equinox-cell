@@ -4,7 +4,7 @@ const CapitalizeHeading = ({ children }) => {
   };
 
   return (
-    <h2 className="text-[40px] leading-[48px]">
+    <h2 className="text-[24px] leading-[48px] md:text-[40px]">
       {capitalizeFirstLetter(children)}
     </h2>
   );

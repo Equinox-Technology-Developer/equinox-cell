@@ -186,7 +186,7 @@ const Career = () => {
 
         {/* Career Page Content */}
         <section className="w-full">
-          <div className="container mx-auto flex w-full flex-col items-center justify-center gap-11 px-16 py-20">
+          <div className="container mx-auto flex w-full flex-col items-center justify-center gap-11 px-4 py-10 md:px-[40px] md:py-[60px] lg:px-16 lg:py-20">
             <CapitalizeHeading className>
               find your dream job!
             </CapitalizeHeading>
@@ -210,93 +210,6 @@ const Career = () => {
                 </button>
               </Link>
             )}
-          </div>
-        </section>
-
-        {/* Testimonials */}
-        <section className="w-full">
-          <div className="container mx-auto justify-center gap-11 pb-16">
-            <Swiper
-              spaceBetween={30}
-              centeredSlides={true}
-              pagination={{
-                clickable: true,
-              }}
-              loop={true}
-              loopFillGroupWithBlank={true}
-              breakpoints={{
-                640: {
-                  slidesPerView: 1,
-                  spaceBetween: 20,
-                },
-                768: {
-                  slidesPerView: 3,
-                  spaceBetween: 30,
-                },
-                1024: {
-                  slidesPerView: 3,
-                  spaceBetween: 40,
-                },
-              }}
-              modules={[Navigation, Pagination]}
-              className={`${styles.swiperContainer}`}
-              style={{
-                '--swiper-pagination-color': '#4CB9E7',
-                '--swiper-pagination-bullet-inactive-color': '#4CB9E766',
-                '--swiper-pagination-bullet-inactive-opacity': '1',
-                '--swiper-pagination-bullet-size': '14px',
-                '--swiper-pagination-bullet-horizontal-gap': '6px',
-              }}
-            >
-              {testimonialHR.map((testimonial, index) => (
-                <SwiperSlide key={index} className="career-slide-testimonial">
-                  <div className={styles.testimonialCard}>
-                    <p>
-                      <i>{testimonial.testimonial}</i>
-                    </p>
-                    <div className="flex flex-col items-center gap-1">
-                      <Image
-                        src={testimonial.imgUrl}
-                        width={40}
-                        height={40}
-                        radius={100}
-                        alt={`${testimonial.name} Profile Picture`}
-                      />
-                      <h3>{testimonial.name}</h3>
-                      <p>{testimonial.position}</p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </section>
-
-        {/* Department of Equinox Technology Section */}
-        <section className="flex w-full flex-col items-center gap-8 py-20">
-          <div className="container mx-auto flex w-full flex-col items-center justify-center">
-            <CapitalizeHeading>
-              department of equinox technology
-            </CapitalizeHeading>
-          </div>
-          <div className="container mx-auto w-full">
-            <ul className="grid w-full grid-cols-4 gap-6">
-              {departments.map((department) => (
-                <li
-                  className="flex flex-col items-center justify-center gap-3 text-center"
-                  key={department.division}
-                >
-                  <Image
-                    src={department.imageUrl}
-                    width={313}
-                    height={202}
-                    alt={department.division}
-                    className="w-full"
-                  />
-                  <p>{department.division}</p>
-                </li>
-              ))}
-            </ul>
           </div>
         </section>
 
@@ -401,61 +314,149 @@ const Career = () => {
           </div>
         </section>
 
+        {/* Department of Equinox Technology Section */}
+        <section className="flex w-full flex-col items-center gap-8 px-[56px] py-[40px] md:px-[40px] lg:px-0 lg:py-20">
+          <div className="container mx-auto flex w-full flex-col items-center justify-center text-center">
+            <CapitalizeHeading>
+              department of equinox technology
+            </CapitalizeHeading>
+          </div>
+          <div className="container mx-auto w-full">
+            <ul className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {departments.map((department) => (
+                <li
+                  className="flex flex-col items-center justify-start gap-3 text-center"
+                  key={department.division}
+                >
+                  <Image
+                    src={department.imageUrl}
+                    width={313}
+                    height={202}
+                    alt={department.division}
+                    className="w-full rounded-[20px] object-cover object-center"
+                  />
+                  <p className="text-[16px] font-medium md:text-[18px]">
+                    {department.division}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="w-full">
+          <div className="container mx-auto justify-center gap-11 px-[16px] pb-0 md:px-[40px] lg:px-0 lg:pb-16">
+            <Swiper
+              spaceBetween={30}
+              centeredSlides={true}
+              pagination={{
+                clickable: true,
+              }}
+              loop={true}
+              loopFillGroupWithBlank={true}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 1,
+                  spaceBetween: 30,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 40,
+                },
+              }}
+              modules={[Navigation, Pagination]}
+              className={`${styles.swiperContainer}`}
+              style={{
+                '--swiper-pagination-color': '#4CB9E7',
+                '--swiper-pagination-bullet-inactive-color': '#4CB9E766',
+                '--swiper-pagination-bullet-inactive-opacity': '1',
+                '--swiper-pagination-bullet-size': '14px',
+                '--swiper-pagination-bullet-horizontal-gap': '6px',
+              }}
+            >
+              {testimonialHR.map((testimonial, index) => (
+                <SwiperSlide key={index} className="career-slide-testimonial">
+                  <div className={styles.testimonialCard}>
+                    <p>
+                      <i>{testimonial.testimonial}</i>
+                    </p>
+                    <div className="flex flex-col items-center gap-1">
+                      <Image
+                        src={testimonial.imgUrl}
+                        width={40}
+                        height={40}
+                        radius={100}
+                        alt={`${testimonial.name} Profile Picture`}
+                      />
+                      <h3>{testimonial.name}</h3>
+                      <p>{testimonial.position}</p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </section>
+
         {/* Our Value */}
-        <section className="px-16 py-20">
+        <section className="px-4 py-6 md:px-[40px] md:py-[40px] lg:px-16 lg:py-20">
           <div className="container mx-auto">
-            <div className="flex justify-between gap-6">
+            <div className="flex flex-col justify-between gap-6 lg:flex-row">
               <Image
                 src={'/assets/agreement-workplace 2.png'}
                 width={646}
                 height={722}
                 alt={'agreement-workplace 2'}
+                className="hidden w-full rounded-[20px] object-cover object-center md:block md:max-h-[330px] lg:max-h-full"
               />
-              <div className=" flex max-w-[746px] flex-col items-center justify-center gap-6">
+              <div className="flex max-w-[746px] flex-col items-center justify-center gap-6 ">
                 <CapitalizeHeading>Our Value</CapitalizeHeading>
                 <p className="text-lg">
                   Equinox Technology thrives with our diversity and integrity,
                   throughout our operations the sets of values we uphold are:
                 </p>
-                <ol className="self-start text-lg">
-                  <li>
-                    <h4 className=" font-normal">1. Kaizen</h4>
-                    <p className="pl-6">
-                      We prioritize continuous improvement and encourage
-                      proactive problem-solving among our employees.
-                    </p>
-                    <h4 className=" font-normal">2. Integrity</h4>
-                    <p className="pl-6">
-                      We hold ourselves to the highest ethical standards,
-                      valuing honesty, sincerity, and moral uprightness.
-                    </p>
-                    <h4 className=" font-normal">3. Customer-Centric</h4>
-                    <p className="pl-6">
-                      We focus on anticipating and meeting customer needs with
-                      superior products and services, always aiming to exceed
-                      their expectations.
-                    </p>
-                    <h4 className=" font-normal">4. Innovation</h4>
-                    <p className="pl-6">
-                      We embrace creativity and innovation. we ensure that we
-                      remain relevant and responsive, By constantly exploring
-                      new ideas and technologies.
-                    </p>
-                    <h4 className=" font-normal">5. Collaboration</h4>
-                    <p className="pl-6">
-                      CollaborationWe believe in harnessing teamwork and diverse
-                      perspectives for collective success. Through open
-                      communication and collaboration the best solutions stem
-                      from pooling talents and expertise.
-                    </p>
-                    <h4 className=" font-normal">6. Empowerment</h4>
-                    <p className="pl-6">
-                      We empower our employees to take ownership, make
-                      decisions, and grow personally and professionally,
-                      fostering an environment where everyone can thrive and
-                      contribute to our success.
-                    </p>
-                  </li>
+                <ol className="list-inside list-decimal self-start text-lg leading-[27.9px]">
+                  <li className="font-medium">Kaizen</li>
+                  <p className="pl-[22px] text-[18px] leading-[27.9px]">
+                    We hold ourselves to the highest ethical standards, valuing
+                    honesty, sincerity, and moral uprightness.
+                  </p>
+                  <li className="font-medium">Integrity</li>
+                  <p className="pl-[22px] text-[18px] leading-[27.9px]">
+                    We hold ourselves to the highest ethical standards, valuing
+                    honesty, sincerity, and moral uprightness.
+                  </p>
+                  <li className="font-medium">Customer-Centric</li>
+                  <p className="pl-[22px] text-[18px] leading-[27.9px]">
+                    We focus on anticipating and meeting customer needs with
+                    superior products and services, always aiming to exceed
+                    their expectations.
+                  </p>
+                  <li className="font-medium">Innovation</li>
+                  <p className="pl-[22px] text-[18px] leading-[27.9px]">
+                    We embrace creativity and innovation. we ensure that we
+                    remain relevant and responsive, By constantly exploring new
+                    ideas and technologies.
+                  </p>
+                  <li className="font-medium">Collaboration</li>
+                  <p className="pl-[22px] text-[18px] leading-[27.9px]">
+                    CollaborationWe believe in harnessing teamwork and diverse
+                    perspectives for collective success. Through open
+                    communication and collaboration the best solutions stem from
+                    pooling talents and expertise.
+                  </p>
+                  <li className="font-medium">Empowerment</li>
+                  <p className="pl-[22px] text-[18px] leading-[27.9px]">
+                    We empower our employees to take ownership, make decisions,
+                    and grow personally and professionally, fostering an
+                    environment where everyone can thrive and contribute to our
+                    success.
+                  </p>
                 </ol>
               </div>
             </div>
