@@ -90,11 +90,11 @@ const Navbar = () => {
               Subscribe
             </button>
           </div>
-          <div className="md:hidden">
+          <div className="lg:hidden">
             {/* Hamburger menu */}
             <button
               type="button"
-              className="text-white hover:text-gray-300 focus:text-gray-300 focus:outline-none"
+              className="text-black hover:text-gray-300 focus:text-gray-300 focus:outline-none"
               aria-label="Toggle menu"
               onClick={toggleMenu}
             >
@@ -110,8 +110,8 @@ const Navbar = () => {
         </div>
         {/* Mobile menu */}
         {isOpen && (
-          <div className="mt-4 md:hidden">
-            <div className="flex flex-col items-end space-y-2">
+          <div className="absolute right-0 mt-4 w-full bg-white md:hidden">
+            <div className="flex flex-col items-center space-y-2">
               <NavLink href="/">Home</NavLink>
               <NavLink href="/about">About</NavLink>
               <NavLink href="/business-unit">Business Unit</NavLink>
