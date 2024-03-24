@@ -2,9 +2,9 @@ import { FaSearch } from 'react-icons/fa';
 
 const YourComponent = ({ searchQuery, handleSearchInputChange }) => {
   return (
-    <div className="relative flex justify-between">
+    <div className="relative flex w-full justify-between lg:w-fit">
       <input
-        className="text-black-300 w-[646px] rounded-[40px] border-[1px] border-[#cecece] bg-[#F4F4F4] px-[12px] py-2 pr-[24px] transition-all duration-200 ease-in-out focus:border-[#1E86FF] focus:outline-none"
+        className="text-black-300 w-full rounded-[40px] border-[1px] border-[#cecece] bg-[#F4F4F4] px-[12px] py-2 pr-[24px] transition-all duration-200 ease-in-out focus:border-[#1E86FF] focus:outline-none lg:w-[646px]"
         type="text"
         placeholder="Search Job"
         value={searchQuery}

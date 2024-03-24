@@ -110,7 +110,7 @@ const Navbar = () => {
         </div>
         {/* Mobile menu */}
         {isOpen && (
-          <div className="absolute right-0 mt-4 w-full bg-white md:hidden">
+          <div className="absolute right-0 mt-4 w-full bg-white py-[10px] md:hidden">
             <div className="flex flex-col items-center space-y-2">
               <NavLink href="/">Home</NavLink>
               <NavLink href="/about">About</NavLink>
