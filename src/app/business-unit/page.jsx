@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import Layout from '@/components/Layout/page';
+import HeroBanner from '@/components/HeroBanner/page';
 
 const metadata = {
   title: 'Business Unit | Equinox',
@@ -107,38 +108,30 @@ export default function BusinessUnitPage() {
     <Layout>
       <main className="min-h-screen">
         <section className="h-full w-full">
-          <Image
-            src={'/assets/hero-image-business-unit.png'}
-            width={1440}
-            height={676}
-            alt="hero-image"
-            className="h-[676px] w-full object-cover object-center"
+          <HeroBanner
+            title={
+              <span className="text-center text-[30px] font-bold leading-[48px] text-white md:text-[40px] lg:text-start">
+                Business Unit
+              </span>
+            }
+            subtitle="Thriving towards success through innovation, creativity and commitment. We continue to expand our expertise in diverse business lines portfolio"
+            imageUrl={'/assets/hero-image-business-unit.png'}
+            gradient={'left'}
           />
-          <div className="absolute inset-0 mt-[80px] h-[676px] w-full bg-gradient-to-b from-[#66666600] to-[#0000009E]">
-            <div className="absolute inset-0 flex h-[676px] w-full items-center justify-center text-center">
-              <div className="mx-auto max-w-[1086px] space-y-8">
-                <h1 className="text-[40px] font-bold leading-[48px] text-white">
-                  Business Unit
-                </h1>
-                <p className="font-regular text-[20px] leading-[27.9px] text-white">
-                  Our talent assessments screen and identify the best candidates
-                  and make your hiring decisions faster, easier, and bias-free.
-                </p>
-              </div>
-            </div>
-          </div>
         </section>
-        <section className="bg-[#F4F4F4] py-[60px]">
-          <div className="container mx-auto flex w-full justify-center">
-            <p className=" w-[934px] text-center text-[18px] leading-[27.9px]">
-              Lorem ipsum dolor sit amet consectetur. Sed ultrices ut viverra
-              consectetur aliquam a ultricies lacinia. Hac sagittis est lorem
-              ipsum porttitor. Arcu dis eu velit massa volutpat velit augue.
-              Congue habitant pretium elementum nulla adipiscing.
+        <section className="bg-[#F4F4F4] px-4 py-[40px] md:px-[40px] lg:py-[60px]">
+          <div className="container mx-auto flex w-full justify-center ">
+            <p className="w-[934px] text-center text-[14px] leading-[27.9px] lg:text-[18px]">
+              Our customers have always become our first priority. Through
+              learning and continuing to understand the ever changing needs of
+              our clients and patrons we improve and expand our best practice
+              towards diverse lines of industry. Starting from Home goods to
+              cutting-edge electronics, and Exquisite arts pieces, we are
+              committed to bring out enriched online shopping experience.
             </p>
           </div>
         </section>
-        <section className="container mx-auto py-[60px]">
+        <section className="container mx-auto px-[16px] py-[24px] md:px-[40px] md:py-[40px] lg:px-0 lg:py-[60px]">
           <div className="flex flex-row flex-wrap justify-center gap-x-[32px]">
             <Image
               src={
@@ -151,7 +144,7 @@ export default function BusinessUnitPage() {
               onMouseEnter={() => handleHover('logoSohnne')}
               onMouseLeave={() => handleHover('logoSohnne')}
               alt="logo-sohnne"
-              className="trasition-all duration-300 ease-in-out"
+              className="w-[165px] transition-all duration-300 ease-in-out sm:w-fit"
             />
             <Image
               src={
@@ -164,7 +157,7 @@ export default function BusinessUnitPage() {
               onMouseEnter={() => handleHover('logoEnigwatch')}
               onMouseLeave={() => handleHover('logoEnigwatch')}
               alt="logo-sohnne"
-              className="trasition-all duration-300 ease-in-out"
+              className="w-[165px] transition-all duration-300 ease-in-out sm:w-fit"
             />
             <Image
               src={
@@ -177,7 +170,7 @@ export default function BusinessUnitPage() {
               onMouseEnter={() => handleHover('logoArtdigest')}
               onMouseLeave={() => handleHover('logoArtdigest')}
               alt="logo-sohnne"
-              className="trasition-all duration-300 ease-in-out"
+              className="w-[165px] transition-all duration-300 ease-in-out sm:w-fit"
             />
             <Image
               src={
@@ -190,7 +183,7 @@ export default function BusinessUnitPage() {
               onMouseEnter={() => handleHover('logoKoizuma')}
               onMouseLeave={() => handleHover('logoKoizuma')}
               alt="logo-sohnne"
-              className="trasition-all duration-300 ease-in-out"
+              className="w-[165px] transition-all duration-300 ease-in-out sm:w-fit"
             />
             <Image
               src={
@@ -203,7 +196,7 @@ export default function BusinessUnitPage() {
               onMouseEnter={() => handleHover('logoMillionBloom')}
               onMouseLeave={() => handleHover('logoMillionBloom')}
               alt="logo-sohnne"
-              className="trasition-all duration-300 ease-in-out"
+              className="w-[165px] transition-all duration-300 ease-in-out sm:w-fit"
             />
             <Image
               src={
@@ -216,7 +209,7 @@ export default function BusinessUnitPage() {
               onMouseEnter={() => handleHover('logo10Expert')}
               onMouseLeave={() => handleHover('logo10Expert')}
               alt="logo-sohnne"
-              className="trasition-all duration-300 ease-in-out"
+              className="w-[165px] transition-all duration-300 ease-in-out sm:w-fit"
             />
             <Image
               src={
@@ -229,7 +222,7 @@ export default function BusinessUnitPage() {
               onMouseEnter={() => handleHover('logoThePanelHub')}
               onMouseLeave={() => handleHover('logoThePanelHub')}
               alt="logo-sohnne"
-              className="trasition-all duration-300 ease-in-out"
+              className="w-[165px] transition-all duration-300 ease-in-out sm:w-fit"
             />
             <Image
               src={
@@ -242,7 +235,7 @@ export default function BusinessUnitPage() {
               onMouseEnter={() => handleHover('logoEternityFlower')}
               onMouseLeave={() => handleHover('logoEternityFlower')}
               alt="logo-sohnne"
-              className="trasition-all duration-300 ease-in-out"
+              className="w-[165px] transition-all duration-300 ease-in-out sm:w-fit"
             />
             <Image
               src={
@@ -255,24 +248,24 @@ export default function BusinessUnitPage() {
               onMouseEnter={() => handleHover('logoVertuLiving')}
               onMouseLeave={() => handleHover('logoVertuLiving')}
               alt="logo-sohnne"
-              className="trasition-all duration-300 ease-in-out"
+              className="w-[165px] transition-all duration-300 ease-in-out sm:w-fit"
             />
           </div>
         </section>
         <section className="h-full w-full">
           {products.map((product, index) => (
-            <div key={index} className="py-[60px]">
+            <div key={index} className="py-[24px] md:py-[40px] lg:py-[60px]">
               <Image
                 src={product.img}
                 width={1440}
                 height={400}
                 className="h-[400px] w-full object-cover object-center"
               />
-              <div className="container mx-auto mt-[32px] space-y-[24px]">
-                <h2 className="text-center text-[40px] font-semibold leading-[27.9px] ">
+              <div className="container mx-auto mt-[32px] space-y-[24px] px-[16px] md:px-[40px] lg:px-0">
+                <h2 className="text-center text-[24px] font-semibold leading-[27.9px] md:text-[40px] ">
                   {product.name}
                 </h2>
-                <p className="text-center text-[18px] leading-[27.9px]">
+                <p className="text-center text-[14px] leading-[27.9px] md:text-[18px]">
                   {product.description}
                 </p>
                 <div className="flex w-full justify-center">
