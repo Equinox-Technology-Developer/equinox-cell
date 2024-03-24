@@ -615,7 +615,7 @@ export default function Home() {
           <h2 className="text-center text-[30px] font-bold leading-[48px] md:text-[40px]">
             Company Structure
           </h2>
-          <div className="mt-[42px] grid  lg:space-y-[42px]">
+          <div className="mt-[42px] grid gap-y-[24px] lg:space-y-[42px]">
             <div className="grid grid-cols-1 justify-items-center">
               <div className="h-fit w-full">
                 <p className="text-center text-[18px] font-semibold leading-[27.9px]">
@@ -626,7 +626,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-1 gap-x-[40px] lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-x-[40px] space-y-[24px] md:grid-cols-2 lg:grid-cols-4 lg:space-y-0">
               <div className="h-full w-full">
                 <p className="text-center text-[18px] font-semibold leading-[27.9px]">
                   Ian
@@ -660,7 +660,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-1 gap-x-[40px] lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-x-[40px] space-y-[24px] md:grid-cols-2 lg:grid-cols-4 lg:space-y-0">
               <div className="h-full w-full">
                 <p className="text-center text-[18px] font-semibold leading-[27.9px]">
                   Wanti
@@ -705,8 +705,8 @@ export default function Home() {
           </div>
         </section>
         <section className="flex flex-col space-y-[42px]">
-          <div className="container mx-auto">
-            <h2 className="text-center text-[40px] font-bold leading-[48px]">
+          <div className="container mx-auto px-4">
+            <h2 className="mb-3 text-center text-[40px] font-bold leading-[48px]">
               Our Brands
             </h2>
             <div className="flex w-full justify-center">
@@ -720,7 +720,7 @@ export default function Home() {
           </div>
           <div>
             <Swiper
-              slidesPerView={4}
+              slidesPerView={1}
               spaceBetween={0}
               autoplay={{
                 delay: 5000,
@@ -728,6 +728,17 @@ export default function Home() {
               }}
               loop={true}
               modules={[Autoplay]}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 4,
+                },
+              }}
               className="mySwiper"
             >
               <SwiperSlide>
@@ -1105,7 +1116,7 @@ export default function Home() {
             </Swiper>
           </div>
         </section>
-        <section className="container mx-auto space-y-[42px] py-[80px]">
+        <section className="container mx-auto space-y-[42px] px-4 py-6 md:px-[40px] md:py-[40px] lg:py-[80px]">
           <h2 className="text-center text-[40px] font-bold leading-[48px]">
             Contact Us
           </h2>
@@ -1114,7 +1125,7 @@ export default function Home() {
             a product or service. If you add a button, link it to your preferred
             email address.
           </p>
-          <div className="grid grid-cols-3 gap-x-[40px]">
+          <div className="grid grid-cols-1 gap-x-[40px] gap-y-3 lg:grid-cols-3 lg:gap-y-0">
             <div className="flex flex-col items-center gap-y-2">
               <p className="text-[18px] font-semibold leading-[27.9px]">
                 Call us at
