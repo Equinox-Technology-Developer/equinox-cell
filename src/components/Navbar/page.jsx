@@ -58,7 +58,7 @@ const Navbar = () => {
                       : ''
                   }
                 >
-                  Bussiness Unit
+                  Business Unit
                 </span>
               </NavLink>
               <NavLink href="/contact">

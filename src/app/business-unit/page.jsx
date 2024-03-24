@@ -118,7 +118,7 @@ export default function BusinessUnitPage() {
             <div className="absolute inset-0 flex h-[676px] w-full items-center justify-center text-center">
               <div className="mx-auto max-w-[1086px] space-y-8">
                 <h1 className="text-[40px] font-bold leading-[48px] text-white">
-                  Bussiness Unit
+                  Business Unit
                 </h1>
                 <p className="font-regular text-[20px] leading-[27.9px] text-white">
                   Our talent assessments screen and identify the best candidates
