@@ -35,7 +35,7 @@ export default function About() {
           </div>
           <div className="w-full bg-[#F4F4F4]">
             <div className="container mx-auto flex justify-center px-4 py-[40px] md:px-[40px] lg:py-[60px]">
-              <p className="max-w-[934px] text-center lg:text-[18px] text-[14px] leading-[27.9px]">
+              <p className="max-w-[934px] text-center text-[14px] leading-[27.9px] lg:text-[18px]">
                 Equinox Technology is a dynamic retail & SaaS enterprise,
                 spearheading innovation in the e-commerce retail space.
                 Specializing in a diverse range of products including home &
