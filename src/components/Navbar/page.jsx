@@ -75,7 +75,7 @@ const Navbar = () => {
               <NavLink href="/career">
                 <span
                   className={
-                    pathname == '/career'
+                    pathname.startsWith('/career')
                       ? 'border-b-[2px] border-secondary-500 pb-[10px]'
                       : ''
                   }
