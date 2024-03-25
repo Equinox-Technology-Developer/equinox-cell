@@ -11,7 +11,7 @@ const JobDetailsPage = ({ params: { slug } }) => {
         {/* Banner Job Detail */}
         <section className="w-full bg-gradient-to-r from-secondary-500 to-primary-500">
           <div className="container mx-auto py-20 ">
-            <h1 className="py-8 text-center text-4xl font-bold font-bold text-white">
+            <h1 className="py-8 text-center text-4xl font-bold text-white">
               {job.name}
             </h1>
           </div>

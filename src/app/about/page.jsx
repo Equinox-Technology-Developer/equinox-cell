@@ -217,7 +217,7 @@ export default function About() {
             <h2 className="text-[24px] font-semibold leading-[27.9px] md:text-[30px] lg:text-[40px]">
               Why Work at Equinox?
             </h2>
-            <p className="text-[14px] leading-[27.9px] md:text-[16px] lg:text-[18px]">
+            <p className="text-[14px] leading-[27.9px] md:text-[16px] lg:text-end lg:text-[18px]">
               At Equinox, we're not just about e-commerce; we're about creating
               a workplace that's as dynamic and diverse as the products we sell.
               Our headquarters in the vibrant city of San Francisco sets the

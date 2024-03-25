@@ -751,7 +751,7 @@ export default function Home() {
                     src={'/assets/cover-sohnne.png'}
                     width={460}
                     height={576}
-                    className="h-auto w-full object-cover object-center "
+                    className="h-auto w-full object-cover object-center"
                     alt="sohnne-cover-image"
                   />
                   <div className="absolute inset-0 w-full bg-gradient-to-b from-[#66666600] to-[#000000CC]">
