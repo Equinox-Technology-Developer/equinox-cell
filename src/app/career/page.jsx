@@ -43,7 +43,7 @@ const departments = [
     imageUrl: '/assets/Department Ads Affiliate.png',
   },
   {
-    division: 'MHuman Capital & Talent Acquisition',
+    division: 'Human Capital & Talent Acquisition',
     imageUrl: '/assets/Department HRD.png',
   },
   {
@@ -61,24 +61,16 @@ const departments = [
 ];
 const testimonialHR = [
   {
-    name: 'Jerome Bell',
-    testimonial: `“Lorem ipsum dolor sit amet consectetur. Sapien viverra in
-    faucibus scelerisque platea ullamcorper donec gravida.
-    Pharetra convallis commodo a porta. Mattis nulla morbi arcu
-    sagittis auctor malesuada sit sapien. Lacus quis tempor
-    sapien porttitor viverra placerat.”`,
-    position: 'Regional Head of Human Resource',
-    imgUrl: '/assets/Tiara.png',
+    name: 'Ian',
+    testimonial: `“Here at Equinox Technology, we are deeply committed to foster an exceptional working environment where innovation thrives, collaboration flourishes, and individuals are empowered to excel. In maintaining a vibrant atmosphere that encourages growth and success, We believe that by prioritizing employee well-being, providing ample opportunities for professional development, and embracing diversity, we not only achieve our business goals but also cultivate a fulfilling and rewarding experience for everyone.”`,
+    position: 'General Manager & Creative',
+    imgUrl: '/assets/Ian.png',
   },
   {
-    name: 'Jerome Bell',
-    testimonial: `“Lorem ipsum dolor sit amet consectetur. Sapien viverra in
-    faucibus scelerisque platea ullamcorper donec gravida.
-    Pharetra convallis commodo a porta. Mattis nulla morbi arcu
-    sagittis auctor malesuada sit sapien. Lacus quis tempor
-    sapien porttitor viverra placerat.”`,
-    position: 'Regional Head of Human Resource',
-    imgUrl: '/assets/Tiara.png',
+    name: 'Nabila',
+    testimonial: `“Equinox is my very first full-time job. The support from my coworkers and managers has been invaluable. I've had great help from them during my time here. Being in a place where learning new things all the time is not only challenging but also necessary for my professional growth. I'm very thankful for the chance & help the team succeed!”`,
+    position: 'Copywriter',
+    imgUrl: '/assets/Nabila.png',
   },
   {
     name: 'Tiara',
@@ -91,22 +83,14 @@ const testimonialHR = [
     This was all due to all the support I experienced from the
     Equinox Family and Team. The supportive environment is very
     important.”`,
-    position: 'Regional Head of Human Resource',
+    position: 'HR Manager',
     imgUrl: '/assets/Tiara.png',
   },
   {
-    name: 'Tiara',
-    testimonial: `“Having to work for Equinox Technology has had a big impact
-    on my career. Aside from the benefits that it offers for me,
-    I have plenty of opportunities to learn from business
-    practices to industry niches. I started here as part of the
-    copywriting team, however as my career progresses, now I
-    have a seat as a manager for the Human Resources Department.
-    This was all due to all the support I experienced from the
-    Equinox Family and Team. The supportive environment is very
-    important.”`,
-    position: 'Regional Head of Human Resource',
-    imgUrl: '/assets/Tiara.png',
+    name: 'Nabila',
+    testimonial: `“Equinox is my very first full-time job. The support from my coworkers and managers has been invaluable. I've had great help from them during my time here. Being in a place where learning new things all the time is not only challenging but also necessary for my professional growth. I'm very thankful for the chance & help the team succeed!”`,
+    position: 'Copywriter',
+    imgUrl: '/assets/Nabila.png',
   },
 ];
 
@@ -345,13 +329,15 @@ const Career = () => {
         </section>
 
         {/* Testimonials */}
-        <section className="w-full">
-          <div className="container mx-auto justify-center gap-11 px-[16px] pb-0 md:px-[40px] lg:px-0 lg:pb-16">
+        <section className="h-full w-full">
+          <div className="container mx-auto h-full justify-center gap-11 px-[16px] pb-0 md:px-[40px] lg:px-0 lg:pb-16">
             <Swiper
               spaceBetween={30}
               centeredSlides={true}
               pagination={{
                 clickable: true,
+                type: 'bullets',
+                bulletClass: `swiper-pagination-bullet ${styles['feature-pagination']}`,
               }}
               loop={true}
               loopFillGroupWithBlank={true}
@@ -382,7 +368,7 @@ const Career = () => {
               {testimonialHR.map((testimonial, index) => (
                 <SwiperSlide key={index} className="career-slide-testimonial">
                   <div className={styles.testimonialCard}>
-                    <p>
+                    <p className="text-[12px] font-light leading-[16px]">
                       <i>{testimonial.testimonial}</i>
                     </p>
                     <div className="flex flex-col items-center gap-1">
