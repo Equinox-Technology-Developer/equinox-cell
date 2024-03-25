@@ -119,9 +119,9 @@ const CareerPage = () => {
           />
           <div className="container mx-auto flex flex-col items-center ">
             {/* Filtered Section */}
-            <div className="] flex w-full justify-between gap-5 py-[60px]">
+            <div className="flex w-full justify-between gap-5 px-[16px] py-[24px] md:px-[40px] md:py-[40px] lg:px-0 lg:py-[60px]">
               {/* Filtered */}
-              <div className="flex max-w-[313px] flex-col gap-6 ">
+              <div className="hidden max-w-[313px] flex-col gap-6 lg:flex">
                 <div className="flex flex-col justify-center gap-4">
                   <h3 className="flex items-center gap-[10px]">
                     <LiaUserTieSolid size={20} color="#4CB9E7" /> Division
@@ -177,11 +177,11 @@ const CareerPage = () => {
 
               {/* Jobs Listing */}
               <div className="flex w-full flex-col gap-8">
-                <div className="flex justify-between">
-                  <h2 className=" text-4xl font-semibold">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-[24px] font-semibold md:text-[32px]">
                     Available Positions
                   </h2>
-                  <h2 className="font-medium text-heading-secondary">
+                  <h2 className="text-[14px] font-medium text-heading-secondary md:text-[18px]">
                     {totalJobs} {totalJobs >= 2 ? 'Positions' : 'Position'}
                   </h2>
                 </div>
@@ -203,7 +203,7 @@ const CareerPage = () => {
                             </div>
                           </div>
                         </Link>
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col items-center justify-between md:flex-row">
                           <Link
                             href={`${job.URL}`}
                             className="flex w-full flex-col gap-5 p-4"
@@ -227,14 +227,20 @@ const CareerPage = () => {
                               </p>
                             </div>
                           </Link>
-                          <div className="flex flex-col items-center justify-center gap-5">
-                            <Link href={`${job.URL}`}>
-                              <button className="rounded-full border border-secondary-500 bg-white px-6 py-2 text-secondary-500">
+                          <div className="flex w-full flex-row items-center justify-center gap-5 px-4 md:flex-col md:items-end">
+                            <Link
+                              href={`${job.URL}`}
+                              className="flex w-1/2 justify-center md:w-fit"
+                            >
+                              <button className="flex w-full justify-center rounded-full border border-secondary-500 bg-white px-6 py-2 text-center text-secondary-500">
                                 View
                               </button>
                             </Link>
-                            <Link href={job.submit_URL}>
-                              <button className="rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 px-6 py-2 text-white">
+                            <Link
+                              href={job.submit_URL}
+                              className="flex w-1/2 justify-center md:w-fit"
+                            >
+                              <button className="flex w-full justify-center rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 px-6 py-2 text-center text-white">
                                 Apply
                               </button>
                             </Link>
@@ -303,7 +309,7 @@ const CareerPage = () => {
 
         {/* Recruitment Process */}
         <section className="w-full">
-          <div className="container mx-auto flex flex-col items-center">
+          <div className="container mx-auto flex flex-col items-center px-[16px] py-[24px]">
             <Image
               src="/assets/SectionProcessRecruitment.png"
               width={1440}
@@ -315,23 +321,25 @@ const CareerPage = () => {
         </section>
 
         {/* FAQ */}
-        <section className="w-full py-32">
+        <section className="w-full px-[16px] py-[40px] md:px-[40px] md:py-[60px] lg:py-32">
           <div className="container mx-auto flex flex-col items-center gap-16">
             <div className="flex flex-col items-center gap-6">
               <CapitalizeHeading>Frequent Ask Questions</CapitalizeHeading>
-              <p className="max-w-[1086px] text-center text-xl">
+              <p className="max-w-[1086px] text-center text-[14px] md:text-xl">
                 Got questions about joining our team? Here are the answers to
                 some of our most frequently asked questions to help guide you!
               </p>
             </div>
-            <div className="faq-accordion flex flex-col gap-6 divide-y divide-gray-300 lg:min-w-[868px]">
+            <div className="flex w-full flex-col gap-6 divide-y divide-gray-300 lg:max-w-[868px]">
               {faqItems.map((item, index) => (
                 <div key={index} className="accordion-item w-full pt-[25px]">
                   <button
                     className={`accordion-title flex w-full items-center justify-between text-start ${activeIndex === index ? 'bg-white' : 'bg-white'}`}
                     onClick={() => toggleAccordion(index)}
                   >
-                    <span>{item.question}</span>
+                    <span className="w-fit max-w-[320px] sm:max-w-full">
+                      {item.question}
+                    </span>
                     <BiSolidDownArrow
                       className={`transform transition-transform duration-300 ${activeIndex === index ? 'rotate-180' : 'rotate-0'}`}
                     />
