@@ -87,10 +87,10 @@ const testimonialHR = [
     imgUrl: '/assets/Tiara.png',
   },
   {
-    name: 'Nabila',
-    testimonial: `“Equinox is my very first full-time job. The support from my coworkers and managers has been invaluable. I've had great help from them during my time here. Being in a place where learning new things all the time is not only challenging but also necessary for my professional growth. I'm very thankful for the chance & help the team succeed!”`,
-    position: 'Copywriter',
-    imgUrl: '/assets/Nabila.png',
+    name: 'Putra',
+    testimonial: `“I have a great passion in the graphic design industry. As I pursue my career in the field, I got in with Equinox Technology as a part of their team. Ever since I enter the team, I have always been supported be it through the use of advance designing tools and encountered many creative minds during my discussion. I have felt that I am being enabled to pursue my passion with Equinox Technology”`,
+    position: 'Designerr',
+    imgUrl: '/assets/Putra.png',
   },
 ];
 
