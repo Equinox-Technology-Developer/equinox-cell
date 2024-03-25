@@ -89,7 +89,7 @@ const testimonialHR = [
   {
     name: 'Putra',
     testimonial: `“I have a great passion in the graphic design industry. As I pursue my career in the field, I got in with Equinox Technology as a part of their team. Ever since I enter the team, I have always been supported be it through the use of advance designing tools and encountered many creative minds during my discussion. I have felt that I am being enabled to pursue my passion with Equinox Technology”`,
-    position: 'Designerr',
+    position: 'Designer',
     imgUrl: '/assets/Putra.png',
   },
 ];
