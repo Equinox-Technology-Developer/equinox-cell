@@ -193,7 +193,7 @@ const CareerPage = () => {
                         className={` flex flex-col gap-4 border-t p-4 ${index === currentJobs.length - 1 ? 'border-b' : ''} border-gray-200`}
                       >
                         <Link
-                          href={`${job.URL}`}
+                          href={`/career/${job.slug}`}
                           className="flex flex-col gap-5 p-4"
                         >
                           <div className=" flex items-center gap-6  ">
@@ -203,9 +203,9 @@ const CareerPage = () => {
                             </div>
                           </div>
                         </Link>
-                        <div className="flex flex-col items-center justify-between md:flex-row">
+                        <div className="flex flex-col items-center justify-between gap-5 md:flex-row">
                           <Link
-                            href={`${job.URL}`}
+                            href={`/career/${job.slug}`}
                             className="flex w-full flex-col gap-5 p-4"
                           >
                             <div className="flex w-full flex-col gap-4">
@@ -227,9 +227,9 @@ const CareerPage = () => {
                               </p>
                             </div>
                           </Link>
-                          <div className="flex w-full flex-row items-center justify-center gap-5 px-4 md:flex-col md:items-end">
+                          <div className="flex flex-row items-center justify-center gap-5 px-4 md:flex-col md:items-end">
                             <Link
-                              href={`${job.URL}`}
+                              href={`/career/${job.slug}`}
                               className="flex w-1/2 justify-center md:w-fit"
                             >
                               <button className="flex w-full justify-center rounded-full border border-secondary-500 bg-white px-6 py-2 text-center text-secondary-500">
@@ -237,7 +237,7 @@ const CareerPage = () => {
                               </button>
                             </Link>
                             <Link
-                              href={job.submit_URL}
+                              href={`/career/${job.slug}/submit-form`}
                               className="flex w-1/2 justify-center md:w-fit"
                             >
                               <button className="flex w-full justify-center rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 px-6 py-2 text-center text-white">
