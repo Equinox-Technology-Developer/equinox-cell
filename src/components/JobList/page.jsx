@@ -13,7 +13,10 @@ const JobList = ({ jobs }) => {
         <ul className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {jobs.slice(0, 9).map((job) => (
             <li className="job-card flex flex-col" key={job.name}>
-              <Link href={job.URL} className="flex flex-col gap-6">
+              <Link
+                href={`/career/${job.slug}`}
+                className="flex flex-col gap-6"
+              >
                 <div className=" flex items-center gap-6  ">
                   <h3>{job.name}</h3>
                   <div className="rounded-[20px] bg-secondary-500 bg-opacity-10 px-3 py-1 text-xs">
