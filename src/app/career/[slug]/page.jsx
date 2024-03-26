@@ -23,7 +23,7 @@ const JobDetailsPage = ({ params: { slug } }) => {
                 <h1 className="py-8 text-center text-4xl font-bold text-white">
                   {job.name}
                 </h1>
-                <Link href={`/career/${job.slug}/submit-url`}>
+                <Link href={`/career/${job.slug}/submit-form`}>
                   <button className="rounded-full bg-white px-6 py-3">
                     {' '}
                     Apply Now
@@ -123,7 +123,7 @@ const JobDetailsPage = ({ params: { slug } }) => {
 
             {/* Apply Job */}
             <div className="self-center">
-              <Link href={`${job.URL}/submit-form`}>
+              <Link href={`/career/${slug}/submit-form`}>
                 <button className="rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 px-6 py-2 text-white">
                   Apply Now
                 </button>
