@@ -158,7 +158,7 @@ const JobDetailsPage = ({ params: { slug } }) => {
                   <input
                     id="email"
                     type="email"
-                    placeholder="Email"
+                    placeholder="Recent Education"
                     className="rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
                     {...register('recentEducation')}
                   />
