@@ -75,7 +75,7 @@ export default function Home() {
             alt="hero-image"
             className="h-[425px] w-full object-cover object-center md:h-[768px] lg:h-[676px]"
           />
-          <div className="absolute inset-0 mt-[67px] h-[425px] w-full bg-gradient-to-l from-[#66666600] to-[#0000009E] md:h-[768px] lg:mt-[80px] lg:h-[676px]">
+          <div className="absolute inset-0 mt-[91px] h-[425px] w-full bg-gradient-to-l from-[#66666600] to-[#0000009E] md:h-[768px] lg:mt-[112px] lg:h-[676px]">
             <div className="absolute inset-0 flex h-[425px] w-full items-center justify-start text-start md:h-[768px] lg:h-[676px]">
               <div className="container mx-auto w-full space-y-8">
                 <div className="w-full space-y-[24px] px-4 md:px-[60px] lg:w-1/2 lg:px-0">
@@ -138,40 +138,39 @@ export default function Home() {
             Work that touches the lives of millions
           </h2>
           <div className="mt-[42px] grid grid-cols-1 gap-x-[24px] lg:grid-cols-3">
-            <div className="py-2">
+            <div className="space-y-[10px] py-2">
               <h3 className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[32px] font-bold leading-[32px] text-transparent md:text-[54px] md:leading-[54px]">
                 $1.999K+
               </h3>
               <p className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[20px] font-semibold leading-[24px] text-transparent md:text-[24px]">
                 Total Sales
               </p>
-              <p className="text-center text-[14px] leading-[24px] md:text-[16px]">
-                of organizations using talent assessment tests saw a reduction
-                in mis-hires
+              <p className="pt-[2px] text-center text-[14px] leading-[24px] md:text-[16px]">
+                Customers in various countries who already trust us as a smart
+                home shopping place
               </p>
             </div>
-            <div className="py-2">
+            <div className="space-y-[10px] py-2">
               <h3 className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[32px] font-bold leading-[32px] text-transparent md:text-[54px] md:leading-[54px]">
                 88%+
               </h3>
               <p className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[20px] font-semibold leading-[24px] text-transparent md:text-[24px]">
                 Organic Sales
               </p>
-              <p className="text-center text-[14px] leading-[24px] md:text-[16px]">
-                of organizations using talent assessment tools reported a
-                reduction in cost-to-hire
+              <p className="pt-[2px] text-center text-[14px] leading-[24px] md:text-[16px]">
+                Top the smart home market place search with our best products
               </p>
             </div>
-            <div className="py-2">
+            <div className="space-y-[10px] py-2">
               <h3 className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[32px] font-bold leading-[32px] text-transparent md:text-[54px] md:leading-[54px]">
                 8+
               </h3>
               <p className="bg-gradient-to-l from-[#59D5E0] to-[#4CB9E7] bg-clip-text text-center text-[20px] font-semibold leading-[24px] text-transparent md:text-[24px]">
                 Subsidiary Company
               </p>
-              <p className="text-center text-[14px] leading-[24px] md:text-[16px]">
-                of candidates said they prefer a hiring process that includes
-                talent assessment tests
+              <p className="pt-[2px] text-center text-[14px] leading-[24px] md:text-[16px]">
+                Expansion into several brands with their own characteristics and
+                uniqueness
               </p>
             </div>
           </div>

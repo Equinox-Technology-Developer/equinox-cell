@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar/page';
+import Topbar from '@/components/Topbar/page';
 import Footer from '@/components/Footer/page';
 
 export default function Layout(props) {
@@ -6,6 +7,7 @@ export default function Layout(props) {
 
   return (
     <>
+      <Topbar />
       <Navbar />
       <main>{children}</main>
       <Footer />
