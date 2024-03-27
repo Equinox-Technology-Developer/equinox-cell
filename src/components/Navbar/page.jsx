@@ -87,7 +87,7 @@ const Navbar = () => {
           </div>
           <div className="hidden lg:block">
             <button className="rounded-[40px] bg-[#4CB9E7] px-[20px] py-[8px] text-[18px] font-semibold leading-[27.9px] text-white hover:bg-secondary-500/80">
-              Subscribe
+              Get hired
             </button>
           </div>
           <div className="lg:hidden">
