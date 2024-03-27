@@ -20,13 +20,13 @@ const JobDetailsPage = ({ params: { slug } }) => {
 
         {/* Input Field */}
         <section>
-          <div className="container mx-auto py-16">
-            <form className="flex flex-col gap-y-[30px]">
-              <div className="grid grid-cols-2 gap-x-[20px]">
+          <div className="container mx-auto px-4 py-6 md:px-10 md:py-10 lg:px-0 lg:py-16">
+            <form className="flex flex-col lg:gap-y-[30px]">
+              <div className="grid grid-cols-1 gap-x-[20px] lg:grid-cols-2">
                 <div className="flex flex-col gap-[6px]">
                   <label
                     htmlFor="name"
-                    className="text-[18px] font-semibold text-black"
+                    className="text-base font-semibold text-black md:text-[18px]"
                   >
                     Full Name <span className="text-error-500">*</span>
                   </label>
@@ -37,10 +37,10 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     className="rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
                   />
                 </div>
-                <div className="flex flex-col gap-[6px]">
+                <div className="mt-[24px] flex flex-col gap-[6px] lg:mt-0">
                   <label
                     htmlFor="email"
-                    className="text-[18px] font-semibold text-black"
+                    className="text-base font-semibold text-black md:text-[18px]"
                   >
                     Email <span className="text-error-500">*</span>
                   </label>
@@ -52,11 +52,11 @@ const JobDetailsPage = ({ params: { slug } }) => {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-x-[20px]">
-                <div className="flex flex-col gap-[6px]">
+              <div className="grid grid-cols-1 gap-x-[20px] lg:grid-cols-2">
+                <div className="mt-[24px] flex flex-col gap-[6px] lg:mt-0">
                   <label
                     htmlFor="phone"
-                    className="text-[18px] font-semibold text-black"
+                    className="text-base font-semibold text-black md:text-[18px]"
                   >
                     Phone Number <span className="text-error-500">*</span>
                   </label>
@@ -69,10 +69,10 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     maxlength="12"
                   />
                 </div>
-                <div className="flex flex-col gap-[6px]">
+                <div className="mt-[24px] flex flex-col gap-[6px] lg:mt-0">
                   <label
                     htmlFor="email"
-                    className="text-[18px] font-semibold text-black"
+                    className="text-base font-semibold text-black md:text-[18px]"
                   >
                     Recent Education
                   </label>
@@ -84,11 +84,11 @@ const JobDetailsPage = ({ params: { slug } }) => {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-x-[20px]">
-                <div className="flex flex-col gap-[6px]">
+              <div className="grid grid-cols-1 gap-x-[20px] lg:grid-cols-2">
+                <div className="mt-[24px] flex flex-col gap-[6px] lg:mt-0">
                   <label
                     htmlFor="join-date"
-                    className="text-[18px] font-semibold text-black"
+                    className="text-base font-semibold text-black md:text-[18px]"
                   >
                     Join Date
                   </label>
@@ -99,10 +99,10 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     className="rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
                   />
                 </div>
-                <div className="flex flex-col gap-[6px]">
+                <div className="mt-[24px] flex flex-col gap-[6px] lg:mt-0">
                   <label
                     htmlFor="domicile"
-                    className="text-[18px] font-semibold text-black"
+                    className="text-base font-semibold text-black md:text-[18px]"
                   >
                     Domicile
                   </label>
@@ -115,10 +115,10 @@ const JobDetailsPage = ({ params: { slug } }) => {
                 </div>
               </div>
               <div className="grid grid-cols-1 space-y-[30px]">
-                <div className="flex flex-col gap-[6px]">
+                <div className="mt-[24px] flex flex-col gap-[6px] lg:mt-0">
                   <label
                     htmlFor="know-about-equinox"
-                    className="text-[18px] font-semibold text-black"
+                    className="text-base font-semibold text-black md:text-[18px]"
                   >
                     From where did you know about Equinox Technology
                     <span className="text-error-500">*</span>
@@ -133,7 +133,7 @@ const JobDetailsPage = ({ params: { slug } }) => {
                 <div className="flex flex-col gap-[6px]">
                   <label
                     htmlFor="resume"
-                    className="text-[18px] font-semibold text-black"
+                    className="text-base font-semibold text-black md:text-[18px]"
                   >
                     Resume (max 2MB)<span className="text-error-500">*</span>
                   </label>
@@ -148,7 +148,7 @@ const JobDetailsPage = ({ params: { slug } }) => {
                 <div className="flex flex-col gap-[6px]">
                   <label
                     htmlFor="transcript"
-                    className="text-[18px] font-semibold text-black"
+                    className="text-base font-semibold text-black md:text-[18px]"
                   >
                     Transcript (max 2MB)
                     <span className="text-error-500">*</span>
@@ -167,7 +167,7 @@ const JobDetailsPage = ({ params: { slug } }) => {
               <button
                 type="submit"
                 value="Send"
-                className="mt-[60px] rounded-[40px] bg-gradient-to-r from-secondary-500 to-primary-500 px-[24px] py-[6px] text-white"
+                className="mt-[40px] rounded-[40px] bg-gradient-to-r from-secondary-500 to-primary-500 px-[24px] py-[6px] text-white md:mt-[60px]"
               >
                 Send
               </button>
