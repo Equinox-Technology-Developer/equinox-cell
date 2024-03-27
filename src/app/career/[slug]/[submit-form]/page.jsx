@@ -1,9 +1,49 @@
+'use client';
 import Layout from '@/components/Layout/page';
 import { getJobsBySlug } from '@/lib/jobs/page';
-import Link from 'next/link';
-import { Input } from 'postcss';
+
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
+import { FiAlertTriangle } from 'react-icons/fi';
+
+const MAX_FILE_SIZE = 2000000;
 
 const JobDetailsPage = ({ params: { slug } }) => {
+  const schema = yup
+    .object({
+      name: yup.string().required('name is required.'),
+      email: yup
+        .string()
+        .email('Invalid email.')
+        .required('Email is required.'),
+      phone: yup.number().required('Phone is required.'),
+      recentEducation: yup.string().nullable(),
+      joinDate: yup.date().nullable(),
+      domicile: yup.string().nullable(),
+      knowAboutEquinox: yup.string().required('This field is required.'),
+      resume: yup.mixed().required('This field is required.'),
+      transcript: yup.mixed().required('This field is required.'),
+    })
+    .required();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = async (data) => {
+    try {
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
   const job = getJobsBySlug(slug);
   return (
     <>
@@ -20,8 +60,11 @@ const JobDetailsPage = ({ params: { slug } }) => {
 
         {/* Input Field */}
         <section>
-          <div className="container mx-auto px-4 py-6 md:px-10 md:py-10 lg:px-0 lg:py-16">
-            <form className="flex flex-col lg:gap-y-[30px]">
+          <form
+            className="container mx-auto px-4 py-6 md:px-10 md:py-10 lg:px-0 lg:py-16"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <div className="flex flex-col lg:gap-y-[30px]">
               <div className="grid grid-cols-1 gap-x-[20px] lg:grid-cols-2">
                 <div className="flex flex-col gap-[6px]">
                   <label
@@ -35,7 +78,19 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     type="text"
                     placeholder="Full Name"
                     className="rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
+                    {...register('name')}
                   />
+                  {errors.name && (
+                    <div className="mt-2 flex items-center gap-[7px]">
+                      <FiAlertTriangle className="text-error-500" />
+                      <span className="text-[12px] text-error-500">
+                        {errors.name?.message &&
+                          errors.name.message.replace(/^\w/, (c) =>
+                            c.toUpperCase(),
+                          )}
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <div className="mt-[24px] flex flex-col gap-[6px] lg:mt-0">
                   <label
@@ -49,7 +104,19 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     type="email"
                     placeholder="Email"
                     className="rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
+                    {...register('email')}
                   />
+                  {errors.email && (
+                    <div className="mt-2 flex items-center gap-[7px]">
+                      <FiAlertTriangle className="text-error-500" />
+                      <span className="text-[12px] text-error-500">
+                        {errors.email?.message &&
+                          errors.email.message.replace(/^\w/, (c) =>
+                            c.toUpperCase(),
+                          )}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="grid grid-cols-1 gap-x-[20px] lg:grid-cols-2">
@@ -67,7 +134,19 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     className="rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
                     pattern="[0-9]{3} [0-9]{3} [0-9]{4}"
                     maxlength="12"
+                    {...register('phone')}
                   />
+                  {errors.phone && (
+                    <div className="mt-2 flex items-center gap-[7px]">
+                      <FiAlertTriangle className="text-error-500" />
+                      <span className="text-[12px] text-error-500">
+                        {errors.phone?.message &&
+                          errors.phone.message.replace(/^\w/, (c) =>
+                            c.toUpperCase(),
+                          )}
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <div className="mt-[24px] flex flex-col gap-[6px] lg:mt-0">
                   <label
@@ -81,7 +160,19 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     type="email"
                     placeholder="Email"
                     className="rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
+                    {...register('recentEducation')}
                   />
+                  {errors.recentEducation && (
+                    <div className="mt-2 flex items-center gap-[7px]">
+                      <FiAlertTriangle className="text-error-500" />
+                      <span className="text-[12px] text-error-500">
+                        {errors.recentEducation?.message &&
+                          errors.recentEducation.message.replace(/^\w/, (c) =>
+                            c.toUpperCase(),
+                          )}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="grid grid-cols-1 gap-x-[20px] lg:grid-cols-2">
@@ -97,6 +188,7 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     type="date"
                     placeholder="Join Date"
                     className="rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
+                    {...register('joinDate')}
                   />
                 </div>
                 <div className="mt-[24px] flex flex-col gap-[6px] lg:mt-0">
@@ -111,7 +203,19 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     type="text"
                     placeholder="Domicile"
                     className="rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
+                    {...register('domicile')}
                   />
+                  {errors.domicile && (
+                    <div className="mt-2 flex items-center gap-[7px]">
+                      <FiAlertTriangle className="text-error-500" />
+                      <span className="text-[12px] text-error-500">
+                        {errors.domicile?.message &&
+                          errors.domicile.message.replace(/^\w/, (c) =>
+                            c.toUpperCase(),
+                          )}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="grid grid-cols-1 space-y-[30px]">
@@ -128,7 +232,19 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     type="text"
                     placeholder="from where did you know about Equinox Technology"
                     className="w-full rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
+                    {...register('knowAboutEquinox')}
                   />
+                  {errors.knowAboutEquinox && (
+                    <div className="mt-2 flex items-center gap-[7px]">
+                      <FiAlertTriangle className="text-error-500" />
+                      <span className="text-[12px] text-error-500">
+                        {errors.knowAboutEquinox?.message &&
+                          errors.knowAboutEquinox.message.replace(/^\w/, (c) =>
+                            c.toUpperCase(),
+                          )}
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <div className="flex flex-col gap-[6px]">
                   <label
@@ -143,7 +259,19 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     placeholder="from where did you know about Equinox Technology"
                     className="w-full rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
                     accept=".doc, .docx, .pdf"
+                    {...register('resume')}
                   />
+                  {errors.resume && (
+                    <div className="mt-2 flex items-center gap-[7px]">
+                      <FiAlertTriangle className="text-error-500" />
+                      <span className="text-[12px] text-error-500">
+                        {errors.resume?.message &&
+                          errors.resume.message.replace(/^\w/, (c) =>
+                            c.toUpperCase(),
+                          )}
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <div className="flex flex-col gap-[6px]">
                   <label
@@ -159,20 +287,30 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     placeholder="from where did you know about Equinox Technology"
                     className="w-full rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
                     accept=".doc, .docx, .pdf"
+                    {...register('transcript')}
                   />
+                  {errors.transcript && (
+                    <div className="mt-2 flex items-center gap-[7px]">
+                      <FiAlertTriangle className="text-error-500" />
+                      <span className="text-[12px] text-error-500">
+                        {errors.transcript?.message &&
+                          errors.transcript.message.replace(/^\w/, (c) =>
+                            c.toUpperCase(),
+                          )}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
-            </form>
+            </div>
             <div className="flex w-full justify-center">
-              <button
+              <input
                 type="submit"
                 value="Send"
-                className="mt-[40px] rounded-[40px] bg-gradient-to-r from-secondary-500 to-primary-500 px-[24px] py-[6px] text-white md:mt-[60px]"
-              >
-                Send
-              </button>
+                className="mt-[40px] cursor-pointer rounded-[40px] bg-gradient-to-r from-secondary-500 to-primary-500 px-[24px] py-[6px] text-white md:mt-[60px]"
+              />
             </div>
-          </div>
+          </form>
         </section>
       </Layout>
     </>
