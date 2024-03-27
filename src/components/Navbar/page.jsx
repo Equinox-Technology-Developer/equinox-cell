@@ -27,7 +27,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="hidden lg:block">
-            <div className="flex gap-10 space-x-4 text-lg font-semibold ">
+            <div className="flex gap-10 space-x-4 text-lg font-semibold">
               <NavLink href="/">
                 <span
                   className={

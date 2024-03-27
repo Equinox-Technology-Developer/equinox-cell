@@ -328,6 +328,50 @@ const Career = () => {
           </div>
         </section>
 
+        <section className="flex w-full flex-col items-center gap-8 px-[16px] py-[24px] md:px-[40px] md:py-[40px] lg:py-20 2xl:px-[370px]">
+          <div className="container mx-auto flex w-full flex-col items-center justify-center text-center">
+            <CapitalizeHeading>Our Office</CapitalizeHeading>
+          </div>
+          <div className="container mx-auto grid grid-rows-1 place-items-start justify-items-start gap-y-[20px] md:grid-cols-2 md:gap-x-5 md:gap-y-0 xl:grid-cols-3 xl:gap-[20px] 2xl:grid-cols-5">
+            <div className="grid grid-cols-1 justify-self-center xl:justify-self-end">
+              <Image
+                src={'/assets/jakarta-sahid-sudirman-centre-building-1.png'}
+                width={314}
+                height={560}
+                className="max-h-[456px] w-[640px] max-w-full object-cover md:max-h-[540px] xl:h-[560px] xl:max-h-full xl:w-[314px]"
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-[20px] md:grid-cols-1 md:gap-0 xl:grid-cols-1 xl:gap-[20px] xl:justify-self-end 2xl:col-span-2">
+              <Image
+                src={'/assets/jakarta-sahid-sudirman-centre-building-2.png'}
+                width={480}
+                height={270}
+                className="h-[270px] w-auto object-cover lg:w-[502px] xl:h-[270px] xl:w-[480px]"
+              />
+              <Image
+                src={'/assets/jakarta-sahid-sudirman-centre-building-4.png'}
+                width={480}
+                height={270}
+                className="h-[270px] w-auto object-cover lg:w-[502px] xl:h-[270px] xl:w-[480px]"
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-[20px] md:col-span-2 md:grid-cols-2 md:gap-0 md:gap-x-5 lg:justify-self-center xl:col-span-1 xl:grid-cols-1 xl:gap-[20px] xl:justify-self-end 2xl:col-span-2 2xl:grid-cols-1">
+              <Image
+                src={'/assets/jakarta-sahid-sudirman-centre-building-3.png'}
+                width={480}
+                height={270}
+                className="h-[270px] w-auto object-cover md:w-full lg:w-[502px] xl:h-[270px] xl:w-[480px]"
+              />
+              <Image
+                src={'/assets/jakarta-sahid-sudirman-centre-building-5.png'}
+                width={480}
+                height={270}
+                className="h-[270px] w-auto object-cover md:w-full xl:h-[270px] xl:w-[480px]"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Testimonials */}
         <section className="h-full w-full">
           <div className="container mx-auto h-full justify-center gap-11 px-[16px] pb-0 md:px-[40px] lg:px-0 lg:pb-16">
