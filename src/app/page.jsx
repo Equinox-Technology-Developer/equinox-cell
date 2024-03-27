@@ -4,8 +4,7 @@ import Image from 'next/image';
 import React, { useRef, useState, useEffect } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FaLinkedin } from 'react-icons/fa6';
-import { FiPhone } from 'react-icons/fi';
+import { BiPhone } from 'react-icons/bi';
 import { MdMailOutline } from 'react-icons/md';
 import Link from 'next/link';
 import Layout from '@/components/Layout/page';
@@ -85,9 +84,8 @@ export default function Home() {
                     <span className="text-secondary-500">Greater Good</span>
                   </h1>
                   <p className="font-regular text-center text-[20px] leading-[27.9px] text-white lg:text-start">
-                    Our talent assessments screen and identify the best
-                    candidates and make your hiring decisions faster, easier,
-                    and bias-free.
+                    Innovations in modern smarthome, unique interior items make
+                    the company thrive through international markets
                   </p>
                 </div>
               </div>
@@ -1125,38 +1123,40 @@ export default function Home() {
             a product or service. If you add a button, link it to your preferred
             email address.
           </p>
-          <div className="grid grid-cols-1 gap-x-[40px] gap-y-3 lg:grid-cols-3 lg:gap-y-0">
-            <div className="flex flex-col items-center gap-y-2">
+          <div className="grid grid-cols-1 gap-x-[32px] gap-y-6 md:grid-cols-2 lg:gap-y-0">
+            <div className="flex w-fit flex-col items-center gap-y-2 rounded-[20px] bg-white px-4 py-6 shadow-[0_4px_10px_0px_rgba(0,0,0,0.15)] md:justify-self-end">
+              <BiPhone size={60} className="text-secondary-500" />
               <p className="text-[18px] font-semibold leading-[27.9px]">
                 Call us at
               </p>
               <div className="flex flex-row items-center gap-x-1">
-                <FiPhone size={24} className="text-neutral-500" />
-                <p className="text-[15px] font-light leading-[27.9px]">
-                  +62-811-3000-800
+                <p className="text-center text-[15px] font-light leading-[27.9px] lg:max-w-[392px]">
+                  Interested work in Equinox? Just pick up the phone to chat
+                  with a human resource (HR) team.
                 </p>
               </div>
+              <Link href="tel:+628113000800">
+                <button className="rounded-[40px] bg-gradient-to-l from-primary-500 to-secondary-500 px-[24px] py-[8px] text-white">
+                  Call us
+                </button>
+              </Link>
             </div>
-            <div className="flex flex-col items-center gap-y-2">
+            <div className="flex w-fit flex-col items-center gap-y-2 rounded-[20px] bg-white px-4 py-6 shadow-[0_4px_10px_0px_rgba(0,0,0,0.15)]">
+              <MdMailOutline size={60} className="text-secondary-500" />
               <p className="text-[18px] font-semibold leading-[27.9px]">
-                Message us at
+                Contact
               </p>
               <div className="flex flex-row items-center gap-x-1">
-                <MdMailOutline size={24} className="text-neutral-500" />
-                <p className="text-[15px] font-light leading-[27.9px]">
-                  support@equinoxcell.com
+                <p className="text-center text-[15px] font-light leading-[27.9px] lg:max-w-[392px]">
+                  Sometimes you need a little help from your friends. Or would
+                  like to enquire about job opportunities. I’m here.
                 </p>
               </div>
-            </div>
-            <div className="flex flex-col items-center gap-y-2">
-              <p className="text-[18px] font-semibold leading-[27.9px]">
-                Follow Us
-              </p>
-              <div className="flex flex-row items-center gap-x-1">
-                <Link href="https://www.linkedin.com/company/equinoxtechnology">
-                  <FaLinkedin size={24} />
-                </Link>
-              </div>
+              <Link href="/contact">
+                <button className="rounded-[40px] bg-gradient-to-l from-primary-500 to-secondary-500 px-[24px] py-[8px] text-white">
+                  Email us
+                </button>
+              </Link>
             </div>
           </div>
         </section>
