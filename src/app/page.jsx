@@ -84,9 +84,8 @@ export default function Home() {
                     <span className="text-secondary-500">Greater Good</span>
                   </h1>
                   <p className="font-regular text-center text-[20px] leading-[27.9px] text-white lg:text-start">
-                    Our talent assessments screen and identify the best
-                    candidates and make your hiring decisions faster, easier,
-                    and bias-free.
+                    Innovations in modern smarthome, unique interior items make
+                    the company thrive through international markets
                   </p>
                 </div>
               </div>
