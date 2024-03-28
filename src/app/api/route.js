@@ -19,7 +19,7 @@ export async function POST(request) {
 
   try {
     const res = await sheets.spreadsheets.values.append({
-      spreadsheetId: '1YVCjUunIYs58Bv1XDAkF3jUUT4ASsW-OqzePLnn8m44',
+      spreadsheetId: process.env.SPREADSHEET_ID,
       range: 'Sheet1!A2:G',
       valueInputOption: 'USER_ENTERED',
       requestBody: {
