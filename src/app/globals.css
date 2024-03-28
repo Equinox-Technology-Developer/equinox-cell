@@ -101,3 +101,32 @@ input[type='date']::-webkit-calendar-picker-indicator {
   width: 40px;
   -webkit-appearance: none;
 }
+
+.btn-success {
+  background-color: #4cb9e7;
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.btn-success:hover {
+  background-color: #77d4f0;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  background-color: #ff6161;
+  color: white;
+}

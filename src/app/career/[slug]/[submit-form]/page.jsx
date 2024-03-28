@@ -1,6 +1,7 @@
 'use client';
 import Layout from '@/components/Layout/page';
 import { getJobsBySlug } from '@/lib/jobs/page';
+import { useState } from 'react';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -8,12 +9,15 @@ import * as yup from 'yup';
 
 import { FiAlertTriangle } from 'react-icons/fi';
 import { CiCalendarDate } from 'react-icons/ci';
+import Swal from 'sweetalert2';
 
 const MAX_FILE_SIZE = 2000000;
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const JobDetailsPage = ({ params: { slug } }) => {
+  const [showAlert, setShowAlert] = useState(false);
+
   const schema = yup
     .object({
       name: yup.string().required('Name is required.'),
@@ -56,14 +60,52 @@ const JobDetailsPage = ({ params: { slug } }) => {
   });
 
   const onSubmit = async (data) => {
-    try {
-      console.log(response.data);
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    schema
+      .validate(data)
+      .then((valid) => {
+        if (valid) {
+          setShowAlert(true);
+        }
+      })
+      .catch((error) => console.log(error));
   };
 
   const job = getJobsBySlug(slug);
+
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn-success',
+      cancelButton: 'btn-danger',
+    },
+    buttonsStyling: false,
+  });
+  swalWithBootstrapButtons
+    .fire({
+      title: 'Are you sure?',
+      text: 'What data has been filled in correctly?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+      reverseButtons: true,
+    })
+    .then((result) => {
+      if (result.isConfirmed) {
+        swalWithBootstrapButtons.fire({
+          title: 'Submit Successful',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        swalWithBootstrapButtons.fire({
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          icon: 'error',
+          confirmButtonText: 'Back',
+        });
+      }
+    });
   return (
     <>
       <Layout>
@@ -153,8 +195,6 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     className={`rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] outline-secondary-500 placeholder:text-[#CBCBCB] ${errors.phone ? 'border-error-500' : 'border-[#CBCBCB]'}`}
                     min="0"
                     step="1"
-                    onkeypress="removeSigns()"
-                    onkeydown="return false"
                     {...register('phone')}
                   />
                   {errors.phone && (
@@ -363,6 +403,7 @@ const JobDetailsPage = ({ params: { slug } }) => {
             </div>
           </form>
         </section>
+        {showAlert && swalWithBootstrapButtons}
       </Layout>
     </>
   );
