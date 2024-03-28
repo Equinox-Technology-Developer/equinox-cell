@@ -60,52 +60,15 @@ const JobDetailsPage = ({ params: { slug } }) => {
   });
 
   const onSubmit = async (data) => {
-    schema
-      .validate(data)
-      .then((valid) => {
-        if (valid) {
-          setShowAlert(true);
-        }
-      })
-      .catch((error) => console.log(error));
+    try {
+      console.log('Form data:', data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   const job = getJobsBySlug(slug);
 
-  const swalWithBootstrapButtons = Swal.mixin({
-    customClass: {
-      confirmButton: 'btn-success',
-      cancelButton: 'btn-danger',
-    },
-    buttonsStyling: false,
-  });
-  swalWithBootstrapButtons
-    .fire({
-      title: 'Are you sure?',
-      text: 'What data has been filled in correctly?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes',
-      cancelButtonText: 'No',
-      reverseButtons: true,
-    })
-    .then((result) => {
-      if (result.isConfirmed) {
-        swalWithBootstrapButtons.fire({
-          title: 'Submit Successful',
-          icon: 'success',
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        swalWithBootstrapButtons.fire({
-          title: 'Oops...',
-          text: 'Something went wrong!',
-          icon: 'error',
-          confirmButtonText: 'Back',
-        });
-      }
-    });
   return (
     <>
       <Layout>
@@ -195,6 +158,8 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     className={`rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] outline-secondary-500 placeholder:text-[#CBCBCB] ${errors.phone ? 'border-error-500' : 'border-[#CBCBCB]'}`}
                     min="0"
                     step="1"
+                    onkeypress="removeSigns()"
+                    onkeydown="return false"
                     {...register('phone')}
                   />
                   {errors.phone && (
@@ -403,7 +368,6 @@ const JobDetailsPage = ({ params: { slug } }) => {
             </div>
           </form>
         </section>
-        {showAlert && swalWithBootstrapButtons}
       </Layout>
     </>
   );
