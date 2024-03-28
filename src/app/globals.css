@@ -84,3 +84,20 @@ p {
     @apply bg-gradient-to-r from-primary-500 to-primary-600;
   }
 }
+
+/* Custom CSS */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type='date']::-webkit-inner-spin-button,
+input[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  z-index: 10;
+  width: 40px;
+  -webkit-appearance: none;
+}

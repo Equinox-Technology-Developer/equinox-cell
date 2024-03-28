@@ -7,24 +7,43 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import { FiAlertTriangle } from 'react-icons/fi';
+import { CiCalendarDate } from 'react-icons/ci';
 
 const MAX_FILE_SIZE = 2000000;
+const phoneRegExp =
+  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const JobDetailsPage = ({ params: { slug } }) => {
   const schema = yup
     .object({
-      name: yup.string().required('name is required.'),
+      name: yup.string().required('Name is required.'),
       email: yup
         .string()
         .email('Invalid email.')
         .required('Email is required.'),
-      phone: yup.number().required('Phone is required.'),
+      phone: yup
+        .string()
+        .required('Phone number is required.')
+        .matches(phoneRegExp, 'Phone number is not valid'),
       recentEducation: yup.string().nullable(),
       joinDate: yup.date().nullable(),
       domicile: yup.string().nullable(),
       knowAboutEquinox: yup.string().required('This field is required.'),
-      resume: yup.mixed().required('This field is required.'),
-      transcript: yup.mixed().required('This field is required.'),
+      portfolio: yup.string().nullable(),
+      resume: yup
+        .mixed()
+        .test('fileSize', 'The file is too large', (value) => {
+          if (!value.length) return true;
+          return value[0].size <= MAX_FILE_SIZE;
+        })
+        .required('This field is required.'),
+      transcript: yup
+        .mixed()
+        .test('fileSize', 'The file is too large', (value) => {
+          if (!value.length) return true;
+          return value[0].size <= MAX_FILE_SIZE;
+        })
+        .required('This field is required.'),
     })
     .required();
 
@@ -76,8 +95,8 @@ const JobDetailsPage = ({ params: { slug } }) => {
                   <input
                     id="name"
                     type="text"
-                    placeholder="Full Name"
-                    className="rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
+                    placeholder="ex. John Doe"
+                    className={`rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] outline-secondary-500 placeholder:text-[#CBCBCB]  ${errors.name ? 'border-error-500' : 'border-[#CBCBCB]'}`}
                     {...register('name')}
                   />
                   {errors.name && (
@@ -102,8 +121,8 @@ const JobDetailsPage = ({ params: { slug } }) => {
                   <input
                     id="email"
                     type="email"
-                    placeholder="Email"
-                    className="rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
+                    placeholder="ex. johndoe@gmail.com"
+                    className={`rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] outline-secondary-500 placeholder:text-[#CBCBCB] ${errors.email ? 'border-error-500' : 'border-[#CBCBCB]'}`}
                     {...register('email')}
                   />
                   {errors.email && (
@@ -129,11 +148,13 @@ const JobDetailsPage = ({ params: { slug } }) => {
                   </label>
                   <input
                     id="phone"
-                    type="tel"
-                    placeholder="Phone Number"
-                    className="rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
-                    pattern="[0-9]{3} [0-9]{3} [0-9]{4}"
-                    maxlength="12"
+                    type="number"
+                    placeholder="ex. 083628263286"
+                    className={`rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] outline-secondary-500 placeholder:text-[#CBCBCB] ${errors.phone ? 'border-error-500' : 'border-[#CBCBCB]'}`}
+                    min="0"
+                    step="1"
+                    onkeypress="removeSigns()"
+                    onkeydown="return false"
                     {...register('phone')}
                   />
                   {errors.phone && (
@@ -157,9 +178,9 @@ const JobDetailsPage = ({ params: { slug } }) => {
                   </label>
                   <input
                     id="email"
-                    type="email"
-                    placeholder="Recent Education"
-                    className="rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
+                    type="text"
+                    placeholder="(ex. Bachelors Degree_Institution_GPA)"
+                    className={`rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] outline-secondary-500 placeholder:text-[#CBCBCB] ${errors.recentEducation ? 'border-error-500' : 'border-[#CBCBCB]'}`}
                     {...register('recentEducation')}
                   />
                   {errors.recentEducation && (
@@ -183,13 +204,17 @@ const JobDetailsPage = ({ params: { slug } }) => {
                   >
                     Join Date
                   </label>
-                  <input
-                    id="join-date"
-                    type="date"
-                    placeholder="Join Date"
-                    className="rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
-                    {...register('joinDate')}
-                  />
+                  <div className="relative">
+                    <input
+                      id="join-date"
+                      type="text"
+                      placeholder="ex. 13-03-1999"
+                      onFocus={(e) => (e.target.type = 'date')}
+                      className={`w-full rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] outline-secondary-500 placeholder:text-[#CBCBCB] ${errors.joinDate ? 'border-error-500' : 'border-[#CBCBCB]'}`}
+                      {...register('joinDate')}
+                    />
+                    <CiCalendarDate className="absolute right-[12px] top-[50%] -translate-y-1/2 transform cursor-pointer text-[24px] text-black" />
+                  </div>
                 </div>
                 <div className="mt-[24px] flex flex-col gap-[6px] lg:mt-0">
                   <label
@@ -201,8 +226,8 @@ const JobDetailsPage = ({ params: { slug } }) => {
                   <input
                     id="domicile"
                     type="text"
-                    placeholder="Domicile"
-                    className="rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
+                    placeholder="(ex. Kuala Lumpur, Malaysia)"
+                    className={`rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] outline-secondary-500 placeholder:text-[#CBCBCB] ${errors.domicile ? 'border-error-500' : 'border-[#CBCBCB]'}`}
                     {...register('domicile')}
                   />
                   {errors.domicile && (
@@ -230,9 +255,35 @@ const JobDetailsPage = ({ params: { slug } }) => {
                   <input
                     id="know-about-equinox"
                     type="text"
-                    placeholder="from where did you know about Equinox Technology"
-                    className="w-full rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
+                    placeholder="ex. Linkedin"
+                    className="w-full rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] outline-secondary-500 placeholder:text-[#CBCBCB]"
                     {...register('knowAboutEquinox')}
+                  />
+                  {errors.knowAboutEquinox && (
+                    <div className="mt-2 flex items-center gap-[7px]">
+                      <FiAlertTriangle className="text-error-500" />
+                      <span className="text-[12px] text-error-500">
+                        {errors.knowAboutEquinox?.message &&
+                          errors.knowAboutEquinox.message.replace(/^\w/, (c) =>
+                            c.toUpperCase(),
+                          )}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div className="mt-[24px] flex flex-col gap-[6px] lg:mt-0">
+                  <label
+                    htmlFor="portfolio"
+                    className="text-base font-semibold text-black md:text-[18px]"
+                  >
+                    Portofolio
+                  </label>
+                  <input
+                    id="portfolio"
+                    type="text"
+                    placeholder="URL/Git/Other Link (ex. johndoe.com)"
+                    className="w-full rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] outline-secondary-500 placeholder:text-[#CBCBCB]"
+                    {...register('portfolio')}
                   />
                   {errors.knowAboutEquinox && (
                     <div className="mt-2 flex items-center gap-[7px]">
@@ -257,8 +308,8 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     id="resume"
                     type="file"
                     placeholder="from where did you know about Equinox Technology"
-                    className="w-full rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
-                    accept=".doc, .docx, .pdf"
+                    className="w-full rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] outline-secondary-500 file:rounded-[40px] file:border-[1px] file:border-secondary-500 file:bg-transparent file:text-secondary-500 placeholder:text-[#CBCBCB]"
+                    accept=".pdf"
                     {...register('resume')}
                   />
                   {errors.resume && (
@@ -285,8 +336,8 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     id="transcript"
                     type="file"
                     placeholder="from where did you know about Equinox Technology"
-                    className="w-full rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[#CBCBCB]"
-                    accept=".doc, .docx, .pdf"
+                    className="w-full rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] outline-secondary-500 file:rounded-[40px] file:border-[1px] file:border-secondary-500 file:bg-transparent file:text-secondary-500 placeholder:text-[#CBCBCB]"
+                    accept=".pdf"
                     {...register('transcript')}
                   />
                   {errors.transcript && (
