@@ -71,12 +71,12 @@ export default function ContactPage() {
                   placeholder="Your Message"
                   className="min-h-[108px] rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] placeholder:text-[14px] placeholder:text-[#CBCBCB] md:placeholder:text-[16px]"
                 />
-                <nutton
+                <button
                   type="submit"
-                  className="h-[40px] rounded-[5px] bg-secondary-500 px-[24px] py-[6px] text-center text-white"
+                  className="h-[40px] rounded-[5px] bg-secondary-500 px-[24px] py-[6px] text-center text-white hover:bg-secondary-400"
                 >
                   Send Message
-                </nutton>
+                </button>
               </div>
             </form>
           </div>
