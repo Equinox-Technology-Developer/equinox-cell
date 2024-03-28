@@ -34,26 +34,27 @@ const JobDetailsPage = ({ params: { slug } }) => {
       domicile: yup.string().nullable(),
       knowAboutEquinox: yup.string().required('This field is required.'),
       portfolio: yup.string().nullable(),
-      resume: yup
-        .mixed()
-        .test('fileSize', 'The file is too large', (value) => {
-          if (!value.length) return true;
-          return value[0].size <= MAX_FILE_SIZE;
-        })
-        .required('This field is required.'),
-      transcript: yup
-        .mixed()
-        .test('fileSize', 'The file is too large', (value) => {
-          if (!value.length) return true;
-          return value[0].size <= MAX_FILE_SIZE;
-        })
-        .required('This field is required.'),
+      // resume: yup
+      //   .mixed()
+      //   .test('fileSize', 'The file is too large', (value) => {
+      //     if (!value.length) return true;
+      //     return value[0].size <= MAX_FILE_SIZE;
+      //   })
+      //   .required('This field is required.'),
+      // transcript: yup
+      //   .mixed()
+      //   .test('fileSize', 'The file is too large', (value) => {
+      //     if (!value.length) return true;
+      //     return value[0].size <= MAX_FILE_SIZE;
+      //   })
+      //   .required('This field is required.'),
     })
     .required();
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -61,6 +62,14 @@ const JobDetailsPage = ({ params: { slug } }) => {
 
   const onSubmit = async (data) => {
     try {
+      fetch('/api', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      reset();
       console.log('Form data:', data);
     } catch (error) {
       console.error('Error:', error);
@@ -158,8 +167,6 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     className={`rounded-[5px] border-[0.75px] border-[#CBCBCB] px-[16px] py-[10px] outline-secondary-500 placeholder:text-[#CBCBCB] ${errors.phone ? 'border-error-500' : 'border-[#CBCBCB]'}`}
                     min="0"
                     step="1"
-                    onkeypress="removeSigns()"
-                    onkeydown="return false"
                     {...register('phone')}
                   />
                   {errors.phone && (
@@ -302,7 +309,7 @@ const JobDetailsPage = ({ params: { slug } }) => {
                     </div>
                   )}
                 </div>
-                <div className="flex flex-col gap-[6px]">
+                {/* <div className="flex flex-col gap-[6px]">
                   <label
                     htmlFor="resume"
                     className="text-base font-semibold text-black md:text-[18px]"
@@ -356,7 +363,7 @@ const JobDetailsPage = ({ params: { slug } }) => {
                       </span>
                     </div>
                   )}
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="flex w-full justify-center">
